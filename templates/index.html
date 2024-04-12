@@ -23,51 +23,43 @@
                 </p>
             </div>
             <ul id="side_itens">
-                <li class="side-item">
+                <li class="side-item active">
                     <a href="#">
-                        <i class="fa-solid fa-chart-line"></i>
+                        <i class="fa-solid fa-graduation-cap"></i>
                         <span class="item-description">
-                            Dashboard
+                            Faculdade
                         </span>
                     </a>
                 </li>
                 <li class="side-item">
                     <a href="#">
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span class="item-description">
-                            Usuarios
+                            Cursos
                         </span>
                     </a>
                 </li>
                 <li class="side-item">
                     <a href="#">
-                        <i class="fa-solid fa-bell"></i>
+                        <i class="fa-regular fa-calendar-days"></i>
                         <span class="item-description">
-                            Notificações
+                            Calendario
                         </span>
                     </a>
                 </li>
                 <li class="side-item">
                     <a href="#">
-                        <i class="fa-solid fa-box"></i>
+                        <i class="fa-solid fa-pen-to-square"></i>
                         <span class="item-description">
-                            Produtos
+                            Anotações
                         </span>
                     </a>
                 </li>
                 <li class="side-item">
                     <a href="#">
-                        <i class="fa-solid fa-image"></i>
+                        <i class="fa-solid fa-users"></i>
                         <span class="item-description">
-                            Imagens
-                        </span>
-                    </a>
-                </li>
-                <li class="side-item">
-                    <a href="#">
-                        <i class="fa-solid fa-gear"></i>
-                        <span class="item-description">
-                            Configurações
+                            Social
                         </span>
                     </a>
                 </li>
@@ -78,7 +70,7 @@
             </button>
         </div>
 
-        <div id="logout">
+        <div id="config_area">
             <button id="logout_btn">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <span class="item-description">
@@ -87,10 +79,9 @@
             </button>
         </div>
     </nav>
-
-    <main>
+    <header>
         <h1>VestibuLobby</h1>
-    </main>
+    </header>
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
