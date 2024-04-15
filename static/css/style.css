@@ -82,12 +82,20 @@ body {
     cursor: pointer;
 }
 
+.side-item_config {
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
+}
+
 .side-item.active {
     background-color: #0CC0DF;
 }
 
 .side-item:hover:not(.active),
-#logout_btn:hover {
+#logout_btn:hover, .side-item_config:hover:not(.active) {
     background-color: white;
 }
 
@@ -112,8 +120,13 @@ body {
 }
 
 #config_area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     border-top: 1px solid white;
     padding: 12px;
+    cursor: pointer;
+    list-style: none;
 }
 
 #logout_btn {
