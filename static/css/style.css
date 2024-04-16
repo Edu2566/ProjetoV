@@ -20,7 +20,8 @@ header {
 }
 
 header img {
-    width: 32%;
+    width: 400px;
+    height: auto;
     z-index: 1;
     image-rendering: crisp-edges;
 }
@@ -35,7 +36,7 @@ header img {
     border-radius: 0px 18px 18px 0px;
     position: relative;
     transition: all .5s;
-    min-width: 82px;
+    min-width: 2%;
     z-index: 2;
 }
 
@@ -43,28 +44,23 @@ header img {
     padding: 12px;
 }
 
-#user {
+#side-item_head {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 24px;
 }
 
-#user_avatar {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 20px;
+#side-item_head .logo-vest {
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: width .6s;
 }
 
-#user_infos {
-    display: flex;
-    flex-direction: column;
-}
-
-#user_infos span:last-child {
-    color: #6b6b6b;
-    font-size: 12px;
+.logo-vest {
+    width: 80px;
 }
 
 body {
@@ -80,7 +76,7 @@ body {
     list-style: none;
 }
 
-.side-item, .side-item_config {
+.side-item, .side-item_config, #side-item_head {
     border-radius: 8px;
     padding: 12px;
     cursor: pointer;
@@ -106,7 +102,7 @@ body {
     color: white;
 }
 
-.side-item a i, .side-item_config a i {
+.side-item a i, .side-item_config a i, #side-item_head img i {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,7 +160,12 @@ body {
     height: 20px;
 }
 
-#sidebar.open-sidebar .side-item a, #sidebar.open-sidebar .side-item_config a {
+#sidebar.open-sidebar .logo-vest {
+    width: 200px;
+    height: 20px;
+}
+
+#sidebar.open-sidebar .side-item a, #sidebar.open-sidebar .side-item_config a, #sidebar.open-sidebar .side-item_head img {
     justify-content: center;
     gap: 14px;
 }
