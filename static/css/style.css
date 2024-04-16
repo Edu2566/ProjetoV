@@ -7,11 +7,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-main {
-    padding: 20px;
-    position: fixed;
-}
-
 header {
     z-index: 1;
     position: fixed;
@@ -36,7 +31,6 @@ header {
 
 #sidebar_content {
     padding: 12px;
-
 }
 
 #user {
@@ -76,21 +70,13 @@ body {
     list-style: none;
 }
 
-.side-item {
+.side-item, .side-item_config {
     border-radius: 8px;
-    padding: 14px;
+    padding: 12px;
     cursor: pointer;
 }
 
-.side-item_config {
-    border-radius: 8px;
-    padding: 14px;
-    cursor: pointer;
-    display: flex;
-    text-decoration: none;
-}
-
-.side-item.active {
+.side-item.active, .side-item_config.active {
     background-color: #0CC0DF;
 }
 
@@ -99,19 +85,19 @@ body {
     background-color: white;
 }
 
-.side-item a {
+.side-item a, .side-item_config a {
     text-decoration: none;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     color: #0a0a0a;
 }
 
-.side-item.active a {
+.side-item.active a, .side-item_config.active a {
     color: white;
 }
 
-.side-item a i {
+.side-item a i, .side-item_config a i {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,10 +164,11 @@ body {
 
 #sidebar.open-sidebar .item-description {
     width: 150px;
-    height: auto;
+    height: 20px;
 }
 
-#sidebar.open-sidebar .side-item a {
-    justify-content: flex-start;
+#sidebar.open-sidebar .side-item a, #sidebar.open-sidebar .side-item_config a {
+    justify-content: center;
     gap: 14px;
 }
+
