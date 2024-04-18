@@ -64,4 +64,21 @@ header {
     background-color: #F5F5F5;
     border: 1px black solid;
 }
+
+#side_itens {
+    margin: 2%;
+}
+
+.side-item {
+    margin: none;
+}
+
+.side-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.side-item i {
+    color:#0CC0DF;
+}
 /* Fim da estilização da Barra Lateral */
