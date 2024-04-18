@@ -5,44 +5,66 @@
 
 /* Inicio da estilização do Header */
 header {
+    position: fixed;
+    overflow: hidden;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     min-width: 100%;
     background-color:#F5F5F5;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
-#menu {
-    padding-top: 20px;
+.menu {
+    overflow: hidden;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-left: 2%;
-    width: auto;
+    max-width: 16%;
 }
 
-#menu img {
-    width: 40%;
+.menu img {
+    width: 100%;
+    object-fit: cover;
 }
 
-#menu i {
-    height: auto;
+.menu i {
     width: auto;
     justify-content: center;
     align-items: center;
     display: flex;
     font-size: 200%;
     color: #0CC0DF;
+    cursor: pointer;
 }
 
 #menu_profile {
-    width: auto;
-    height: 20%;
+    overflow: hidden;
+    max-width: 5%;
+    display: flex;
+    margin-right: 1%;
+    align-items: center;
     justify-content: flex-end;
 }
 
 #menu_profile img {
-    width: 20%;
-    height: 20%;
+    width: 100%;
+    border-radius: 60px;
+    object-fit: cover;
+    cursor: pointer;
 }
 /* Fim da estilização do Header */
+
+/* Inicio da estilização da Barra Lateral */
+
+#sidebar {
+    background-color: #F5F5F5;
+    z-index: 2;
+    position: fixed;
+    min-height: 100%;
+    width: 18%;
+}
+
+/* Fim da estilização da Barra Lateral */

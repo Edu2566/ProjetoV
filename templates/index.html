@@ -9,14 +9,26 @@
 </head>
 <body>
     <header>
-        <div id="menu">
+        <div class="menu">
             <i class="fa-solid fa-bars"></i>
-            <img src="{{ url_for('static', filename='images/Logo-Vest.png')}}">
+            <span>
+                <img src="{{ url_for('static', filename='images/Logo-Vest.png')}}">
+            </span>
         </div>
         <div id="menu_profile">
             <img src="{{ url_for('static', filename='images/Smile.png') }}">
         </div>
     </header>
+
+    <nav id="sidebar">
+        <div class="menu">
+            <i class="fa-solid fa-bars"></i>
+            <span>
+                <img src="{{ url_for('static', filename='images/Logo-Vest.png')}}">
+            </span>
+        </div>
+    </nav>
+    
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
