@@ -5,7 +5,6 @@
 
 /* Inicio da estilização do Header */
 header {
-    position: fixed;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -13,24 +12,23 @@ header {
     min-width: 100%;
     background-color:#F5F5F5;
     box-sizing: border-box;
-    z-index: 1;
 }
 
-.menu {
+#menu {
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-left: 2%;
-    max-width: 16%;
+    max-width: 25%;
 }
 
-.menu img {
-    width: 100%;
+#menu img {
+    width: 70%;
     object-fit: cover;
 }
 
-.menu i {
+#menu i, #menu-sidebar i {
     width: auto;
     justify-content: center;
     align-items: center;
@@ -42,7 +40,7 @@ header {
 
 #menu_profile {
     overflow: hidden;
-    max-width: 5%;
+    max-width: 4%;
     display: flex;
     margin-right: 1%;
     align-items: center;
@@ -51,7 +49,7 @@ header {
 
 #menu_profile img {
     width: 100%;
-    border-radius: 60px;
+    border-radius: 32px;
     object-fit: cover;
     cursor: pointer;
 }
@@ -60,11 +58,10 @@ header {
 /* Inicio da estilização da Barra Lateral */
 
 #sidebar {
-    background-color: #F5F5F5;
-    z-index: 2;
-    position: fixed;
+    width: 21%;
     min-height: 100%;
-    width: 18%;
+    position: fixed;
+    background-color: #F5F5F5;
+    border: 1px black solid;
 }
-
 /* Fim da estilização da Barra Lateral */
