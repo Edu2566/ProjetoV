@@ -10,7 +10,7 @@
 <body>
     <header>
         <div id="menu">
-            <i class="fa-solid fa-bars"></i>
+            <button><i class="fa-solid fa-bars"></i></button>
             <span>
                 <img src="{{ url_for('static', filename='images/Logo-Vest.png')}}">
             </span>
@@ -22,47 +22,65 @@
 
     <nav id="sidebar">
         <ul id="side-itens">
-            <li class="side-item">
+            <li class="side-item active">
                 <a href="#">
-                    <span><i class="fa-solid fa-graduation-cap"></i></span>
+                    <i class="fa-solid fa-graduation-cap"></i>
                     <span class="item-description">
                         Faculdade
                     </span>
-                    <li class="side-item">
-                        <a href="#">
-                            <span><i class="fa-solid fa-chalkboard-user"></i></span>
-                            <span class="item-description">
-                                Cursos
-                            </span>
-                        </a>
-                    </li>
-                    <li class="side-item">
-                        <a href="#">
-                            <span><i class="fa-regular fa-calendar-days"></i></span>
-                            <span class="item-description">
-                                Calendario
-                            </span>
-                        </a>
-                    </li>
-                    <li class="side-item">
-                        <a href="#">
-                            <span><i class="fa-solid fa-pen-to-square"></i></span>
-                            <span class="item-description">
-                                Anotações
-                            </span>
-                        </a>
-                    </li>
-                    <li class="side-item">
-                        <a href="#">
-                            <span><i class="fa-solid fa-bell"></i></span>
-                            <span class="item-description">
-                                Notificações
-                            </span>
-                        </a>
-                    </li>
-                </ul>
                 </a>
             </li>
+            <li class="side-item">
+                <a href="#">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span class="item-description">
+                        Cursos
+                    </span>
+                </a>
+            </li>
+            <li class="side-item">
+                <a href="#">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span class="item-description">
+                        Calendario
+                    </span>
+                </a>
+            </li>
+            <li class="side-item">
+                <a href="#">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span class="item-description">
+                        Anotações
+                    </span>
+                </a>
+            </li>
+            <li class="side-item">
+                <a href="#">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="item-description">
+                        Notificações
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <ul id="side-itens-footer">
+            <li class="side-item question">
+                <a href="#">
+                    <i class="fa-solid fa-question"></i>
+                    <span class="item-description">
+                        Dúvidas do Site
+                    </span>
+                </a>
+            </li>  
+            <li class="side-item">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="item-description">
+                        Configurações
+                    </span>
+                </a>
+            </li>  
         </ul>
     </nav>
     
