@@ -1,0 +1,14 @@
+#faculdade_main {
+    display: flex;
+    height: 90vh;
+    position: fixed;
+    width: calc(100% - 40vh);
+    bottom: 0;
+    right: 0;
+    transition: all .5s;
+    border: 1px solid black;
+}
+
+#faculdade_main.close-sidebar {
+    width: calc(100% - 8vh);
+}

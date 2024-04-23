@@ -21,7 +21,6 @@ header {
 }
 
 #menu {
-    border: 1px solid black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,23 +62,6 @@ header {
     object-fit: cover;
     cursor: pointer;
 }
-
-#search-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    gap: 6px;
-    font-size: 4vh;
-    border: 1px solid black;
-}
-
-#search {
-    width: auto;
-    border-radius: 10px;
-    background-color: transparent;
-}
-
 /* Fim da estilização do Header */
 
 /* Inicio da estilização da Barra Lateral */
@@ -189,5 +171,4 @@ header {
 #sidebar.close-sidebar .side-item {
     height: 6vh;
 }
-
 /* Fim da estilização da Barra Lateral */

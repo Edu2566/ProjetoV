@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/sideheader/headerstyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/faculdadeStyle.css') }}">
     <title>VestibuLobby - Faculdades</title>
 </head>
 <body>
@@ -14,12 +15,6 @@
             <span>
                 <img src="{{ url_for('static', filename='images/sideheader/Logo-Vest.png')}}" />
             </span>
-        </div>
-        <div id="search-bar">
-            <span>
-                <input type="text" id="search"/>
-            </span>
-            <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div id="menu_profile">
             <img src="{{ url_for('static', filename='images/sideheader/Smile.png') }}" />
@@ -32,7 +27,7 @@
                 <a href="#">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span class="item-description">
-                        Faculdade
+                        Faculdades
                     </span>
                 </a>
             </li>
@@ -90,8 +85,8 @@
         </ul>
     </nav>
 
-    <main>
-        ok
+    <main id="faculdade_main">
+
     </main>
     
 <script src="{{ url_for('static', filename='js/sideheader/sidebaranimation.js') }}"></script>
