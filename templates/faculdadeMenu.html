@@ -4,19 +4,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
-    <title>SideBar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/sideheader/headerstyle.css') }}">
+    <title>VestibuLobby - Faculdades</title>
 </head>
 <body>
     <header>
         <div id="menu">
-            <button><i class="fa-solid fa-bars"></i></button>
+            <button id="sidebar_button"><i class="fa-solid fa-bars" id="sidebar_button_icon"></i></button>
             <span>
-                <img src="{{ url_for('static', filename='images/Logo-Vest.png')}}">
+                <img src="{{ url_for('static', filename='images/sideheader/Logo-Vest.png')}}" />
             </span>
         </div>
+        <div id="search-bar">
+            <span>
+                <input type="text" id="search"/>
+            </span>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
         <div id="menu_profile">
-            <img src="{{ url_for('static', filename='images/Smile.png') }}">
+            <img src="{{ url_for('static', filename='images/sideheader/Smile.png') }}" />
         </div>
     </header>
 
@@ -65,7 +71,7 @@
         </ul>
 
         <ul id="side-itens-footer">
-            <li class="side-item question">
+            <li class="side-item">
                 <a href="#">
                     <i class="fa-solid fa-question"></i>
                     <span class="item-description">
@@ -83,7 +89,11 @@
             </li>  
         </ul>
     </nav>
+
+    <main>
+        ok
+    </main>
     
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sideheader/sidebaranimation.js') }}"></script>
 </body>
 </html>
