@@ -1,5 +1,7 @@
 #faculdade_main {
+    align-items: center;
     display: flex;
+    flex-direction: column;
     height: 90vh;
     position: fixed;
     width: calc(100% - 40vh);
@@ -11,4 +13,13 @@
 
 #faculdade_main.close-sidebar {
     width: calc(100% - 8vh);
+}
+
+#searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 60%;
+    height: 10%;
 }
