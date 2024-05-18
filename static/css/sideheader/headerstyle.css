@@ -171,4 +171,27 @@ header {
 #sidebar.close-sidebar .side-item {
     height: 6vh;
 }
+
+.sem-transicao {
+    transition: none !important;
+  }
 /* Fim da estilização da Barra Lateral */
+
+/* Início da estilização da tag Main */
+#home_main, #faculdades_main, #cursos_main, #notificacoes_main, #provas_main, #calendario_main, #anotacoes_main, #configuracoes_main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    position: fixed;
+    width: calc(100% - 40vh);
+    bottom: 0;
+    right: 0;
+    transition: all .5s;
+    border: 1px solid black;
+}
+
+#home_main.close-sidebar, #faculdades_main.close-sidebar, #cursos_main.close-sidebar, #notificacoes_main.close-sidebar, #provas_main.close-sidebar, #calendario_main.close-sidebar, #anotacoes_main.close-sidebar, #configuracoes_main.close-sidebar {
+    width: calc(100% - 8vh);
+}
+/* Fim da estilização da tag Main */

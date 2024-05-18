@@ -1,1 +1,0 @@
-Todos Elemento de Estilo da Sidebar e do Cabeçalho estão nas pastas "sideheader" em seus respectivos locais.
