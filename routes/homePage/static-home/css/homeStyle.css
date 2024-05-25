@@ -1,0 +1,94 @@
+#home_main {
+   flex-direction: column;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* Início da estilização dos Slider */
+.card .image-box {
+   height: 100px;
+   width: 200px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 8px 8px 0 0;
+}
+
+.card .image-box img{
+   width: 99%;
+   height: 100%;
+   border-radius: 8px 8px 0 0;
+}
+
+.container {
+   max-width: 1150px;
+   width: 100%;
+   padding: 40px 0;
+   margin: 10px;
+}
+
+.container h1 {
+   color: #0CC0DF;
+}
+.slide-container, .slide-container2 {
+   margin: 0 30px;
+   overflow: hidden;
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   background: #00FFFF;
+   border-radius: 8px;
+   width: 200px; /* adicionado */
+   flex-basis: 200px; /* adicionado */
+   border: 1px solid gray;
+}
+
+.card .profile-details i{
+   font-size: 30px;
+   color: red;
+}
+.card .profile-details {
+   display: flex;
+   align-items: center;
+   column-gap: 12px;
+   padding: 15px;
+}
+
+.profile-details .name {
+   font-size: 15px;
+   font-weight: 500;
+}
+
+.profile-details .job {
+   font-size: 12px;
+   font-weight: 500;
+   color: #4d4d4d;
+}
+
+.swiper-button-next, .swiper-button-prev {
+   background-color: white;
+   padding: 8px 16px;
+   border-radius: 100%;
+   border: 2px solid black;
+   color: red;
+ }
+ 
+ .swiper-pagination-bullet {
+   width: 40px;
+   height: 40px;
+   background-color: red;
+ }
+ 
+ .swiper-button-next::after, .swiper-button-prev::after {
+   content: "";
+ }
+/* Fim da estilização dos Slider */
+
+/* Início da estilização da Aba de Busca */
+
+/* Fim da estilização dos Slider */
+
+

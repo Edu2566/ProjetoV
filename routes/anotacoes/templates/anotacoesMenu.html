@@ -1,6 +1,8 @@
 {% extends "sideheader.html" %}
 
-{% block stylepage %}<link rel="stylesheet" href="{{ url_for('static', filename='/css/anotacoesStyle.css') }}">{% endblock %}
+{% block stylepage %}<link rel="stylesheet" href="{{ url_for('anotacoes.static', filename='/css/anotacoesStyle.css') }}">{% endblock %}
+
+{% block titlepage %}Vestibulobby - Anotações{% endblock %}
 
 {% block classactiveanotacoes %}active{% endblock %}
 

@@ -1,6 +1,8 @@
 {% extends "sideheader.html" %}
 
-{% block stylepage %}<link rel="stylesheet" href="{{ url_for('static', filename='/css/faculdadesStyle.css') }}">{% endblock %}
+{% block stylepage %}<link rel="stylesheet" href="{{ url_for('faculdades.static', filename='/css/faculdadesStyle.css') }}">{% endblock %}
+
+{% block titlepage %}Vestibulobby - Faculdades{% endblock %}
 
 {% block classactivefaculdades %}active{% endblock %}
 

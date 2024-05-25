@@ -7,6 +7,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
 /* Inicio da estilização do Header */
 header {
     position: fixed;
@@ -18,6 +19,7 @@ header {
     height: 10vh;
     background-color:#F5F5F5;
     box-sizing: border-box;
+    z-index: 2;
 }
 
 #menu {
@@ -70,13 +72,14 @@ header {
     align-items: center;
     flex-direction: column;
     width: 40vh;
-    height: 90vh;
+    height: calc(100% - 10vh);
     position: fixed;
     left: 0;
     bottom: 0;
     background-color: #F5F5F5;
     overflow: auto;
     transition: all .5s;
+    z-index: 2;
 }
 
 #side-itens {
@@ -171,27 +174,42 @@ header {
 #sidebar.close-sidebar .side-item {
     height: 6vh;
 }
-
-.sem-transicao {
-    transition: none !important;
-  }
 /* Fim da estilização da Barra Lateral */
 
 /* Início da estilização da tag Main */
-#home_main, #faculdades_main, #cursos_main, #notificacoes_main, #provas_main, #calendario_main, #anotacoes_main, #configuracoes_main {
-    align-items: center;
+main {
     display: flex;
+    position: relative;
     flex-direction: column;
-    height: 90vh;
-    position: fixed;
-    width: calc(100% - 40vh);
-    bottom: 0;
-    right: 0;
+    width: calc(100% - - 20vh);
+    height: calc(100% - 10vh);
+    margin-left: -20vh;
+    top: 10vh;
+    left: 20vh;
+    margin-top: -10vh;
     transition: all .5s;
     border: 1px solid black;
+    background-color: #FFF;
+    overflow-y: auto;
 }
 
-#home_main.close-sidebar, #faculdades_main.close-sidebar, #cursos_main.close-sidebar, #notificacoes_main.close-sidebar, #provas_main.close-sidebar, #calendario_main.close-sidebar, #anotacoes_main.close-sidebar, #configuracoes_main.close-sidebar {
-    width: calc(100% - 8vh);
+main.close-sidebar {
+    width: calc(100% - - 8vh);
+    left: 8vh;
 }
 /* Fim da estilização da tag Main */
+
+body {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+footer {
+    display: flex;
+    position: relative;
+    border: 1px solid black;
+    left: 20vh;
+    margin-left: -20vh;
+    width: calc(100% - - 20vh);
+}

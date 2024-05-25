@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/sideheader/headerstyle.css') }}">
-   {% block stylepage %}{% endblock %}
-    <title>VestibuLobby - Início</title>
+    {% block stylepage %}
+    {% endblock %}
+    <title>{% block titlepage %}{% endblock %}</title>
 </head>
 <body>
     <header>
         <div id="menu">
             <button id="sidebar_button"><i class="fa-solid fa-bars" id="sidebar_button_icon"></i></button>
             <span>
-                <img src="{{ url_for('static', filename='images/sideheader/Logo-Vest.png')}}" />
+                <a href="{{url_for('home-page.home_page')}}">
+                    <img src="{{ url_for('static', filename='images/sideheader/Logo-Vest.png')}}" />
+                </a>
             </span>
         </div>
         <div id="menu_profile">
@@ -104,6 +107,8 @@
     {% block main %}
     {% endblock %}
     
+{% block scripts %}
+{% endblock %}
 <script src="{{ url_for('static', filename='js/sideheader/sidebaranimation.js') }}"></script>
 </body>
 </html>

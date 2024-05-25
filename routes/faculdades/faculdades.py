@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-faculdades_blueprint = Blueprint('faculdades', __name__, template_folder='templates', static_folder='static')
+faculdades_blueprint = Blueprint('faculdades', __name__, template_folder='templates', static_folder='static-faculdades')
 
 @faculdades_blueprint.route('/faculdades')
 def faculdades_menu():

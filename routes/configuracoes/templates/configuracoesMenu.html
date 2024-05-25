@@ -1,6 +1,8 @@
 {% extends "sideheader.html" %}
 
-{% block stylepage %}<link rel="stylesheet" href="{{ url_for('static', filename='/css/configuracoesStyle.css') }}">{% endblock %}
+{% block stylepage %}<link rel="stylesheet" href="{{ url_for('configuracoes.static', filename='/css/configuracoesStyle.css') }}">{% endblock %}
+
+{% block titlepage %}Vestibulobby - Configurações{% endblock %}
 
 {% block classactiveconfiguracoes %}active{% endblock %}
 
