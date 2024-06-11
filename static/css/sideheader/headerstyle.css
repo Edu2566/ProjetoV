@@ -173,3 +173,15 @@ header {
 }
 /* Fim da estilização da Barra Lateral */
 
+/* Inicio da Configuração de Responsividade */
+
+@media(max-width:960px) {
+    header {
+        position: fixed;
+        z-index: 2;
+    }
+    #sidebar {
+        position: fixed;
+        z-index: 2;
+    }
+}
