@@ -1,0 +1,253 @@
+{% extends "sideheader.html" %}
+
+    {% block stylepage %}
+    <link rel="stylesheet" href="{{ url_for('home-page.static', filename='/css/homeStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
+    {% endblock %}
+
+    {% block titlepage %}Vestibulobby - Início{% endblock %}
+    
+    {% block classactiveinicio %}active{% endblock %}
+
+    {% block main %}
+    <main id="home_main" class="open-state">
+      <div class="container swiper">
+         <p>Insenções de Taxa de Inscrição Próximas:</p>
+         <div class="slide-container">
+            <div class="card-wrapper swiper-wrapper">
+               <div class="card swiper-slide">
+                  <div class="image-box">
+                     <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
+                  </div>
+                  <div class="profile-details">
+                     <i class="fa-regular fa-heart"></i>
+                     <div class="name-job">
+                        <h3 class="name">Fatec</h3>
+                        <h4 class="job">DD/MM/YEAR</h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="card swiper-slide">
+                  <div class="image-box">
+                     <img src="{{ url_for('static', filename='images/logo-images/fib-logo.png') }}">
+                  </div>
+                  <div class="profile-details">
+                     <i class="fa-regular fa-heart"></i>
+                     <div class="name-job">
+                        <h3 class="name">FIB</h3>
+                        <h4 class="job">DD/MM/YEAR</h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="card swiper-slide">
+                  <div class="image-box">
+                     <img src="{{ url_for('static', filename='images/logo-images/uninove-logo.png') }}">
+                  </div>
+                  <div class="profile-details">
+                     <i class="fa-regular fa-heart"></i>
+                     <div class="name-job">
+                        <h3 class="name">Uninove</h3>
+                        <h4 class="job">DD/MM/YEAR</h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="card swiper-slide">
+                  <div class="image-box">
+                     <img src="{{ url_for('static', filename='images/logo-images/unicamp-logo.png') }}">
+                  </div>
+                  <div class="profile-details">
+                     <i class="fa-regular fa-heart"></i>
+                     <div class="name-job">
+                        <h3 class="name">Unicamp</h3>
+                        <h4 class="job">DD/MM/YEAR</h4>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="swiper-button-next button-next1"></div>
+         <div class="swiper-button-prev button-prev1"></div>
+         <div class="swiper-pagination pagination1"></div>
+       </div>
+       <!-- Adicionando um segundo swiper embaixo do primeiro -->
+      <div class="container swiper">
+         <p>Inscrições Próximas:</p>
+         <div class="slide-container2">
+         <div class="card-wrapper swiper-wrapper">
+            <!-- cards do segundo swiper -->
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">DD/MM/YEAR</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/uscs-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">USCS</h3>
+                  <h4 class="job">DD/MM/YEAR</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+                  <img src="{{ url_for('static', filename='images/logo-images/unicamp-logo.png') }}">
+               </div>
+               <div class="profile-details">
+                  <i class="fa-regular fa-heart"></i>
+                  <div class="name-job">
+                     <h3 class="name">Unicamp</h3>
+                     <h4 class="job">DD/MM/YEAR</h4>
+                  </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+                  <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
+               </div>
+               <div class="profile-details">
+                  <i class="fa-regular fa-heart"></i>
+                  <div class="name-job">
+                     <h3 class="name">Fatec</h3>
+                     <h4 class="job">DD/MM/YEAR</h4>
+                  </div>
+               </div>
+            </div>
+            <!-- adicione mais cards aqui -->
+         </div>
+         <div class="swiper-button-next button-next2"></div>
+         <div class="swiper-button-prev button-prev2"></div>
+         <div class="swiper-pagination pagination2"></div>
+         </div>
+      </div>
+      <div class="todas-faculdades">
+         <h1>Buscar</h1>
+         <div class="aba-busca">
+         <input type="text" id="buscar-faculdade"/>
+         <span><select name="tipo-busca" id="tipo-busca">
+            <option value="">Buscar por...</option>
+            <option value="">Faculdade</option>
+            <option value="">Curso</option>
+            <option value="">Vestibular</option>
+         </select></span>
+         </div>
+
+         <div class="todos-cards">
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">Descrição</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">Descrição</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">Descrição</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">Descrição</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">Descrição</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">Descrição</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">Descrição</h4>
+               </div>
+               </div>
+            </div>
+            <div class="card swiper-slide">
+               <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
+               </div>
+               <div class="profile-details">
+               <i class="fa-regular fa-heart"></i>
+               <div class="name-job">
+                  <h3 class="name">UFSCar</h3>
+                  <h4 class="job">Descrição</h4>
+               </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </main>
+    {% endblock %}
+
+    {% block scripts %}
+      <script src="{{ url_for('static', filename='/js/slider/swiper-bundle.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='/js/slider/slider-animation.js') }}"></script>
+    {% endblock %}
+    
+

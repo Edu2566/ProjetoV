@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/sideheader/headerstyle.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/faculdadeStyle.css') }}">
-    <title>VestibuLobby - Faculdades</title>
+    {% block stylepage %}
+    {% endblock %}
+    <title>{% block titlepage %}{% endblock %}</title>
 </head>
 <body>
     <header>
         <div id="menu">
             <button id="sidebar_button"><i class="fa-solid fa-bars" id="sidebar_button_icon"></i></button>
             <span>
-                <img src="{{ url_for('static', filename='images/sideheader/Logo-Vest.png')}}" />
+                <a href="{{url_for('home-page.home_page')}}">
+                    <img src="{{ url_for('static', filename='images/sideheader/Logo-Vest.png')}}" />
+                </a>
             </span>
         </div>
         <div id="menu_profile">
@@ -21,45 +24,61 @@
         </div>
     </header>
 
-    <nav id="sidebar">
+    <nav id="sidebar" class="open-state">
         <ul id="side-itens">
-            <li class="side-item active">
-                <a href="#">
+            <li class="side-item {% block classactiveinicio %}{% endblock %}">
+                <a href="{{url_for('home-page.home_page')}}">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span class="item-description">
+                        Início
+                    </span>
+                </a>
+            </li>
+            <li class="side-item {% block classactivefaculdades %}{% endblock %}">
+                <a href="{{url_for('faculdades.faculdades_menu')}}">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span class="item-description">
                         Faculdades
                     </span>
                 </a>
             </li>
-            <li class="side-item">
-                <a href="#">
+            <li class="side-item {% block classactivecursos %}{% endblock %}">
+                <a href="{{url_for('cursos.cursos_menu')}}">
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <span class="item-description">
                         Cursos
                     </span>
                 </a>
             </li>
-            <li class="side-item">
-                <a href="#">
+            <li class="side-item {% block classactivecalendario %}{% endblock %}">
+                <a href="{{url_for('calendario.calendario_menu')}}">
                     <i class="fa-regular fa-calendar-days"></i>
                     <span class="item-description">
                         Calendario
                     </span>
                 </a>
             </li>
-            <li class="side-item">
-                <a href="#">
+            <li class="side-item {% block classactiveanotacoes %}{% endblock %}">
+                <a href="{{url_for('anotacoes.anotacoes_menu')}}">
                     <i class="fa-solid fa-pen-to-square"></i>
                     <span class="item-description">
                         Anotações
                     </span>
                 </a>
             </li>
-            <li class="side-item">
-                <a href="#">
+            <li class="side-item {% block classactivenotificacoes %}{% endblock %}">
+                <a href="{{url_for('notificacoes.notificacoes_menu')}}">
                     <i class="fa-solid fa-bell"></i>
                     <span class="item-description">
                         Notificações
+                    </span>
+                </a>
+            </li>
+            <li class="side-item {% block classactiveprovas %}{% endblock %}">
+                <a href="{{url_for('provas.provas_menu')}}">
+                    <i class="fa-solid fa-file-pen"></i>
+                    <span class="item-description">
+                        Provas
                     </span>
                 </a>
             </li>
@@ -74,8 +93,8 @@
                     </span>
                 </a>
             </li>  
-            <li class="side-item">
-                <a href="#">
+            <li class="side-item {% block classactiveconfiguracoes %}{% endblock %}">
+                <a href="{{url_for('configuracoes.configuracoes_menu')}}">
                     <i class="fa-solid fa-gear"></i>
                     <span class="item-description">
                         Configurações
@@ -85,17 +104,11 @@
         </ul>
     </nav>
 
-    <main id="faculdade_main">
-        <div id="welcome-message">
-            <h1>Boas Vindas!</h1>
-            <h3>Aqui você pode consultar por informações de instituições de ensino superior de todo o Brasil!</h3>
-            <button id="close-welcome"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="searchbar">
-            <input type="text" />
-        </div>
-    </main>
+    {% block main %}
+    {% endblock %}
     
+{% block scripts %}
+{% endblock %}
 <script src="{{ url_for('static', filename='js/sideheader/sidebaranimation.js') }}"></script>
 </body>
 </html>
