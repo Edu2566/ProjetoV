@@ -1,6 +1,6 @@
 var swiper = new Swiper(".slide-container", {
-    slidesPerView: 3,
-    spaceBetween: 120,
+    slidesPerView: 4,
+    spaceBetween: 130,
     slidesPerGroup: 1,
     loop: true,
     centerSlide: "true",
@@ -19,8 +19,8 @@ var swiper = new Swiper(".slide-container", {
   });
 
   var swiper2 = new Swiper(".slide-container2", {
-    slidesPerView: 3,
-    spaceBetween: 120,
+    slidesPerView: 4,
+    spaceBetween: 130,
     slidesPerGroup: 1,
     loop: true,
     centerSlide: "true",
@@ -38,7 +38,14 @@ var swiper = new Swiper(".slide-container", {
     },
   });
 
-document.getElementById('heart-icon').addEventListener('click', function() {
-  this.classList.remove('fa-regular');
-  this.classList.add('fa-solid');
-});
+  document.querySelectorAll('.heart-icon').forEach(function(icon) {
+    icon.addEventListener('click', function() {
+      if (this.classList.contains('fa-solid')) {
+        this.classList.remove('fa-solid');
+        this.classList.add('fa-regular');
+      } else {
+        this.classList.remove('fa-regular');
+        this.classList.add('fa-solid');
+      }
+    });
+  });

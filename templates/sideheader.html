@@ -104,8 +104,34 @@
         </ul>
     </nav>
 
+    <main class="{% block mainclass %}{% endblock %}" id="{% block mainid %}{% endblock %}">
     {% block main %}
+
+
     {% endblock %}
+        <div id="footer">
+            <div class="footer-column">
+                <p><h4>Sobre Nós</h4></p>
+                <p>Este é um projeto de TCC feito por estudantes do ensino médio da Etec do curso de Análise e Desenvolvimento de Sistemas;</p>
+                <p>Nossa Missão: Ajudar estudantes a se prepararem para os vestibulares com conteúdo de qualidade e acessível;</p>
+                <p>Nossa Visão: Ser a principal plataforma de apoio para vestibulandos, oferecendo recursos completos e atualizados.</p>
+            </div>
+            <div class="footer-column">
+                <p><h4>Recursos</h4></p>
+                <p>Informações atualizadas sobre vestibulares próximos e passados;</p>
+                <p>Caderno digital para auxílio nos estudos e revisão;</p>
+                <p>Agenda integrada para lembrar-se de provas próximas;</p>
+                <p>Recurso de revisão e conteúdo preparatório;</p>
+                <p>Acesso a provas antigas.</p>
+            </div>
+            <br>
+            <div class="footer-signature">
+                <p>&copy; 2024 Vestibulobby. Todos os direitos reservados.</p>
+                <p>Eduardo Santos</p>
+                <p>Sabrina Ogawa</p>
+            </div>
+        </div>
+    </main>
     
 {% block scripts %}
 {% endblock %}

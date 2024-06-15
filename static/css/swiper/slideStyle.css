@@ -38,7 +38,7 @@
     background: #00FFFF;
     border-radius: 8px;
     width: 200px; /* adicionado */
-    flex-basis: 300px; /* adicionado */
+    flex-basis: 200px; /* adicionado */
     border: 1px solid gray;
  }
  

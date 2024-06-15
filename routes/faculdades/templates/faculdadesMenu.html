@@ -11,9 +11,10 @@
 {% block classactivefaculdades %}active{% endblock %}
 
 {% block main %}
-<main id="faculdades_main" class="open-state">
+{% block mainclass %}open-state{% endblock %}
+{% block mainid %}faculdades_main{% endblock %}
     <div class="container swiper">
-        <h1>Faculdades por Perto:</h1>
+        <p>Faculdades por Perto:</p>
         <div class="slide-container">
            <div class="card-wrapper swiper-wrapper">
               <div class="card swiper-slide">
@@ -72,7 +73,7 @@
       </div>
       <!-- Adicionando um segundo swiper embaixo do primeiro -->
      <div class="container swiper">
-        <h1>Mais Concorridas:</h1>
+        <p>Mais Concorridas:</p>
         <div class="slide-container2">
         <div class="card-wrapper swiper-wrapper">
            <!-- cards do segundo swiper -->
@@ -236,7 +237,6 @@
            </div>
         </div>
      </div>
-</main>
 {% endblock %}
 
 {% block scripts %}
