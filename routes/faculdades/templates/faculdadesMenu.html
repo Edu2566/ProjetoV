@@ -4,15 +4,17 @@
 <link rel="stylesheet" href="{{ url_for('faculdades.static', filename='/css/faculdadesStyle.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
 {% endblock %}
 
 {% block titlepage %}Vestibulobby - Faculdades{% endblock %}
 
 {% block classactivefaculdades %}active{% endblock %}
 
-{% block main %}
 {% block mainclass %}open-state{% endblock %}
 {% block mainid %}faculdades_main{% endblock %}
+
+{% block main %}
     <div class="container swiper">
         <p>Faculdades por Perto:</p>
         <div class="slide-container">
@@ -22,7 +24,7 @@
                     <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
                  </div>
                  <div class="profile-details">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-heart heart-icon"></i>
                     <div class="name-job">
                        <h3 class="name">Fatec</h3>
                        <h4 class="job">DD/MM/YEAR</h4>
@@ -34,7 +36,7 @@
                     <img src="{{ url_for('static', filename='images/logo-images/fib-logo.png') }}">
                  </div>
                  <div class="profile-details">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-heart heart-icon"></i>
                     <div class="name-job">
                        <h3 class="name">FIB</h3>
                        <h4 class="job">DD/MM/YEAR</h4>
@@ -46,7 +48,7 @@
                     <img src="{{ url_for('static', filename='images/logo-images/uninove-logo.png') }}">
                  </div>
                  <div class="profile-details">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-heart heart-icon"></i>
                     <div class="name-job">
                        <h3 class="name">Uninove</h3>
                        <h4 class="job">DD/MM/YEAR</h4>
@@ -58,7 +60,7 @@
                     <img src="{{ url_for('static', filename='images/logo-images/unicamp-logo.png') }}">
                  </div>
                  <div class="profile-details">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-heart heart-icon"></i>
                     <div class="name-job">
                        <h3 class="name">Unicamp</h3>
                        <h4 class="job">DD/MM/YEAR</h4>
@@ -82,7 +84,7 @@
               <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
               </div>
               <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
+              <i class="fa-regular fa-heart heart-icon"></i>
               <div class="name-job">
                  <h3 class="name">UFSCar</h3>
                  <h4 class="job">DD/MM/YEAR</h4>
@@ -94,7 +96,7 @@
               <img src="{{ url_for('static', filename='images/logo-images/uscs-logo.png') }}">
               </div>
               <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
+              <i class="fa-regular fa-heart heart-icon"></i>
               <div class="name-job">
                  <h3 class="name">USCS</h3>
                  <h4 class="job">DD/MM/YEAR</h4>
@@ -106,7 +108,7 @@
                  <img src="{{ url_for('static', filename='images/logo-images/unicamp-logo.png') }}">
               </div>
               <div class="profile-details">
-                 <i class="fa-regular fa-heart"></i>
+                 <i class="fa-regular fa-heart heart-icon"></i>
                  <div class="name-job">
                     <h3 class="name">Unicamp</h3>
                     <h4 class="job">DD/MM/YEAR</h4>
@@ -118,7 +120,7 @@
                  <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
               </div>
               <div class="profile-details">
-                 <i class="fa-regular fa-heart"></i>
+                 <i class="fa-regular fa-heart heart-icon"></i>
                  <div class="name-job">
                     <h3 class="name">Fatec</h3>
                     <h4 class="job">DD/MM/YEAR</h4>
@@ -132,111 +134,41 @@
         <div class="swiper-pagination pagination2"></div>
         </div>
      </div>
-     <div class="todas-faculdades">
-        <h1>Buscar por Faculdades</h1>
-        <div class="aba-busca">
-        <input type="text" id="buscar-faculdade"/>
-        </div>
-
-        <div class="todos-cards">
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">Descrição</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">Descrição</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">Descrição</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">Descrição</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">Descrição</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">Descrição</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">Descrição</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-heart"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">Descrição</h4>
-              </div>
-              </div>
-           </div>
-        </div>
-     </div>
+      <div class="todas-faculdades">
+         <p>Veja Todos Nossas Faculdades</p>
+      </div>
+      <div id="list-container" class="todo-conteudo">
+         <div class="faculdades-column" data-type="faculdades">
+            <p><a href="#"><i class="fa-solid fa-circle"></i>PUC-SP</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>PUC-Rio</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Brasília (UnB)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>São Paulo (USP)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Unicamp</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Estadual de Londrina (UEL)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Estadual de Maringá (UEM)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Estadual Paulista (Unesp)</a></p>
+         </div>
+         <div class="faculdades-column" data-type="faculdades">
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de Alagoas (UFAL)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de Goiás (UFG)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de Juiz de Fora (UFJF)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de Lavras (UFLA)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de Minas Gerais (UFMG)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de Ouro Preto (UFOP)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de Pernambuco (UFPE)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de Santa Catarina (UFSC)</a></p>
+         </div>
+         <div class="faculdades-column" data-type="faculdades">
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal de São Carlos (UFSCar)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal do Ceará (UFC)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal do Espírito Santo (UFES)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal do Paraná (UFPR)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal do Rio de Janeiro (UFRJ)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal do Rio Grande do Norte (UFRN)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal do Rio Grande do Sul (UFRGS)</a></p>
+            <p><a href="#"><i class="fa-solid fa-circle"></i>Federal da Bahia (UFBA)</a></p>
+         </div>
+      </div>
 {% endblock %}
 
 {% block scripts %}

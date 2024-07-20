@@ -19,6 +19,7 @@
     padding: 25px 0;
     width: 100%;
     margin: 10px;
+    min-height: 45%;
  }
  
  .container p {
@@ -40,6 +41,7 @@
     width: 200px; /* adicionado */
     flex-basis: 200px; /* adicionado */
     border: 1px solid gray;
+    text-decoration: none;
  }
  
  .card .profile-details i{
@@ -127,4 +129,6 @@
  .todos-cards .card {
     margin: 20px;
  }
+
+
  /* Fim da estilização dos Slider */

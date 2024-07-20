@@ -51,7 +51,7 @@
                 </a>
             </li>
             <li class="side-item {% block classactivecalendario %}{% endblock %}">
-                <a href="{{url_for('calendario.calendario_menu')}}">
+                <a href=#>
                     <i class="fa-regular fa-calendar-days"></i>
                     <span class="item-description">
                         Calendario
@@ -59,7 +59,7 @@
                 </a>
             </li>
             <li class="side-item {% block classactiveanotacoes %}{% endblock %}">
-                <a href="{{url_for('anotacoes.anotacoes_menu')}}">
+                <a href=#>
                     <i class="fa-solid fa-pen-to-square"></i>
                     <span class="item-description">
                         Anotações
@@ -67,7 +67,7 @@
                 </a>
             </li>
             <li class="side-item {% block classactivenotificacoes %}{% endblock %}">
-                <a href="{{url_for('notificacoes.notificacoes_menu')}}">
+                <a href=#>
                     <i class="fa-solid fa-bell"></i>
                     <span class="item-description">
                         Notificações
@@ -78,7 +78,7 @@
                 <a href="{{url_for('provas.provas_menu')}}">
                     <i class="fa-solid fa-file-pen"></i>
                     <span class="item-description">
-                        Provas
+                        Vestibulares
                     </span>
                 </a>
             </li>
@@ -126,15 +126,15 @@
             </div>
             <br>
             <div class="footer-signature">
-                <p>&copy; 2024 Vestibulobby. Todos os direitos reservados.</p>
+                <p>2024 Vestibulobby.</p>
                 <p>Eduardo Santos</p>
                 <p>Sabrina Ogawa</p>
             </div>
         </div>
     </main>
     
-{% block scripts %}
-{% endblock %}
-<script src="{{ url_for('static', filename='js/sideheader/sidebaranimation.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='js/sideheader/sidebaranimation.js') }}"></script>
 </body>
 </html>

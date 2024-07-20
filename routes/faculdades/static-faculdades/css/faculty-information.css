@@ -1,0 +1,115 @@
+#faculty-information_main {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+#faculty-content {
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    margin-bottom: 5%;
+}
+
+/* Photo and name Styles */
+#faculty-header {
+    width: 40%;
+    height: 100%;
+    justify-content: flex-start;
+}
+
+#faculty-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 1% 1% 0 1%;
+    border-radius: 5px;
+    background-color: #0CC0DF;
+}
+
+#faculty-image img{
+    border-radius: 10px;
+    object-fit: cover;
+    width: 90%;
+}
+
+#faculty-name {
+    display: flex;
+    align-items: center;
+    height: 20%;
+    margin: 0 1% 0 1%;
+    font-size: 30px;
+}
+
+/* Location, notification and course list Style */
+
+#faculty-information {
+    width: 60%;
+}
+
+#faculty-notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40%;
+}
+
+#faculty-notification i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1%;
+    font-size: 10vh;
+    color: red;
+    width: 10%;
+    height: 80%;
+}
+
+#faculty-location {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 80%;
+    margin: 1%;
+    border-radius: 5px;
+    background-color: #0CC0DF;
+}
+
+#faculty-location p {
+    text-align: center;
+    width: 100%;
+    height: 30%;
+    border-bottom: 4px solid black;
+}
+
+#course-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5%;
+    margin: 0 1% 0 1%;
+    height: 60%;
+    border: 1px solid black;
+}
+
+#exams-list-title {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+#exams-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1%;
+    background-color: #0CC0DF;
+    margin: 0 1% 1% 1%;
+    border-radius: 5px;
+}
+
+#footer {
+    display: none;
+}

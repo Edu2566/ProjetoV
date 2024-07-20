@@ -5,3 +5,7 @@ faculdades_blueprint = Blueprint('faculdades', __name__, template_folder='templa
 @faculdades_blueprint.route('/faculdades')
 def faculdades_menu():
     return render_template('faculdadesMenu.html')
+
+@faculdades_blueprint.route('/faculty-information')
+def faculty_information():
+    return render_template('faculty-information.html')

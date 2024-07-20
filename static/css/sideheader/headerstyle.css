@@ -74,7 +74,6 @@ header {
     width: 40vh;
     height: calc(100% - 10vh);
     position: fixed;
-    left: 0;
     bottom: 0;
     background-color: #F5F5F5;
     overflow: auto;
@@ -179,29 +178,30 @@ header {
 /* Início da estilização da tag Main */
 main {
     display: flex;
-    position: relative;
+    position: fixed;
     flex-direction: column;
-    width: calc(100% - - 20vh);
+    width: calc(100% - 8vh);
     height: calc(100% - 10vh);
     margin-left: -20vh;
-    top: 10vh;
-    left: 20vh;
+    bottom: 0;
+    right: 0;
     margin-top: -10vh;
     transition: all .5s;
     background-color: #FFF;
     overflow-y: auto;
 }
-
-main.close-sidebar {
-    width: calc(100% - - 8vh);
-    left: 8vh;
-}
 /* Fim da estilização da tag Main */
 
 body {
-    height: 100%;
+    display: flex;
+    min-height: 100%;
+    min-width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 0;
+    position: absolute;
 }
 
 /* Início da estilização do Footer */
@@ -212,6 +212,7 @@ body {
     color: #F5F5F5;
     justify-content: center;
     flex-wrap: wrap;
+    box-shadow: 0 -4px 60px -2px #0CC0DF;
 }
 
 .footer-column {

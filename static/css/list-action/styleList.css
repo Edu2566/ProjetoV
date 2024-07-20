@@ -1,0 +1,32 @@
+.todo-conteudo {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    list-style-type: circle;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 12px;
+ }
+ .faculdades-column {
+    flex: 1;
+    margin: 10px;
+    width: 100%;
+ }
+ 
+ .faculdades-column p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 15px;
+    margin-bottom: 3px;
+    color: blue;
+    cursor: pointer;
+    width: 100%;
+ 
+ }
+ 
+ .faculdades-column p i{
+    font-size: 10px;
+    text-decoration: none;
+    color: #0CC0DF;
+    margin-right: 3px;
+ }

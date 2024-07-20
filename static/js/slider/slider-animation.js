@@ -39,7 +39,7 @@ var swiper = new Swiper(".slide-container", {
   });
 
   document.querySelectorAll('.heart-icon').forEach(function(icon) {
-    icon.addEventListener('click', function() {
+    icon.addEventListener('click', function(event) {
       if (this.classList.contains('fa-solid')) {
         this.classList.remove('fa-solid');
         this.classList.add('fa-regular');
@@ -47,5 +47,7 @@ var swiper = new Swiper(".slide-container", {
         this.classList.remove('fa-regular');
         this.classList.add('fa-solid');
       }
+
+      event.stopPropagation();
     });
   });
