@@ -1,0 +1,53 @@
+{% extends "sideheader.html" %}
+
+{% block stylepage %}
+    <link rel="stylesheet" href="{{ url_for('provas.static', filename='/css/exams-information.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
+{% endblock %}
+
+{% block titlepage %}Vestibulobby - Vestibular{% endblock %}
+
+{% block classactiveinicio %}active{% endblock %}
+
+{% block mainclass %}open-state{% endblock %}
+{% block mainid %}exams-information_main{% endblock %}
+
+{% block main %}
+    <div id="exams-content">
+        <div id="exams-header">
+            <p id="exam-name">Fatec</p>
+            <i class="fa-regular fa-bell"></i>
+        </div>
+        <div id="exams-about-content">
+            <div class="information-list">
+                <p class="information-list-title">Ano da Prova</p>
+                <ul class="expandable-list">
+                    <li class="year-item" onclick="toggleExams(event)">
+                        2024
+                        <ul class="exams-list">
+                            <li onclick="ItemClick(event)"><a href="{{ url_for('provas.view_exam') }}">Escola1</a></li>
+                            <li onclick="ItemClick(event)">Escola2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="information-list">
+                <p class="information-list-title">Editais</p>
+            </div>
+
+            <div id="exams-details">
+                <div class="detail-block">Perído de Pedido de Isenção</div>
+                <div class="detail-block">Perído de Pedido de Inscrição</div>
+                <div class="detail-block">Divulgação dos Resultados</div>
+                <a href="{{url_for('faculdades.faculty_information')}}" id="return-page"><i class="fa-solid fa-share"></i>VOLTAR</a>
+            </div>
+
+        </div>  
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('provas.static', filename='/js/toggleExams.js') }}"></script>
+{% endblock %}

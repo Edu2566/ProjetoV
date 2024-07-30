@@ -1,0 +1,26 @@
+{% extends "sideheader.html" %}
+
+{% block stylepage %}
+    <link rel="stylesheet" href="{{ url_for('provas.static', filename='/css/view-exam.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
+{% endblock %}
+
+{% block titlepage %}Vestibulobby - Vestibular{% endblock %}
+
+{% block classactiveinicio %}active{% endblock %}
+
+{% block mainclass %}open-state{% endblock %}
+{% block mainid %}view-exam_main{% endblock %}
+
+{% block main %}
+    <div id="view-exam-container">
+        <iframe id="pdfViewer" src="{{ url_for('provas.pdf') }}" width="50%" height="100%"></iframe>
+        <div id="button-header">
+            <button class="button-header">Visualizar Gabarito</button>
+            <button class="button-header">Abrir Caderno</button>
+        </div>
+    </div>
+
+{% endblock %}

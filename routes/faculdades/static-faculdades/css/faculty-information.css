@@ -25,7 +25,7 @@
     height: 100%;
     margin: 1% 1% 0 1%;
     border-radius: 5px;
-    background-color: #0CC0DF;
+    background-color: #F5F5F5;
 }
 
 #faculty-image img{
@@ -37,67 +37,89 @@
 #faculty-name {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 20%;
     margin: 0 1% 0 1%;
     font-size: 30px;
+    color: #0A94AD;
+}
+
+#faculty-name i {
+    color: red;
 }
 
 /* Location, notification and course list Style */
 
 #faculty-information {
+    display: flex;
     width: 60%;
 }
 
 #faculty-notification {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    height: 40%;
+    width: 40%;
+    height: 100%;
 }
 
-#faculty-notification i {
+#faculty-location, #faculty-webpage {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-right: 1%;
-    font-size: 10vh;
-    color: red;
-    width: 10%;
-    height: 80%;
-}
-
-#faculty-location {
-    display: flex;
-    justify-content: center;
-    width: 30%;
-    height: 80%;
+    width: 80%;
+    height: 100%;
     margin: 1%;
     border-radius: 5px;
     background-color: #0CC0DF;
 }
 
-#faculty-location p {
+#faculty-location p, #faculty-webpage p {
     text-align: center;
     width: 100%;
     height: 30%;
     border-bottom: 4px solid black;
 }
 
+
 #course-list {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 5%;
+    align-items: center;
+    padding: 0 1% 0 1%;
     margin: 0 1% 0 1%;
-    height: 60%;
-    border: 1px solid black;
+    height: 100%;
+    border-bottom: 1px solid #08E1FF;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: 60%;
+
+}
+
+#course-list ul {
+    width: 100%;
+}
+
+#course-list li {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    background-color: #0A94AD;
+    margin-top: 1%;
+    border-radius: 3px;
+    color: black;
+    cursor: pointer;
+}
+
+#course-list li:hover {
+    background-color: #0CC0DF;
 }
 
 #exams-list-title {
     font-size: 20px;
     margin-left: 1%;
+    color: #0A94AD;
 }
 
 #exams-list {

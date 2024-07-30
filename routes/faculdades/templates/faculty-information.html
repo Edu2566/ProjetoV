@@ -20,14 +20,16 @@
             <div id="faculty-image">
                 <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
             </div>
-            <div id="faculty-name"><p>Fatec</p></div>
+            <div id="faculty-name"><p>Fatec</p><i class="fa-regular fa-bell"></i></div>
         </div>
         <div id="faculty-information">
             <div id="faculty-notification">
                 <div id="faculty-location">
                     <p>Localização da Instituição</p>
                 </div>
-                <i class="fa-regular fa-bell"></i>
+                <div id="faculty-webpage">
+                    <p>Página Oficial da Instituição</p>
+                </div>
             </div>
             <div id="course-list">
                 <ul>
@@ -44,7 +46,7 @@
 
     <p id="exams-list-title">Vestibulares dessa Instituição</p>
     <div id="exams-list">
-        <a class="card"  href="#">
+        <a class="card"  href="{{url_for('provas.exams_information')}}">
             <div class="image-box">
                <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
             </div>

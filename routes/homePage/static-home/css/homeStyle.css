@@ -5,3 +5,7 @@
    box-sizing: border-box;
 }
 
+#list-container {
+   width: 80%;
+   height: 80%;
+}
