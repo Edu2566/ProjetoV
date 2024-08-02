@@ -19,7 +19,7 @@
         <p>Faculdades por Perto:</p>
         <div class="slide-container">
            <div class="card-wrapper swiper-wrapper">
-              <div class="card swiper-slide">
+              <a class="card swiper-slide"  href="{{url_for('faculdades.faculty_information')}}">
                  <div class="image-box">
                     <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
                  </div>
@@ -30,7 +30,7 @@
                        <h4 class="job">DD/MM/YEAR</h4>
                     </div>
                  </div>
-              </div>
+               </a>
               <div class="card swiper-slide">
                  <div class="image-box">
                     <img src="{{ url_for('static', filename='images/logo-images/fib-logo.png') }}">

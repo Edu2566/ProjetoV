@@ -4,7 +4,7 @@ document.getElementById('tipo-busca').addEventListener('change', function() {
 
     lists.forEach(function(list) {
         if (list.getAttribute('data-type') === selectedValue) {
-            list.style.display = 'block';
+            list.style.display = 'grid';
         } else {
             list.style.display = 'none';
         }

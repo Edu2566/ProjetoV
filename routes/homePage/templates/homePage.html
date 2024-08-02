@@ -18,7 +18,7 @@
          <p>Insenções de Taxa de Inscrição Próximas:</p>
          <div class="slide-container">
             <div class="card-wrapper swiper-wrapper">
-               <a class="card swiper-slide"  href="{{url_for('faculdades.faculty_information')}}">
+               <a class="card swiper-slide" href="{{url_for('provas.exams_information')}}">
                   <div class="image-box">
                      <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
                   </div>
@@ -143,77 +143,65 @@
          </select></span>
       </div>
          <div id="list-container" class="todo-conteudo">
-               <div class="faculdades-column" data-type="faculdades">
-                  <p><a href="#"><i class="fa-solid fa-circle"></i>Fatec</a></p>
-               </div>
-               <div class="faculdades-column" data-type="faculdades">
-                  <p><a href="#"><i class="fa-solid fa-circle"></i>Unesp</a></p>
-               </div>
-               <div class="faculdades-column" data-type="faculdades">
-                  <p><a href="#"><i class="fa-solid fa-circle"></i>USP</a></p>
-               </div>
-       
-               <div class="faculdades-column" data-type="cursos" style="display: none;">
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Engenharia de Computação</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Medicina</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Direito</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Administração</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Psicologia</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Arquitetura</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Biologia</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Design</a></p>
-               </div>
-               <div class="faculdades-column" data-type="cursos" style="display: none;">
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Física</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Química</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Matemática</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Geografia</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>História</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Letras</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Filosofia</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Sociologia</a></p>
-               </div>
-               <div class="faculdades-column" data-type="cursos" style="display: none;">
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Enfermagem</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Farmácia</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Nutrição</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Odontologia</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Veterinária</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Fisioterapia</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Educação Física</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Serviço Social</a></p>
-               </div>
-               <div class="faculdades-column" data-type="vestibulares" style="display: none;">
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Fuvest</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Unicamp</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>ENEM</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>Vunesp</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UnB</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFMG</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFRJ</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFPR</a></p>
-               </div>
-               <div class="faculdades-column" data-type="vestibulares" style="display: none;">
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFRGS</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFBA</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFC</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFSCar</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFPE</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFSC</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFES</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UEL</a></p>
-               </div>
-               <div class="faculdades-column" data-type="vestibulares" style="display: none;">
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UEM</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFOP</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFAL</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFG</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFJF</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFLA</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFRN</a></p>
-                   <p><a href="#"><i class="fa-solid fa-circle"></i>UFRA</a></p>
-               </div>
-           </div>
+            <div class="faculdades-column" data-type="faculdades">
+               <p><a href="#">Fatec</a></p>
+               <p><a href="#">Unesp</a></p>
+               <p><a href="#">USP</a></p>
+            </div>
+      
+            <div class="faculdades-column" data-type="cursos" style="display: none;">
+               <p><a href="#">Engenharia de Computação</a></p>
+               <p><a href="#">Medicina</a></p>
+               <p><a href="#">Direito</a></p>
+               <p><a href="#">Administração</a></p>
+               <p><a href="#">Psicologia</a></p>
+               <p><a href="#">Arquitetura</a></p>
+               <p><a href="#">Biologia</a></p>
+               <p><a href="#">Design</a></p>
+               <p><a href="#">Física</a></p>
+               <p><a href="#">Química</a></p>
+               <p><a href="#">Matemática</a></p>
+               <p><a href="#">Geografia</a></p>
+               <p><a href="#">História</a></p>
+               <p><a href="#">Letras</a></p>
+               <p><a href="#">Filosofia</a></p>
+               <p><a href="#">Sociologia</a></p>
+               <p><a href="#">Enfermagem</a></p>
+               <p><a href="#">Farmácia</a></p>
+               <p><a href="#">Nutrição</a></p>
+               <p><a href="#">Odontologia</a></p>
+               <p><a href="#">Veterinária</a></p>
+               <p><a href="#">Fisioterapia</a></p>
+               <p><a href="#">Educação Física</a></p>
+               <p><a href="#">Serviço Social</a></p>
+            </div>
+            <div class="faculdades-column" data-type="vestibulares" style="display: none;">
+               <p><a href="#">Fuvest</a></p>
+               <p><a href="#">Unicamp</a></p>
+               <p><a href="#">ENEM</a></p>
+               <p><a href="#">Vunesp</a></p>
+               <p><a href="#">UnB</a></p>
+               <p><a href="#">UFMG</a></p>
+               <p><a href="#">UFRJ</a></p>
+               <p><a href="#">UFPR</a></p>
+               <p><a href="#">UFRGS</a></p>
+               <p><a href="#">UFBA</a></p>
+               <p><a href="#">UFC</a></p>
+               <p><a href="#">UFSCar</a></p>
+               <p><a href="#">UFPE</a></p>
+               <p><a href="#">UFSC</a></p>
+               <p><a href="#">UFES</a></p>
+               <p><a href="#">UEL</a></p>
+               <p><a href="#">UEM</a></p>
+               <p><a href="#">UFOP</a></p>
+               <p><a href="#">UFAL</a></p>
+               <p><a href="#">UFG</a></p>
+               <p><a href="#">UFJF</a></p>
+               <p><a href="#">UFLA</a></p>
+               <p><a href="#">UFRN</a></p>
+               <p><a href="#">UFRA</a></p>
+            </div>
+         </div>
     {% endblock %}
 
     {% block scripts %}
