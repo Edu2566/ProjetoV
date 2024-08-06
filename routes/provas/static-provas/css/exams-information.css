@@ -41,7 +41,7 @@
 }
 
 .information-list {
-    border: 1px solid black;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4);
     margin-left: 2%;
     width: 30%;
     height: 95%;
@@ -52,7 +52,8 @@
     width: 100%;
     text-align: center;
     font-size: 3vh;
-    border-bottom: 2px solid black;
+    color: #0A94AD;
+    border-bottom: 2px solid #0CC0DF;
 }
 
 #exams-details {
@@ -68,6 +69,7 @@
 .expandable-list {
     width: 100%;
     height: auto;
+    list-style: none;
 }
 
 .year-item {
@@ -78,13 +80,43 @@
 }
 
 .exams-list {
+    width: 80%;
     font-size: 2vh;
-    margin-left: 5%;
+    list-style: none;
+    border-left: 1px solid#08E1FF;
+    border-bottom: 1px solid #08E1FF;
+    border-radius: 3px;
+    padding-left: 10px;
+    height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    overflow: hidden;
+    transition: height 0.5s ease-out, opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.exams-list.show {
+    height: auto;
+    opacity: 1;
+    transform: scaleY(1);
 }
 
 .exams-list a {
     text-decoration: none;
     color: black;
+}
+
+.exams-list li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 3px;
+    margin: 3px;
+    background-color: #0A94AD;
+}
+
+.exams-list li:hover {
+    background-color: #0CC0DF;
 }
 
 .detail-block {

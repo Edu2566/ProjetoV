@@ -37,17 +37,3 @@ var swiper = new Swiper(".slide-container", {
       prevEl: ".button-prev2",
     },
   });
-
-  document.querySelectorAll('.heart-icon').forEach(function(icon) {
-    icon.addEventListener('click', function(event) {
-      if (this.classList.contains('fa-solid')) {
-        this.classList.remove('fa-solid');
-        this.classList.add('fa-regular');
-      } else {
-        this.classList.remove('fa-regular');
-        this.classList.add('fa-solid');
-      }
-
-      event.stopPropagation();
-    });
-  });

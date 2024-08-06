@@ -1,10 +1,6 @@
 function toggleExams(event) {
     const examsList = event.currentTarget.querySelector('.exams-list');
-    if (examsList.style.display === 'none' || examsList.style.display === '') {
-        examsList.style.display = 'block';
-    } else {
-        examsList.style.display = 'none';
-    }
+    examsList.classList.toggle('show');
 }
 
 function ItemClick(event) {

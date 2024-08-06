@@ -110,6 +110,7 @@
     border-radius: 3px;
     color: black;
     cursor: pointer;
+    user-select: none;
 }
 
 #course-list li:hover {
