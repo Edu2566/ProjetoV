@@ -49,20 +49,20 @@ header {
 }
 
 #menu_profile {
-    max-width: 7vh;
+    width: 10vh;
+    height: 95%;
     display: flex;
     margin-right: 4%;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 #menu_profile img {
-    max-width: 100%;
-    min-width: 40%;
-    border-radius: 32px;
-    height: auto;
-    object-fit: cover;
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
     cursor: pointer;
+    object-fit: cover;
 }
 /* Fim da estilização do Header */
 

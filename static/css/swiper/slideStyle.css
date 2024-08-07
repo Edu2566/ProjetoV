@@ -16,7 +16,7 @@
  
  .container {
     max-width: 1150px;
-    padding: 25px 0;
+    padding: 15px 10px 0 10px;
     width: 100%;
     margin: 10px;
     min-height: 45%;
@@ -42,12 +42,14 @@
     flex-basis: 200px; /* adicionado */
     border: 1px solid gray;
     text-decoration: none;
+    color: black;
  }
  
  .card .profile-details i{
     font-size: 30px;
     color: red;
  }
+
  .card .profile-details {
     display: flex;
     align-items: center;
@@ -79,7 +81,6 @@
     width: 10px;
     height: 10px;
     background-color: #0CC0DF;
-    
   }
   
   .swiper-button-next::after, .swiper-button-prev::after {
@@ -129,6 +130,7 @@
  .todos-cards .card {
     margin: 20px;
  }
+
 
 
  /* Fim da estilização dos Slider */

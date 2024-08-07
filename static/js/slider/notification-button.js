@@ -1,4 +1,4 @@
-document.querySelectorAll('.swiper-slide .heart-icon').forEach(function(icon) {
+document.querySelectorAll('.swiper-slide .fa-bell').forEach(function(icon) {
     icon.addEventListener('click', function(event) {
         event.stopPropagation(); // Impede a propagação do evento para o elemento pai e o link
 
