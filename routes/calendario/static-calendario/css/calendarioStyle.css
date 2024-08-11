@@ -1,0 +1,68 @@
+/* Contêiner principal para navegação do calendário */
+.calendar-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Estilo dos botões de navegação */
+.nav-button {
+    margin: 0 10px;
+}
+
+.nav-button a {
+    background-color: #0A94AD;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 40px;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.nav-button a:hover {
+    background-color: #0CC0DF;
+}
+
+/* Estilo para o ano e mês */
+.year, .month {
+    color: #0CC0DF;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    width: 120px;
+}
+
+/* Estilos para o calendário */
+.calendar-container {
+    margin: 1% 1% 1% 1%;
+}
+
+.calendar-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-container th, .calendar-container td {
+    border: 5px solid #08E1FF;
+    padding: 8px;
+    text-align: center;
+}
+
+.calendar-container th {
+    background-color: #f4f4f4;
+    color: #0A94AD;
+}
+
+.calendar-container td {
+    height: 50px;
+}
+
+.calendar-container td:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
