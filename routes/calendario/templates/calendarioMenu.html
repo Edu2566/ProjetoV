@@ -13,22 +13,22 @@
     <div class="calendar-navigation">
         <!-- Botões para trocar o ano -->
         <div class="nav-button">
-            <a href="{{ url_for('calendario.calendario_menu', year=prev_year_only, month=month) }}" class="nav-button">◀</a>
+            <a href="{{ url_for('calendario.calendario_menu',  year=year, month=month, action='prev_year') }}" class="nav-button">◀</a>
         </div>
-        <div class="year">{{ year }}</div>
+        <div class="year">{{year}}</div>
         <div class="nav-button">
-            <a href="{{ url_for('calendario.calendario_menu', year=next_year_only, month=month) }}" class="nav-button">▶</a>
+            <a href="{{ url_for('calendario.calendario_menu', year=year, month=month, action='next_year') }}" class="nav-button">▶</a>
         </div>
     </div>
 
     <div class="calendar-navigation">
         <!-- Botões para trocar o mês -->
         <div class="nav-button">
-            <a href="{{ url_for('calendario.calendario_menu', year=year, month=prev_month) }}" class="nav-button">◀</a>
+            <a href="{{ url_for('calendario.calendario_menu', year=year, month=month, action='prev_month') }}" class="nav-button">◀</a>
         </div>
-        <div class="month">{{ month_name_pt }}</div>
+        <div class="month">{{month_name_pt}}</div>
         <div class="nav-button">
-            <a href="{{ url_for('calendario.calendario_menu', year=year, month=next_month) }}" class="nav-button">▶</a>
+            <a href="{{ url_for('calendario.calendario_menu', year=year, month=month, action='next_month') }}" class="nav-button">▶</a>
         </div>
     </div>
 

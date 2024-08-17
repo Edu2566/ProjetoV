@@ -10,6 +10,7 @@
 /* Estilo dos botões de navegação */
 .nav-button {
     margin: 0 10px;
+    user-select: none;
 }
 
 .nav-button a {
@@ -48,21 +49,36 @@
 }
 
 .calendar-container th, .calendar-container td {
-    border: 5px solid #08E1FF;
+    border: 3px solid #08E1FF;
     padding: 8px;
     text-align: center;
 }
 
-.calendar-container th {
+.week-header th {
     background-color: #f4f4f4;
     color: #0A94AD;
+    cursor: default;
+    user-select: none;
 }
 
 .calendar-container td {
     height: 50px;
 }
 
-.calendar-container td:hover {
-    background-color: #f0f0f0;
+.noday {
+    user-select: none;
+    cursor: default;
+    background-color: #f0f0f0; /* Cor diferente para células vazias */
+}
+
+.day {
+    color: #0A94AD;
     cursor: pointer;
+    background-color: #fff;
+    user-select: none;
+}
+
+.day:hover {
+    background-color: #0A94AD;
+    color: #f4f4f4;
 }

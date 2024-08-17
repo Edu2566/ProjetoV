@@ -25,20 +25,6 @@ function toggleSidebar() {
 // Adiciona o evento de clique ao botão da barra lateral
 document.getElementById('sidebar_button').addEventListener('click', toggleSidebar);
 
-// Verifica se existe um estado salvo para a barra lateral e o main ao carregar a página
-document.addEventListener('DOMContentLoaded', function() {
-  var sidebar = document.getElementById('sidebar');
-  var mains = document.querySelectorAll('main');
-
-  // Verifica se existe um estado salvo para a barra lateral
-  if (localStorage.getItem('sidebarState') === 'closed') {
-      sidebar.classList.add('close-sidebar');
-      mains.forEach(function(main) {
-          main.classList.add('close-sidebar');
-      });
-  }
-});
-
 // Salva o estado da barra lateral ao sair da página
 window.addEventListener('beforeunload', function() {
   var sidebar = document.getElementById('sidebar');
