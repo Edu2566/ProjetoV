@@ -56,25 +56,28 @@ def calendario_menu():
     month = request.args.get('month', type=int, default=datetime.now().month)
 
     # Calcular o mês e ano anterior e próximo com ajuste automático de ano
-    if request.args.get('action') == 'next_month':
+    if request.args.get('action') == 'next_month' and month < 13:
         if month == 12:
             month = 1
             year += 1
         else:
             month += 1
 
-    elif request.args.get('action') == 'prev_month':
-        if month == 1:
+    elif request.args.get('action') == 'prev_month' and month > 1:
+        if month == 1 and year > 2024:
             month = 12
             year -= 1
-        else:
+        elif year >= 2024:
             month -= 1
+            
 
     elif request.args.get('action') == 'next_year':
         year += 1
 
-    elif request.args.get('action') == 'prev_year':
-        year -= 1
+    elif request.args.get('action') == 'prev_year' and year > 2024:
+            year -= 1
+            
+        
 
     # Nome do mês em português
     month_name_pt = MONTH_NAMES_PT[month - 1]
