@@ -1,5 +1,3 @@
-from flask import Blueprint
-
 from routes.homePage.homePage import homePage_blueprint
 from routes.faculdades.faculdades import faculdades_blueprint
 from routes.cursos.cursos import cursos_blueprint

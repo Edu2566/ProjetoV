@@ -19,7 +19,7 @@
         <p>Faculdades por Perto:</p>
         <div class="slide-container">
            <div class="card-wrapper swiper-wrapper">
-              <a class="card swiper-slide"  href="{{url_for('faculdades.faculty_information')}}">
+              <a class="card swiper-slide"  href="{{ url_for('faculdades.faculty_information', faculty_id=1) }}">
                  <div class="image-box">
                     <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
                  </div>
@@ -27,34 +27,33 @@
                     <i class="fa-regular fa-bell"></i>
                     <div class="name-job">
                        <h3 class="name">Fatec</h3>
-                       <h4 class="job">NADA PRÓXIMO</h4>
                     </div>
                  </div>
                </a>
-              <div class="card swiper-slide">
-                 <div class="image-box">
-                    <img src="{{ url_for('static', filename='images/logo-images/fib-logo.png') }}">
-                 </div>
-                 <div class="profile-details">
-                    <i class="fa-regular fa-bell"></i>
-                    <div class="name-job">
-                       <h3 class="name">FIB</h3>
-                       <h4 class="job">NADA PRÓXIMO</h4>
-                    </div>
-                 </div>
-              </div>
-              <div class="card swiper-slide">
-                 <div class="image-box">
-                    <img src="{{ url_for('static', filename='images/logo-images/uninove-logo.png') }}">
-                 </div>
-                 <div class="profile-details">
-                    <i class="fa-regular fa-bell"></i>
-                    <div class="name-job">
-                       <h3 class="name">Uninove</h3>
-                       <h4 class="job">NADA PRÓXIMO</h4>
-                    </div>
-                 </div>
-              </div>
+               <a class="card swiper-slide"  href="{{ url_for('faculdades.faculty_information', faculty_id=2) }}">
+                  <div class="image-box">
+                     <img src="{{ url_for('static', filename='images/logo-images/unesp-logo.png') }}">
+                  </div>
+                  <div class="profile-details">
+                     <i class="fa-regular fa-bell"></i>
+                     <div class="name-job">
+                        <h3 class="name">Unesp</h3>
+                        <h4 class="job">NADA PRÓXIMO</h4>
+                     </div>
+                  </div>
+               </a>
+               <a class="card swiper-slide"  href="{{ url_for('faculdades.faculty_information', faculty_id=3) }}">
+                  <div class="image-box">
+                     <img src="{{ url_for('static', filename='images/logo-images/usp-logo.png') }}">
+                  </div>
+                  <div class="profile-details">
+                     <i class="fa-regular fa-bell"></i>
+                     <div class="name-job">
+                        <h3 class="name">USP</h3>
+                        <h4 class="job">NADA PRÓXIMO</h4>
+                     </div>
+                  </div>
+               </a>
               <div class="card swiper-slide">
                  <div class="image-box">
                     <img src="{{ url_for('static', filename='images/logo-images/unicamp-logo.png') }}">

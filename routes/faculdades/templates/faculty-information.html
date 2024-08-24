@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
 {% endblock %}
 
-{% block titlepage %}Vestibulobby - Fatec{% endblock %}
+{% block titlepage %}Vestibulobby - {{ faculty.nome_faculdade }}{% endblock %}
 
 {% block classactiveinicio %}active{% endblock %}
 
@@ -18,17 +18,19 @@
     <div id="faculty-content">
         <div id="faculty-header">
             <div id="faculty-image">
-                <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
+                <img src="{{ faculty.image_url }}">
             </div>
-            <div id="faculty-name"><p>Fatec</p><i class="fa-regular fa-bell"></i></div>
+            <div id="faculty-name"><p>{{ faculty.nome_faculdade }}</p><i class="fa-regular fa-bell"></i></div>
         </div>
         <div id="faculty-information">
             <div id="faculty-notification">
                 <div id="faculty-location">
-                    <p>Localização da Instituição</p>
+                    <p class="view-title">Localização da Instituição</p>
+                    <p class="api-information">{{ faculty.local_faculdade }}</p>
                 </div>
                 <div id="faculty-webpage">
-                    <p>Página Oficial da Instituição</p>
+                    <p class="view-title">Página Oficial da Instituição</p>
+                    <a class="api-information" href="{{ faculty.pg_faculdade }}" target="_blank">{{ faculty.pg_faculdade }}</a>
                 </div>
             </div>
             <div id="course-list">

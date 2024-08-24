@@ -31,7 +31,8 @@
 #faculty-image img{
     border-radius: 10px;
     object-fit: cover;
-    width: 90%;
+    max-width: 100%;
+    width: auto;
 }
 
 #faculty-name {
@@ -66,7 +67,7 @@
 
 #faculty-location, #faculty-webpage {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     width: 80%;
     height: 100%;
     margin: 1%;
@@ -74,11 +75,23 @@
     background-color: #0CC0DF;
 }
 
-#faculty-location p, #faculty-webpage p {
+.view-title {
+    font-size: 100%;
     text-align: center;
     width: 100%;
     height: 30%;
     border-bottom: 4px solid black;
+}
+
+.api-information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70%;
+    width: 100%;
+    height: 70%;
+    color: black;
+    text-align: center;
 }
 
 #course-list {
