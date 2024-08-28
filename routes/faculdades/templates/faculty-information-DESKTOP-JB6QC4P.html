@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
 {% endblock %}
 
-{% block titlepage %}Vestibulobby - {{ faculty.nome_faculdade }}{% endblock %}
+{% block titlepage %}Vestibulobby - {{ faculty_data.nome_faculdade }}{% endblock %}
 
 {% block classactiveinicio %}active{% endblock %}
 
@@ -18,29 +18,27 @@
     <div id="faculty-content">
         <div id="faculty-header">
             <div id="faculty-image">
-                <img src="{{ faculty.image_url }}">
+                <img src="{{ faculty_data.image_url }}">
             </div>
-            <div id="faculty-name"><p>{{ faculty.nome_faculdade }}</p><i class="fa-regular fa-bell"></i></div>
+            <div id="faculty-name"><p>{{ faculty_data.nome_faculdade }}</p><i class="fa-regular fa-bell"></i></div>
         </div>
         <div id="faculty-information">
             <div id="faculty-notification">
                 <div id="faculty-location">
-                    <p class="view-title">Localização da Instituição</p>
-                    <p class="api-information">{{ faculty.local_faculdade }}</p>
+                    <p>Localização da Instituição</p>
                 </div>
                 <div id="faculty-webpage">
-                    <p class="view-title">Sobre Vestibulares da Instituição</p>
-                    <a class="api-information" href="{{ faculty.pg_faculdade }}" target="_blank">{{ faculty.pg_faculdade }}</a>
+                    <p>Página Oficial da Instituição</p>
                 </div>
             </div>
             <div id="course-list">
-                <p class="course-title">Principais Cursos</p>
                 <ul>
-                {% for curso in faculty.cursos %}
-                    <li>{{ curso }}</li>
-                {% else %}
-                    <li>Nenhum curso disponível</li>
-                {% endfor %}
+                    <li>Análise e Desenvolvimento de Sistemas</li>
+                    <li>Banco de Dados</li>
+                    <li>Ciência de Dados</li>
+                    <li>Gestão de Negócios e Inovação</li>
+                    <li>Redes de Computadores</li>
+                    <li>Sistemas Biomédicos</li>
                 </ul>
             </div>
         </div>

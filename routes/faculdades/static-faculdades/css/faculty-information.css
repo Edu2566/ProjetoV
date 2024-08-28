@@ -76,22 +76,30 @@
 }
 
 .view-title {
-    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80%;
+    font-weight: bold;
     text-align: center;
     width: 100%;
     height: 30%;
-    border-bottom: 4px solid black;
+    border-bottom: 2px solid black;
 }
 
 .api-information {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 70%;
-    width: 100%;
+    font-size: 80%;
+    max-width: 100%;
     height: 70%;
     color: black;
     text-align: center;
+}
+
+#faculty-webpage .api-information{
+    word-break: break-all;
 }
 
 #course-list {
@@ -101,12 +109,24 @@
     padding: 0 1% 0 1%;
     margin: 0 1% 0 1%;
     height: 100%;
-    border-bottom: 1px solid #08E1FF;
+    border: 1px solid #08E1FF;
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
     width: 60%;
 
+}
+
+.course-title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    font-size: 100%;
+    font-weight: bold;
+    border-bottom:2px solid #08E1FF;
+    margin-bottom: 2%;
 }
 
 #course-list ul {
