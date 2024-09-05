@@ -1,31 +1,31 @@
 {% extends "sideheader.html" %}
 
 {% block stylepage %}
-    <link rel="stylesheet" href="{{ url_for('faculdades.static', filename='/css/faculty-information.css') }}">
+    <link rel="stylesheet" href="{{ url_for('colleges.static', filename='/css/colleges-information.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
 {% endblock %}
 
-{% block titlepage %}Vestibulobby - {{ faculty.nome_faculdade }}{% endblock %}
+{% block titlepage %}Vestibulobby - {{ college.nome_faculdade }}{% endblock %}
 
 {% block classactiveinicio %}active{% endblock %}
 
 {% block mainclass %}open-state{% endblock %}
-{% block mainid %}faculty-information_main{% endblock %}
+{% block mainid %}college-information_main{% endblock %}
 
 {% block main %}
-    <div id="faculty-content">
-        <div id="faculty-header">
-            <div id="faculty-image">
-                <img src="{{ faculty.image_url }}">
+    <div id="college-content">
+        <div id="college-header">
+            <div id="college-image">
+                <img src="{{ college.image_url }}">
             </div>
-            <div id="faculty-name"><p>{{ faculty.nome_faculdade }}</p><i class="fa-regular fa-bell"></i></div>
+            <div id="college-name"><p>{{ college.nome_faculdade }}</p><i class="fa-regular fa-bell"></i></div>
         </div>
         <div id="course-list">
             <p class="list-title">Cursos dessa Instituição</p>
             <ul>
-                {% for curso in faculty.cursos %}
+                {% for curso in college.cursos %}
                     <li>{{ curso }}</li>
                 {% else %}
                     <li>Nenhum curso disponível</li>
@@ -75,7 +75,7 @@
         <div id="location-list">
             <p class="list-title">Localizações dessa Instituição</p>
             <ul>
-                {% for curso in faculty.cursos %}
+                {% for curso in college.cursos %}
                     <li>{{ curso }}</li>
                 {% else %}
                     <li>Nenhum curso disponível</li>

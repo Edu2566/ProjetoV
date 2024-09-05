@@ -91,46 +91,30 @@
  /* Fim da estilização dos Slider */
  
  /* Início da estilização da Aba de Busca */
- .todas-faculdades {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- }
- 
- .aba-busca {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: row;
-    width: 30%;
-    margin-bottom: 15px;
- }
+ .all-content {
+   margin-top: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.search-space {
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   flex-direction: row;
+   width: 30%;
+   margin-bottom: 15px;
+}
  
  #buscar-faculdade {
     width: 80%;
  }
  
- .todas-faculdades h1 {
+ .all-content h1 {
     width: 100%;
     text-align: center;
     color:black;
  }
- 
- .todos-cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    flex-wrap: wrap;
- }
- 
- .todos-cards .card {
-    margin: 20px;
- }
-
-
-
  /* Fim da estilização dos Slider */

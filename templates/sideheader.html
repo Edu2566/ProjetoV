@@ -43,16 +43,8 @@
                     </span>
                 </a>
             </li>
-            <li class="side-item {% block classactivefaculdades %}{% endblock %}">
-                <a href="{{url_for('faculdades.faculdades_menu')}}">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span class="item-description">
-                        Faculdades
-                    </span>
-                </a>
-            </li>
             <li class="side-item {% block classactivecursos %}{% endblock %}">
-                <a href="{{url_for('cursos.cursos_menu')}}">
+                <a href="{{url_for('courses.courses_menu')}}">
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <span class="item-description">
                         Cursos
@@ -60,7 +52,7 @@
                 </a>
             </li>
             <li class="side-item {% block classactivecalendario %}{% endblock %}">
-                <a href="{{url_for('calendario.calendario_menu')}}">
+                <a href="{{url_for('calendar.calendar_menu')}}">
                     <i class="fa-regular fa-calendar-days"></i>
                     <span class="item-description">
                         Calendario

@@ -1,4 +1,4 @@
-.todo-conteudo {
+.all-information {
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -6,7 +6,7 @@
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
     margin-bottom: 12px;
  }
- .faculdades-column {
+ .information-column {
     flex: 1;
     margin: 10px;
     width: 100%;
@@ -15,7 +15,7 @@
     gap: 10px;
  }
  
- .faculdades-column p{
+ .information-column p{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,16 +27,16 @@
    border-radius: 3px;
  }
 
- .faculdades-column p:hover {
+ .information-column p:hover {
    background-color: #0CC0DF;
  }
 
- .faculdades-column a {
+ .information-column a {
    text-decoration: none;
    color: black;
  }
  
- .faculdades-column p i{
+ .information-column p i{
     font-size: 10px;
     text-decoration: none;
     color: #0CC0DF;

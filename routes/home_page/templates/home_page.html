@@ -18,7 +18,7 @@
          <p>Insenções de Taxa de Inscrição Próximas:</p>
          <div class="slide-container">
             <div class="card-wrapper swiper-wrapper">
-               <a class="card swiper-slide" href="{{url_for('provas.exams_information')}}">
+               <a class="card swiper-slide" href="{{url_for('colleges.college_information', college_id=1)}}">
                   <div class="image-box">
                      <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
                   </div>
@@ -133,62 +133,34 @@
          <div class="swiper-pagination pagination2"></div>
          </div>
       </div>
-      <div class="todas-faculdades">
+      <div class="all-content">
          <p>Veja Todo o Nosso Conteúdo</p>
-         <div class="aba-busca">
-         <span><select name="tipo-busca" id="tipo-busca">
-            <option value="faculdades" selected>Faculdades</option>
-            <option value="cursos">Cursos</option>
-            <option value="vestibulares">Vestibulares</option>
+         <div class="search-space">
+         <span><select name="search-type" id="search-type">
+            <option value="colleges" selected>Faculdades</option>
+            <option value="courses">Cursos</option>
          </select></span>
       </div>
-         <div id="list-container" class="todo-conteudo">
-            <div class="faculdades-column" data-type="faculdades">
-               {% if faculty_api_data.faculdades %}
-                  {% for faculdade in faculty_api_data.faculdades %}
-                     <p><a href="#">{{ faculdade['nome_faculdade'] }}</a></p>
-                  {% endfor %}
-               {% else %}
-                  <li>Nenhuma faculdade disponível</li>
-               {% endif %}
-            </div>
-      
-            <div class="faculdades-column" data-type="cursos" style="display: none;">
-               {% if faculty_api_data.cursos %}
-                  {% for curso in faculty_api_data.cursos %}
-                     <p><a href="#">{{ curso['nome_curso'] }}</a></p>
-                  {% endfor %}
-               {% else %}
-                  <li>Nenhum curso disponível</li>
-               {% endif %}
-            </div>
-            <div class="faculdades-column" data-type="vestibulares" style="display: none;">
-               <p><a href="#">Fuvest</a></p>
-               <p><a href="#">Unicamp</a></p>
-               <p><a href="#">ENEM</a></p>
-               <p><a href="#">Vunesp</a></p>
-               <p><a href="#">UnB</a></p>
-               <p><a href="#">UFMG</a></p>
-               <p><a href="#">UFRJ</a></p>
-               <p><a href="#">UFPR</a></p>
-               <p><a href="#">UFRGS</a></p>
-               <p><a href="#">UFBA</a></p>
-               <p><a href="#">UFC</a></p>
-               <p><a href="#">UFSCar</a></p>
-               <p><a href="#">UFPE</a></p>
-               <p><a href="#">UFSC</a></p>
-               <p><a href="#">UFES</a></p>
-               <p><a href="#">UEL</a></p>
-               <p><a href="#">UEM</a></p>
-               <p><a href="#">UFOP</a></p>
-               <p><a href="#">UFAL</a></p>
-               <p><a href="#">UFG</a></p>
-               <p><a href="#">UFJF</a></p>
-               <p><a href="#">UFLA</a></p>
-               <p><a href="#">UFRN</a></p>
-               <p><a href="#">UFRA</a></p>
-            </div>
+      <div id="list-container" class="all-information">
+         <div class="information-column" data-type="colleges">
+            {% if faculty_api_data.faculdades %}
+               {% for faculdade in faculty_api_data.faculdades %}
+                  <p><a href="#">{{ faculdade['nome_faculdade'] }}</a></p>
+               {% endfor %}
+            {% else %}
+               <li>Nenhuma faculdade disponível</li>
+            {% endif %}
          </div>
+         <div class="information-column" data-type="courses" style="display: none;">
+            {% if faculty_api_data.cursos %}
+               {% for curso in faculty_api_data.cursos %}
+                  <p><a href="#">{{ curso['nome_curso'] }}</a></p>
+               {% endfor %}
+            {% else %}
+               <li>Nenhum curso disponível</li>
+            {% endif %}
+         </div>
+      </div>
     {% endblock %}
 
     {% block scripts %}

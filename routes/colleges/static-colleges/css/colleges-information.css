@@ -1,4 +1,4 @@
-#faculty-content {
+#college-content {
     display: grid;
     grid-template-columns: 40% 30% 30%; /* Três colunas: esquerda, meio e direita */
     grid-template-rows: 50% 50%; /* Duas linhas: uma para o header e outra para os outros conteúdos */
@@ -11,7 +11,7 @@
     padding: 15px;
 }
 
-#faculty-header {
+#college-header {
     grid-area: header; /* Posicionar no topo esquerdo */
     display: flex;
     flex-direction: column; /* Organizar verticalmente os filhos */
@@ -178,7 +178,7 @@
 }
 
 /* Estilos adicionais mantidos do código anterior */
-#faculty-image {
+#college-image {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,14 +188,14 @@
     height: 80%; /* Ajustar a altura com base no conteúdo */
 }
 
-#faculty-image img {
+#college-image img {
     border-radius: 10px;
     object-fit: cover;
     max-width: 100%;
     width: auto;
 }
 
-#faculty-name {
+#college-name {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -205,7 +205,7 @@
     color: #0A94AD;
 }
 
-#faculty-name i {
+#college-name i {
     color: red;
 }
 
@@ -214,7 +214,7 @@
 }
 
 @media (max-width: 900px) {
-    #faculty-content {
+    #college-content {
         grid-template-columns: 1fr; /* Uma única coluna */
         grid-template-rows: auto auto auto auto auto; /* Altura automática para todos os itens */
         grid-template-areas:
@@ -227,7 +227,7 @@
         height: auto; /* Ajustar a altura ao conteúdo */
     }
     
-    #faculty-header,
+    #college-header,
     #course-list,
     #location-list,
     #exams-list {
@@ -243,9 +243,9 @@
         display: none;
     }
     
-    #faculty-image,
-    #faculty-name,
-    #faculty-image img {
+    #college-image,
+    #college-name,
+    #college-image img {
         height: auto;
     }
 }

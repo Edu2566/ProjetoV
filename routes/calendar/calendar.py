@@ -48,10 +48,10 @@ MONTH_NAMES_PT = [
     "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
 ]
     
-calendario_blueprint = Blueprint('calendario', __name__, template_folder='templates', static_folder='static-calendario')
+calendar_blueprint = Blueprint('calendar', __name__, template_folder='templates', static_folder='static-calendar')
 
-@calendario_blueprint.route('/calendario')
-def calendario_menu():
+@calendar_blueprint.route('/calendar')
+def calendar_menu():
     year = request.args.get('year', type=int, default=datetime.now().year)
     month = request.args.get('month', type=int, default=datetime.now().month)
 
@@ -85,5 +85,5 @@ def calendario_menu():
     # Gerar o calendário após a lógica de navegação
     cal = CustomHTMLCalendar().formatmonth(year, month)
 
-    return render_template('calendarioMenu.html', calendar=cal, year=year, month=month,
+    return render_template('calendar-menu.html', calendar=cal, year=year, month=month,
                            month_name_pt=month_name_pt, calendar_module=calendar)
