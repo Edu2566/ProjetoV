@@ -138,30 +138,13 @@
       </div>
       <div id="list-container" class="todo-conteudo">
          <div class="faculdades-column">
-            <p><a href="#">PUC-SP</a></p>
-            <p><a href="#">PUC-Rio</a></p>
-            <p><a href="#">Brasília (UnB)</a></p>
-            <p><a href="#">São Paulo (USP)</a></p>
-            <p><a href="#">Unicamp</a></p>
-            <p><a href="#">Estadual de Londrina (UEL)</a></p>
-            <p><a href="#">Estadual de Maringá (UEM)</a></p>
-            <p><a href="#">Estadual Paulista (Unesp)</a></p>
-            <p><a href="#">Federal de Alagoas (UFAL)</a></p>
-            <p><a href="#">Federal de Goiás (UFG)</a></p>
-            <p><a href="#">Federal de Juiz de Fora (UFJF)</a></p>
-            <p><a href="#">Federal de Lavras (UFLA)</a></p>
-            <p><a href="#">Federal de Minas Gerais (UFMG)</a></p>
-            <p><a href="#">Federal de Ouro Preto (UFOP)</a></p>
-            <p><a href="#">Federal de Pernambuco (UFPE)</a></p>
-            <p><a href="#">Federal de Santa Catarina (UFSC)</a></p>
-            <p><a href="#">Federal de São Carlos (UFSCar)</a></p>
-            <p><a href="#">Federal do Ceará (UFC)</a></p>
-            <p><a href="#">Federal do Espírito Santo (UFES)</a></p>
-            <p><a href="#">Federal do Paraná (UFPR)</a></p>
-            <p><a href="#">Federal do Rio de Janeiro (UFRJ)</a></p>
-            <p><a href="#">Federal do Rio Grande do Norte (UFRN)</a></p>
-            <p><a href="#">Federal do Rio Grande do Sul (UFRGS)</a></p>
-            <p><a href="#">Federal da Bahia (UFBA)</a></p>
+            {% if faculty_api_data.faculdades %}
+               {% for faculdade in faculty_api_data.faculdades %}
+                  <p><a href="#">{{ faculdade['nome_faculdade'] }}</a></p>
+               {% endfor %}
+            {% else %}
+               <li>Nenhuma faculdade disponível</li>
+            {% endif %}
          </div>
       </div>
 {% endblock %}

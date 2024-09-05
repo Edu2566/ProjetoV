@@ -1,34 +1,96 @@
-#faculty-information_main {
+#faculty-content {
+    display: grid;
+    grid-template-columns: 40% 30% 30%; /* Três colunas: esquerda, meio e direita */
+    grid-template-rows: 50% 50%; /* Duas linhas: uma para o header e outra para os outros conteúdos */
+    grid-template-areas: 
+        "header course exams"
+        "info-list location exams"; /* info-list e exams-list ocupam a segunda linha */
+    height: 100vh; /* Ocupar a altura total da página */
+    gap: 5px; /* Espaçamento entre os elementos */
+    overflow: hidden; /* Ocultar rolagem para layout desktop */
+    padding: 15px;
+}
+
+#faculty-header {
+    grid-area: header; /* Posicionar no topo esquerdo */
+    display: flex;
+    flex-direction: column; /* Organizar verticalmente os filhos */
+    height: auto; /* Ajustar a altura com base no conteúdo */
+    width: 100%; /* Garantir que ocupe toda a largura disponível */
+}
+
+#course-list {
+    grid-area: course; /* Posicionar no topo central */
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
+    align-items: center;
+    height: auto; /* Ajustar a altura com base no conteúdo */
+    width: 100%; /* Garantir que ocupe toda a largura disponível */
+    border: 2px solid #0CC0DF;
 }
 
-#faculty-content {
+#course-title {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 2px solid #0CC0DF;
+    width: 90%;
+    text-align: center;
+    height: 10%;
+}
+
+#course-list ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    margin-top: 5px;
+    height: 90%;
     width: 100%;
-    height: 40vh;
-    margin-bottom: 5%;
+    text-align: center;
 }
 
-/* Photo and name Styles */
-#faculty-header {
-    width: 40%;
-    height: 100%;
-    justify-content: flex-start;
+#course-list li {
+    border-radius: 5px;
+    margin: 2px;
+    background-color: #0A94AD;
+    width: 80%;
 }
 
+#exams-list {
+    grid-area: exams; /* Posicionar na coluna da direita */
+    grid-row: 1 / span 2; /* Ocupa as duas linhas do grid */
+    height: auto; /* Ajustar a altura com base no conteúdo */
+    border: 1px solid black;
+    width: 100%; /* Garantir que ocupe toda a largura disponível */
+}
+
+#info-list {
+    grid-area: info-list; /* Posicionar abaixo do header */
+    width: 100%; /* Garantir que ocupe toda a largura disponível */
+    border: 1px solid black;
+    
+}
+
+#location-list {
+    grid-area: location; /* Posicionar na segunda linha, ao lado do course-list e abaixo do header */
+    width: 100%; /* Garantir que ocupe toda a largura disponível */
+    border: 1px solid black;
+}
+
+/* Estilos adicionais mantidos do código anterior */
 #faculty-image {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     margin: 1% 1% 0 1%;
     border-radius: 5px;
     background-color: #F5F5F5;
+    height: 80%; /* Ajustar a altura com base no conteúdo */
 }
 
-#faculty-image img{
+#faculty-image img {
     border-radius: 10px;
     object-fit: cover;
     max-width: 100%;
@@ -39,8 +101,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 20%;
     margin: 0 1% 0 1%;
+    height: 20%; /* Ajustar a altura com base no conteúdo */
     font-size: 30px;
     color: #0A94AD;
 }
@@ -49,122 +111,39 @@
     color: red;
 }
 
-/* Location, notification and course list Style */
-
-#faculty-information {
-    display: flex;
-    width: 60%;
-}
-
-#faculty-notification {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 40%;
-    height: 100%;
-}
-
-#faculty-location, #faculty-webpage {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: 100%;
-    margin: 1%;
-    border-radius: 5px;
-    background-color: #0CC0DF;
-}
-
-.view-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 80%;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    height: 30%;
-    border-bottom: 2px solid black;
-}
-
-.api-information {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 80%;
-    max-width: 100%;
-    height: 70%;
-    color: black;
-    text-align: center;
-}
-
-#faculty-webpage .api-information{
-    word-break: break-all;
-}
-
-#course-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1% 0 1%;
-    margin: 0 1% 0 1%;
-    height: 100%;
-    border: 1px solid #08E1FF;
-    overflow-y: auto;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    width: 60%;
-
-}
-
-.course-title {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    font-size: 100%;
-    font-weight: bold;
-    border-bottom:2px solid #08E1FF;
-    margin-bottom: 2%;
-}
-
-#course-list ul {
-    width: 100%;
-}
-
-#course-list li {
-    width: 100%;
-    list-style: none;
-    text-align: center;
-    background-color: #0A94AD;
-    margin-top: 1%;
-    border-radius: 3px;
-    color: black;
-    cursor: pointer;
-    user-select: none;
-}
-
-#course-list li:hover {
-    background-color: #0CC0DF;
-}
-
-#exams-list-title {
-    font-size: 20px;
-    margin-left: 1%;
-    color: #0A94AD;
-}
-
-#exams-list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1%;
-    background-color: #0CC0DF;
-    margin: 0 1% 1% 1%;
-    border-radius: 5px;
-}
-
 #footer {
     display: none;
+}
+
+@media (max-width: 768px) {
+    #faculty-content {
+        grid-template-columns: 1fr; /* Transformar em uma coluna */
+        grid-template-rows: auto auto auto auto auto; /* Altura automática baseada no conteúdo */
+        grid-template-areas:
+            "header"
+            "info-list"
+            "course"
+            "location"
+            "exams"; /* Empilhar os elementos verticalmente */
+        overflow: auto; /* Permitir rolagem vertical se necessário */
+        height: auto; /* Ajustar a altura com base no conteúdo */
+    }
+    
+    /* Ajuste de altura dos elementos se necessário */
+    #faculty-header {
+        display: flex;
+        flex-direction: column; /* Organizar verticalmente os filhos */
+        height: auto;
+    }
+    
+    #course-list, #location-list, #exams-list {
+        height: auto; /* Permitir que os elementos cresçam conforme o conteúdo */
+    }
+
+    #exams-list {
+        display: none;
+    }
+    #faculty-image, #faculty-name, #faculty-image img {
+        height: auto;
+    }
 }

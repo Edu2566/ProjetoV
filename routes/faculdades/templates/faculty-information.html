@@ -22,44 +22,25 @@
             </div>
             <div id="faculty-name"><p>{{ faculty.nome_faculdade }}</p><i class="fa-regular fa-bell"></i></div>
         </div>
-        <div id="faculty-information">
-            <div id="faculty-notification">
-                <div id="faculty-location">
-                    <p class="view-title">Localização da Instituição</p>
-                    <p class="api-information">{{ faculty.local_faculdade }}</p>
-                </div>
-                <div id="faculty-webpage">
-                    <p class="view-title">Sobre Vestibulares da Instituição</p>
-                    <a class="api-information" href="{{ faculty.pg_faculdade }}" target="_blank">{{ faculty.pg_faculdade }}</a>
-                </div>
-            </div>
-            <div id="course-list">
-                <p class="course-title">Principais Cursos</p>
-                <ul>
+        <div id="course-list">
+            <p id="course-title">Cursos dessa Instituição</p>
+            <ul>
                 {% for curso in faculty.cursos %}
                     <li>{{ curso }}</li>
                 {% else %}
                     <li>Nenhum curso disponível</li>
                 {% endfor %}
-                </ul>
-            </div>
+            </ul>
         </div>
-    </div>
-
-    <p id="exams-list-title">Vestibulares dessa Instituição</p>
-    <div id="exams-list">
-        <a class="card"  href="{{url_for('provas.exams_information')}}">
-            <div class="image-box">
-               <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
-            </div>
-            <div class="profile-details">
-               <i class="fa-regular fa-bell"></i>
-               <div class="name-job">
-                  <h3 class="name">Fatec</h3>
-                  <h4 class="job">DD/MM/YEAR</h4>
-                </div>
-            </div>
-        </a>
+        <div id="exams-list">
+            Provas
+        </div>
+        <div id="info-list">
+            Info
+        </div>
+        <div id="location-list">
+            Local
+        </div>
     </div>
 {% endblock %}
 

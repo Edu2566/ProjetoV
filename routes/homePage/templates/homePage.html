@@ -144,36 +144,23 @@
       </div>
          <div id="list-container" class="todo-conteudo">
             <div class="faculdades-column" data-type="faculdades">
-               <p><a href="#">Fatec</a></p>
-               <p><a href="#">Unesp</a></p>
-               <p><a href="#">USP</a></p>
+               {% if faculty_api_data.faculdades %}
+                  {% for faculdade in faculty_api_data.faculdades %}
+                     <p><a href="#">{{ faculdade['nome_faculdade'] }}</a></p>
+                  {% endfor %}
+               {% else %}
+                  <li>Nenhuma faculdade disponível</li>
+               {% endif %}
             </div>
       
             <div class="faculdades-column" data-type="cursos" style="display: none;">
-               <p><a href="#">Engenharia de Computação</a></p>
-               <p><a href="#">Medicina</a></p>
-               <p><a href="#">Direito</a></p>
-               <p><a href="#">Administração</a></p>
-               <p><a href="#">Psicologia</a></p>
-               <p><a href="#">Arquitetura</a></p>
-               <p><a href="#">Biologia</a></p>
-               <p><a href="#">Design</a></p>
-               <p><a href="#">Física</a></p>
-               <p><a href="#">Química</a></p>
-               <p><a href="#">Matemática</a></p>
-               <p><a href="#">Geografia</a></p>
-               <p><a href="#">História</a></p>
-               <p><a href="#">Letras</a></p>
-               <p><a href="#">Filosofia</a></p>
-               <p><a href="#">Sociologia</a></p>
-               <p><a href="#">Enfermagem</a></p>
-               <p><a href="#">Farmácia</a></p>
-               <p><a href="#">Nutrição</a></p>
-               <p><a href="#">Odontologia</a></p>
-               <p><a href="#">Veterinária</a></p>
-               <p><a href="#">Fisioterapia</a></p>
-               <p><a href="#">Educação Física</a></p>
-               <p><a href="#">Serviço Social</a></p>
+               {% if faculty_api_data.cursos %}
+                  {% for curso in faculty_api_data.cursos %}
+                     <p><a href="#">{{ curso['nome_curso'] }}</a></p>
+                  {% endfor %}
+               {% else %}
+                  <li>Nenhum curso disponível</li>
+               {% endif %}
             </div>
             <div class="faculdades-column" data-type="vestibulares" style="display: none;">
                <p><a href="#">Fuvest</a></p>
