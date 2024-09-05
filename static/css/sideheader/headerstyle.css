@@ -234,3 +234,16 @@ body {
     margin-right: 10px;
 }
 /* Fim da estilização do Footer */
+
+/* Regra de mídia para esconder a barra lateral em telas menores que 768px */
+@media (max-width: 768px) {
+    #sidebar.close-sidebar {
+        width: 0;
+    }
+
+    /* Ajuste o estilo do conteúdo principal (main) se necessário */
+    main {
+        width: 100%;
+        margin-left: 0;
+    }
+}

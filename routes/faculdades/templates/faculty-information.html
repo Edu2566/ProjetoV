@@ -23,7 +23,7 @@
             <div id="faculty-name"><p>{{ faculty.nome_faculdade }}</p><i class="fa-regular fa-bell"></i></div>
         </div>
         <div id="course-list">
-            <p id="course-title">Cursos dessa Instituição</p>
+            <p class="list-title">Cursos dessa Instituição</p>
             <ul>
                 {% for curso in faculty.cursos %}
                     <li>{{ curso }}</li>
@@ -33,17 +33,59 @@
             </ul>
         </div>
         <div id="exams-list">
-            Provas
+            <p class="list-title">Provas e Editais</p>
+            <div id="ul-container">
+                <ul>
+                    <li>
+                        <button class="expand-button">2024</button>
+                        <ul class="nested-list">
+                            <li>Edital 2024 - 1º Semestre</li>
+                            <li>Edital 2024 - 2º Semestre</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="expand-button">2023</button>
+                        <ul class="nested-list">
+                            <li>Edital 2023 - 1º Semestre</li>
+                            <li>Edital 2023 - 2º Semestre</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <a id="return-button" href="#">Voltar à Página Anterior</a>
         </div>
         <div id="info-list">
-            Info
+            <div class="info-block">
+                <p class="info-block-title">Período de Inscrição</p>
+                <p class="info-block-content"></p>
+            </div>
+            <div class="info-block">
+                <p class="info-block-title">Período de Pedido de Isenção</p>
+                <p class="info-block-content"></p>
+            </div>
+            <div class="info-block">
+                <p class="info-block-title">Divulgação dos Resultados</p>
+                <p class="info-block-content"></p>
+            </div>
+            <div class="info-block">
+                <p class="info-block-title">Página Oficial da Instituição</p>
+                <a class="info-block-content" href="#">Clique Aqui e Saiba Mais!</a>
+            </div>
         </div>
         <div id="location-list">
-            Local
+            <p class="list-title">Localizações dessa Instituição</p>
+            <ul>
+                {% for curso in faculty.cursos %}
+                    <li>{{ curso }}</li>
+                {% else %}
+                    <li>Nenhum curso disponível</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock %}
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='/js/slider/notification-button.js') }}"></script> 
+<script src="{{ url_for('static', filename='/js/slider/list-action.js') }}"></script> 
 {% endblock %}

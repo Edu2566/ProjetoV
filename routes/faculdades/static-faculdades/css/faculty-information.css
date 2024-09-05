@@ -19,7 +19,7 @@
     width: 100%; /* Garantir que ocupe toda a largura disponível */
 }
 
-#course-list {
+#course-list, #location-list{
     grid-area: course; /* Posicionar no topo central */
     display: flex;
     flex-direction: column;
@@ -29,7 +29,7 @@
     border: 2px solid #0CC0DF;
 }
 
-#course-title {
+.list-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,10 +37,10 @@
     border-bottom: 2px solid #0CC0DF;
     width: 90%;
     text-align: center;
-    height: 10%;
+    height: 4.5vh;
 }
 
-#course-list ul {
+#course-list ul, #location-list ul {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,13 +49,18 @@
     height: 90%;
     width: 100%;
     text-align: center;
+    overflow-y: auto;
 }
 
-#course-list li {
+#course-list li, #location-list li{
     border-radius: 5px;
     margin: 2px;
     background-color: #0A94AD;
     width: 80%;
+}
+
+#location-list {
+    grid-area: location; /* Posicionar na segunda linha, ao lado do course-list e abaixo do header */
 }
 
 #exams-list {
@@ -64,19 +69,112 @@
     height: auto; /* Ajustar a altura com base no conteúdo */
     border: 1px solid black;
     width: 100%; /* Garantir que ocupe toda a largura disponível */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #0CC0DF;
 }
+
+#ul-container {
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    overflow-y: auto;
+}
+
+#ul-container ul{
+    list-style: none;
+    width: inherit;
+    height: 10%;
+}
+
+#ul-container li {
+    margin: 5px 0;
+}
+
+/* Estilo para o botão expansível */
+.expand-button {
+    background-color: #0A94AD;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.expand-button:hover {
+    background-color: #0CC0DF;
+}
+
+/* Esconder a lista suspensa inicialmente */
+.nested-list {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+}
+
+.nested-list li {
+    background-color: #F5F5F5;
+    padding: 5px;
+    margin: 2px 0;
+    border-radius: 5px;
+}
+
+
+#return-button {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background-color: #0A94AD;
+    color: #F5F5F5;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#return-button:hover {
+    background-color: #0CC0DF;
+}
+
 
 #info-list {
     grid-area: info-list; /* Posicionar abaixo do header */
     width: 100%; /* Garantir que ocupe toda a largura disponível */
-    border: 1px solid black;
-    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Define duas colunas de largura igual */
+    grid-template-rows: repeat(2, auto);   /* Define duas linhas com altura automática */
+    gap: 5px; /* Espaçamento entre os itens do grid */
 }
 
-#location-list {
-    grid-area: location; /* Posicionar na segunda linha, ao lado do course-list e abaixo do header */
-    width: 100%; /* Garantir que ocupe toda a largura disponível */
-    border: 1px solid black;
+.info-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #0CC0DF;
+    border-radius: 5px;
+}
+
+.info-block-title {
+    border-bottom: 2px solid black;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: auto;
+}
+
+.info-block-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 1px;
+    color: black;
 }
 
 /* Estilos adicionais mantidos do código anterior */
@@ -115,35 +213,40 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     #faculty-content {
-        grid-template-columns: 1fr; /* Transformar em uma coluna */
-        grid-template-rows: auto auto auto auto auto; /* Altura automática baseada no conteúdo */
+        grid-template-columns: 1fr; /* Uma única coluna */
+        grid-template-rows: auto auto auto auto auto; /* Altura automática para todos os itens */
         grid-template-areas:
             "header"
             "info-list"
+            "exams"
             "course"
-            "location"
-            "exams"; /* Empilhar os elementos verticalmente */
-        overflow: auto; /* Permitir rolagem vertical se necessário */
-        height: auto; /* Ajustar a altura com base no conteúdo */
+            "location"; /* Posicionar o exams-list abaixo de location */
+        overflow: auto; /* Permitir rolagem se necessário */
+        height: auto; /* Ajustar a altura ao conteúdo */
     }
     
-    /* Ajuste de altura dos elementos se necessário */
-    #faculty-header {
-        display: flex;
-        flex-direction: column; /* Organizar verticalmente os filhos */
-        height: auto;
-    }
-    
-    #course-list, #location-list, #exams-list {
+    #faculty-header,
+    #course-list,
+    #location-list,
+    #exams-list {
         height: auto; /* Permitir que os elementos cresçam conforme o conteúdo */
     }
 
     #exams-list {
+        margin-top: 10px; /* Adicionar espaçamento se necessário */
+        grid-row: auto; /* Remover ocupação de duas linhas */
+    }
+
+    #return-button {
         display: none;
     }
-    #faculty-image, #faculty-name, #faculty-image img {
+    
+    #faculty-image,
+    #faculty-name,
+    #faculty-image img {
         height: auto;
     }
 }
+

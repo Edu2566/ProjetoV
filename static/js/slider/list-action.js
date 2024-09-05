@@ -1,12 +1,16 @@
-document.getElementById('tipo-busca').addEventListener('change', function() {
-    var selectedValue = this.value;
-    var lists = document.querySelectorAll('.faculdades-column');
+document.addEventListener("DOMContentLoaded", function() {
+    var expandButtons = document.querySelectorAll(".expand-button");
 
-    lists.forEach(function(list) {
-        if (list.getAttribute('data-type') === selectedValue) {
-            list.style.display = 'grid';
-        } else {
-            list.style.display = 'none';
-        }
+    expandButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            var nestedList = this.nextElementSibling;
+
+            // Alterna a exibição da lista suspensa
+            if (nestedList.style.display === "block") {
+                nestedList.style.display = "none";
+            } else {
+                nestedList.style.display = "block";
+            }
+        });
     });
 });
