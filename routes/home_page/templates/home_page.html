@@ -146,18 +146,18 @@
         </div>
         <div id="list-container" class="all-information">
             <div class="information-column" data-type="colleges">
-                {% if faculty_api_data %}
-                    {% for college in faculty_api_data %}
-                        <p><a href="#">{{ college['nome_faculdade'] }}</a></p>
+                {% if college_api_data %}
+                    {% for college in college_api_data %}
+                        <p><a href="#">{{ college['college_name'] }}</a></p>
                     {% endfor %}
                 {% else %}
                     <li>Nenhuma faculdade disponível</li>
                 {% endif %}
             </div>
             <div class="information-column" data-type="courses" style="display: none;">
-                {% if faculty_api_data %}
-                    {% for course in faculty_api_data %}
-                        <p><a href="#">{{ course['nome_curso'] }}</a></p>
+                {% if college_api_data %}
+                    {% for course in college_api_data %}
+                        <p><a href="#">{{ course['course_name'] }}</a></p>
                     {% endfor %}
                 {% else %}
                     <li>Nenhum curso disponível</li>

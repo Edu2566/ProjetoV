@@ -1,6 +1,6 @@
 # home_page.py
 from flask import Blueprint, render_template
-from api.get_vestibulloby_api import CollegeAPI  # Certifique-se de que o caminho está correto
+from api.get_vestibulloby_api import CollegeAPI
 
 # Inicializando a API
 college_api_instance = CollegeAPI()

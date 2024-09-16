@@ -1,6 +1,5 @@
-document.querySelectorAll('.swiper-slide .fa-bell').forEach(function(icon) {
+document.querySelectorAll('.fa-bell').forEach(function(icon) {
     icon.addEventListener('click', function(event) {
-        event.stopPropagation(); // Impede a propagação do evento para o elemento pai e o link
 
         if (this.classList.contains('fa-solid')) {
             this.classList.remove('fa-solid');
@@ -11,3 +10,4 @@ document.querySelectorAll('.swiper-slide .fa-bell').forEach(function(icon) {
         }
     });
 });
+

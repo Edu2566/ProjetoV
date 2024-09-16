@@ -1,31 +1,31 @@
 #college-content {
     display: grid;
-    grid-template-columns: 40% 30% 30%; /* Três colunas: esquerda, meio e direita */
-    grid-template-rows: 50% 50%; /* Duas linhas: uma para o header e outra para os outros conteúdos */
+    grid-template-columns: 40% 30% 30%;
+    grid-template-rows: 50% 50%;
     grid-template-areas: 
         "header course exams"
-        "info-list location exams"; /* info-list e exams-list ocupam a segunda linha */
-    height: 100vh; /* Ocupar a altura total da página */
-    gap: 5px; /* Espaçamento entre os elementos */
-    overflow: hidden; /* Ocultar rolagem para layout desktop */
+        "info-list location exams";
+    height: 100vh;
+    gap: 5px;
+    overflow: hidden;
     padding: 15px;
 }
 
 #college-header {
-    grid-area: header; /* Posicionar no topo esquerdo */
+    grid-area: header;
     display: flex;
-    flex-direction: column; /* Organizar verticalmente os filhos */
-    height: auto; /* Ajustar a altura com base no conteúdo */
-    width: 100%; /* Garantir que ocupe toda a largura disponível */
+    flex-direction: column;
+    height: auto;
+    width: 100%;
 }
 
 #course-list, #location-list{
-    grid-area: course; /* Posicionar no topo central */
+    grid-area: course;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: auto; /* Ajustar a altura com base no conteúdo */
-    width: 100%; /* Garantir que ocupe toda a largura disponível */
+    height: auto;
+    width: 100%;
     border: 2px solid #0CC0DF;
 }
 
@@ -59,15 +59,27 @@
     width: 80%;
 }
 
+#course-list li, #location-list li{
+    border-radius: 5px;
+    margin: 2px;
+    background-color: #0A94AD;
+    width: 80%;
+    cursor: pointer;
+}
+
+#course-list li:hover, #location-list li:hover{
+    background-color: #0CC0DF;
+}
+
 #location-list {
-    grid-area: location; /* Posicionar na segunda linha, ao lado do course-list e abaixo do header */
+    grid-area: location;
 }
 
 #exams-list {
-    grid-area: exams; /* Posicionar na coluna da direita */
-    grid-row: 1 / span 2; /* Ocupa as duas linhas do grid */
-    height: auto; /* Ajustar a altura com base no conteúdo */
-    width: 100%; /* Garantir que ocupe toda a largura disponível */
+    grid-area: exams;
+    grid-row: 1 / span 2;
+    height: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,7 +104,6 @@
     margin: 5px 0;
 }
 
-/* Estilo para o botão expansível */
 .expand-button {
     background-color: #0A94AD;
     color: white;
@@ -109,7 +120,6 @@
     background-color: #0CC0DF;
 }
 
-/* Esconder a lista suspensa inicialmente */
 .nested-list {
     display: none;
     list-style: none;
@@ -122,7 +132,6 @@
     margin: 2px 0;
     border-radius: 5px;
 }
-
 
 #return-button {
     height: auto;
@@ -139,14 +148,13 @@
     background-color: #0CC0DF;
 }
 
-
 #info-list {
-    grid-area: info-list; /* Posicionar abaixo do header */
-    width: 100%; /* Garantir que ocupe toda a largura disponível */
+    grid-area: info-list;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Define duas colunas de largura igual */
-    grid-template-rows: repeat(2, auto);   /* Define duas linhas com altura automática */
-    gap: 5px; /* Espaçamento entre os itens do grid */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 5px;
 }
 
 .info-block {
@@ -177,7 +185,6 @@
     color: black;
 }
 
-/* Estilos adicionais mantidos do código anterior */
 #college-image {
     display: flex;
     justify-content: center;
@@ -185,7 +192,7 @@
     margin: 1% 1% 0 1%;
     border-radius: 5px;
     background-color: #F5F5F5;
-    height: 80%; /* Ajustar a altura com base no conteúdo */
+    height: 80%;
 }
 
 #college-image img {
@@ -200,7 +207,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 1% 0 1%;
-    height: 20%; /* Ajustar a altura com base no conteúdo */
+    height: 20%;
     font-size: 30px;
     color: #0A94AD;
 }
@@ -215,28 +222,28 @@
 
 @media (max-width: 900px) {
     #college-content {
-        grid-template-columns: 1fr; /* Uma única coluna */
-        grid-template-rows: auto auto auto auto auto; /* Altura automática para todos os itens */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
         grid-template-areas:
             "header"
             "info-list"
             "exams"
             "course"
-            "location"; /* Posicionar o exams-list abaixo de location */
-        overflow-y: auto; /* Permitir rolagem se necessário */
-        height: auto; /* Ajustar a altura ao conteúdo */
+            "location";
+        overflow-y: auto;
+        height: auto;
     }
     
     #college-header,
     #course-list,
     #location-list,
     #exams-list {
-        height: auto; /* Permitir que os elementos cresçam conforme o conteúdo */
+        height: auto;
     }
 
     #exams-list {
-        margin-top: 10px; /* Adicionar espaçamento se necessário */
-        grid-row: auto; /* Remover ocupação de duas linhas */
+        margin-top: 10px;
+        grid-row: auto;
     }
 
     #return-button {
@@ -249,4 +256,3 @@
         height: auto;
     }
 }
-

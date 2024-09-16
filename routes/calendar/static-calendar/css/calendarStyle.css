@@ -68,7 +68,7 @@
 .noday {
     user-select: none;
     cursor: default;
-    background-color: #f0f0f0; /* Cor diferente para células vazias */
+    background-color: #f0f0f0; 
 }
 
 .day {
