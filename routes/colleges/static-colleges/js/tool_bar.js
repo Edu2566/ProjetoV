@@ -241,7 +241,7 @@ const editorConfig = {
 	menuBar: {
 		isVisible: true
 	},
-	placeholder: 'Type or paste your content here!',
+	placeholder: 'Faça suas anotações sobre a Prova aqui!',
 	table: {
 		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
 	},
