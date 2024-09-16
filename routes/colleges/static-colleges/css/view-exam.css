@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 #view-exam-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Divide a largura em 2 partes: 50% para o PDF e 50% para o restante */
@@ -70,8 +72,14 @@
 	font-family: 'Lato';
 	line-height: 1.6;
 	word-break: break-word;
+    min-height: 72vh;
     max-height: 72vh;
-    min-width: 100%;
+    max-width: 100%;
+}
+
+.ck-content ul, .ck-content ol {
+    margin-left: 1.5vh; /* Ajusta a margem para garantir que a lista não saia do contêiner */
+    padding-left: 1.5vh; /* Adiciona padding para os marcadores não ficarem colados à borda */
 }
 
 .editor-container_classic-editor .editor-container__editor {

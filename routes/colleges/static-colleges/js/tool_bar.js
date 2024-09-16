@@ -3,30 +3,35 @@ import {
 	AccessibilityHelp,
 	Alignment,
 	Autoformat,
+	AutoImage,
 	Autosave,
 	BlockQuote,
 	Bold,
-	Code,
+	CloudServices,
 	Essentials,
 	FindAndReplace,
 	FontBackgroundColor,
 	FontColor,
 	FontFamily,
 	FontSize,
-	GeneralHtmlSupport,
 	Heading,
-	Highlight,
 	ImageBlock,
+	ImageCaption,
 	ImageInline,
+	ImageInsertViaUrl,
 	ImageResize,
+	ImageStyle,
+	ImageTextAlternative,
 	ImageToolbar,
+	ImageUpload,
 	Indent,
 	IndentBlock,
 	Italic,
 	Link,
+	LinkImage,
 	List,
 	ListProperties,
-	Mention,
+	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
 	RemoveFormat,
@@ -38,7 +43,6 @@ import {
 	SpecialCharactersLatin,
 	SpecialCharactersMathematical,
 	SpecialCharactersText,
-	Strikethrough,
 	Subscript,
 	Superscript,
 	Table,
@@ -74,7 +78,6 @@ const editorConfig = {
 			'|',
 			'link',
 			'insertTable',
-			'highlight',
 			'blockQuote',
 			'|',
 			'alignment',
@@ -91,30 +94,35 @@ const editorConfig = {
 		AccessibilityHelp,
 		Alignment,
 		Autoformat,
+		AutoImage,
 		Autosave,
 		BlockQuote,
 		Bold,
-		Code,
+		CloudServices,
 		Essentials,
 		FindAndReplace,
 		FontBackgroundColor,
 		FontColor,
 		FontFamily,
 		FontSize,
-		GeneralHtmlSupport,
 		Heading,
-		Highlight,
 		ImageBlock,
+		ImageCaption,
 		ImageInline,
+		ImageInsertViaUrl,
 		ImageResize,
+		ImageStyle,
+		ImageTextAlternative,
 		ImageToolbar,
+		ImageUpload,
 		Indent,
 		IndentBlock,
 		Italic,
 		Link,
+		LinkImage,
 		List,
 		ListProperties,
-		Mention,
+		MediaEmbed,
 		Paragraph,
 		PasteFromOffice,
 		RemoveFormat,
@@ -126,7 +134,6 @@ const editorConfig = {
 		SpecialCharactersLatin,
 		SpecialCharactersMathematical,
 		SpecialCharactersText,
-		Strikethrough,
 		Subscript,
 		Superscript,
 		Table,
@@ -192,18 +199,17 @@ const editorConfig = {
 			}
 		]
 	},
-	htmlSupport: {
-		allow: [
-			{
-				name: /^.*$/,
-				styles: true,
-				attributes: true,
-				classes: true
-			}
-		]
-	},
 	image: {
-		toolbar: ['imageTextAlternative', '|', 'resizeImage']
+		toolbar: [
+			'toggleImageCaption',
+			'imageTextAlternative',
+			'|',
+			'imageStyle:inline',
+			'imageStyle:wrapText',
+			'imageStyle:breakText',
+			'|',
+			'resizeImage'
+		]
 	},
 	initialData:
 		'',
@@ -228,20 +234,10 @@ const editorConfig = {
 			reversed: true
 		}
 	},
-	mention: {
-		feeds: [
-			{
-				marker: '@',
-				feed: [
-					/* See: https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html */
-				]
-			}
-		]
-	},
 	menuBar: {
 		isVisible: true
 	},
-	placeholder: 'Faça suas anotações sobre a Prova aqui!',
+	placeholder: 'Com este caderno você pode fazer anotações sobre a prova e se desafiar a fazer as questões comparando com o Gabarito!',
 	table: {
 		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
 	},
