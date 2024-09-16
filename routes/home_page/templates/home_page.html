@@ -1,105 +1,45 @@
 {% extends "sideheader.html" %}
 
-    {% block stylepage %}
-    <link rel="stylesheet" href="{{ url_for('home-page.static', filename='/css/homeStyle.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
-    {% endblock %}
+{% block stylepage %}
+    <link rel="stylesheet" href="{{ url_for('home-page.static', filename='css/homeStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/swiper/slideStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/list-action/styleList.css') }}">
+{% endblock %}
 
-    {% block titlepage %}Vestibulobby - Início{% endblock %}
-    
-    {% block classactiveinicio %}active{% endblock %}
+{% block titlepage %}Vestibulobby - Início{% endblock %}
 
-    {% block mainclass %}open-state{% endblock %}
-    {% block mainid %}home_main{% endblock %}
-    {% block main %}
-      <div class="container swiper">
-         <p>Insenções de Taxa de Inscrição Próximas:</p>
-         <div class="slide-container">
-            <div class="card-wrapper swiper-wrapper">
-               <a class="card swiper-slide" href="{{url_for('colleges.college_information', college_id=1)}}">
-                  <div class="image-box">
-                     <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
-                  </div>
-                  <div class="profile-details">
-                     <i class="fa-regular fa-bell"></i>
-                     <div class="name-job">
-                        <h3 class="name">Fatec</h3>
-                        <h4 class="job">DD/MM/YEAR</h4>
-                     </div>
-                  </div>
-               </a>
-                  <div class="card swiper-slide">
-                  <div class="image-box">
-                     <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
-                  </div>
-                  <div class="profile-details">
-                     <i class="fa-regular fa-bell"></i>
-                     <div class="name-job">
-                        <h3 class="name">Instituição</h3>
-                        <h4 class="job">DD/MM/YEAR</h4>
-                     </div>
-                  </div>
-               </div>
-               <div class="card swiper-slide">
-                  <div class="image-box">
-                     <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
-                  </div>
-                  <div class="profile-details">
-                     <i class="fa-regular fa-bell"></i>
-                     <div class="name-job">
-                        <h3 class="name">Instituição</h3>
-                        <h4 class="job">DD/MM/YEAR</h4>
-                     </div>
-                  </div>
-               </div>
-               <div class="card swiper-slide">
-                  <div class="image-box">
-                     <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
-                  </div>
-                  <div class="profile-details">
-                     <i class="fa-regular fa-bell"></i>
-                     <div class="name-job">
-                        <h3 class="name">Instituição</h3>
-                        <h4 class="job">DD/MM/YEAR</h4>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="swiper-button-next button-next1"></div>
-         <div class="swiper-button-prev button-prev1"></div>
-         <div class="swiper-pagination pagination1"></div>
-       </div>
-       <!-- Adicionando um segundo swiper embaixo do primeiro -->
-      <div class="container swiper">
-         <p>Inscrições Próximas:</p>
-         <div class="slide-container2">
+{% block classactiveinicio %}active{% endblock %}
+
+{% block mainclass %}open-state{% endblock %}
+{% block mainid %}home_main{% endblock %}
+{% block main %}
+   <div class="container swiper">
+      <p>Insenções de Taxa de Inscrição Próximas:</p>
+      <div class="slide-container">
          <div class="card-wrapper swiper-wrapper">
-            <!-- cards do segundo swiper -->
-            <div class="card swiper-slide">
+            <a class="card swiper-slide" href="{{url_for('colleges.college_information', college_id=101)}}">
                <div class="image-box">
-               <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
+                  <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
                </div>
                <div class="profile-details">
-               <i class="fa-regular fa-bell"></i>
-               <div class="name-job">
-                  <h3 class="name">Instituição</h3>
-                  <h4 class="job">DD/MM/YEAR</h4>
+                  <i class="fa-regular fa-bell"></i>
+                  <div class="name-job">
+                     <h3 class="name">Fatec</h3>
+                     <h4 class="job">DD/MM/YEAR</h4>
+                  </div>
                </div>
-               </div>
-            </div>
-            <div class="card swiper-slide">
+            </a>
+               <div class="card swiper-slide">
                <div class="image-box">
-               <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
+                  <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
                </div>
                <div class="profile-details">
-               <i class="fa-regular fa-bell"></i>
-               <div class="name-job">
-                  <h3 class="name">Instituição</h3>
-                  <h4 class="job">DD/MM/YEAR</h4>
-               </div>
+                  <i class="fa-regular fa-bell"></i>
+                  <div class="name-job">
+                     <h3 class="name">Instituição</h3>
+                     <h4 class="job">DD/MM/YEAR</h4>
+                  </div>
                </div>
             </div>
             <div class="card swiper-slide">
@@ -116,58 +56,120 @@
             </div>
             <div class="card swiper-slide">
                <div class="image-box">
-                  <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
+                  <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
                </div>
                <div class="profile-details">
                   <i class="fa-regular fa-bell"></i>
                   <div class="name-job">
-                     <h3 class="name">Fatec</h3>
+                     <h3 class="name">Instituição</h3>
                      <h4 class="job">DD/MM/YEAR</h4>
                   </div>
                </div>
             </div>
-            <!-- adicione mais cards aqui -->
-         </div>
-         <div class="swiper-button-next button-next2"></div>
-         <div class="swiper-button-prev button-prev2"></div>
-         <div class="swiper-pagination pagination2"></div>
          </div>
       </div>
-      <div class="all-content">
-         <p>Veja Todo o Nosso Conteúdo</p>
-         <div class="search-space">
-         <span><select name="search-type" id="search-type">
-            <option value="colleges" selected>Faculdades</option>
-            <option value="courses">Cursos</option>
-         </select></span>
-      </div>
-      <div id="list-container" class="all-information">
-         <div class="information-column" data-type="colleges">
-            {% if faculty_api_data.faculdades %}
-               {% for faculdade in faculty_api_data.faculdades %}
-                  <p><a href="#">{{ faculdade['nome_faculdade'] }}</a></p>
-               {% endfor %}
-            {% else %}
-               <li>Nenhuma faculdade disponível</li>
-            {% endif %}
+      <div class="swiper-button-next button-next1"></div>
+      <div class="swiper-button-prev button-prev1"></div>
+      <div class="swiper-pagination pagination1"></div>
+   </div>
+   <!-- Adicionando um segundo swiper embaixo do primeiro -->
+   <div class="container swiper">
+      <p>Inscrições Próximas:</p>
+      <div class="slide-container2">
+      <div class="card-wrapper swiper-wrapper">
+         <!-- cards do segundo swiper -->
+         <div class="card swiper-slide">
+            <div class="image-box">
+            <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
+            </div>
+            <div class="profile-details">
+            <i class="fa-regular fa-bell"></i>
+            <div class="name-job">
+               <h3 class="name">Instituição</h3>
+               <h4 class="job">DD/MM/YEAR</h4>
+            </div>
+            </div>
          </div>
-         <div class="information-column" data-type="courses" style="display: none;">
-            {% if faculty_api_data.cursos %}
-               {% for curso in faculty_api_data.cursos %}
-                  <p><a href="#">{{ curso['nome_curso'] }}</a></p>
-               {% endfor %}
-            {% else %}
-               <li>Nenhum curso disponível</li>
-            {% endif %}
+         <div class="card swiper-slide">
+            <div class="image-box">
+            <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
+            </div>
+            <div class="profile-details">
+            <i class="fa-regular fa-bell"></i>
+            <div class="name-job">
+               <h3 class="name">Instituição</h3>
+               <h4 class="job">DD/MM/YEAR</h4>
+            </div>
+            </div>
          </div>
+         <div class="card swiper-slide">
+            <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
+            </div>
+            <div class="profile-details">
+               <i class="fa-regular fa-bell"></i>
+               <div class="name-job">
+                  <h3 class="name">Instituição</h3>
+                  <h4 class="job">DD/MM/YEAR</h4>
+               </div>
+            </div>
+         </div>
+         <div class="card swiper-slide">
+            <div class="image-box">
+               <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
+            </div>
+            <div class="profile-details">
+               <i class="fa-regular fa-bell"></i>
+               <div class="name-job">
+                  <h3 class="name">Fatec</h3>
+                  <h4 class="job">DD/MM/YEAR</h4>
+               </div>
+            </div>
+         </div>
+         <!-- adicione mais cards aqui -->
       </div>
-    {% endblock %}
-
-    {% block scripts %}
-      <script src="{{ url_for('static', filename='/js/slider/swiper-bundle.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='/js/slider/slider-animation.js') }}"></script>
-      <script src="{{ url_for('static', filename='/js/slider/list-action.js') }}"></script>
-      <script src="{{ url_for('static', filename='/js/slider/notification-button.js') }}"></script>
-    {% endblock %}
+      <div class="swiper-button-next button-next2"></div>
+      <div class="swiper-button-prev button-prev2"></div>
+      <div class="swiper-pagination pagination2"></div>
+      </div>
+   </div>
     
+    <div class="all-content">
+        <p>Veja Todo o Nosso Conteúdo</p>
+        <div class="search-space">
+            <span>
+                <select name="search-type" id="search-type">
+                    <option value="colleges" selected>Faculdades</option>
+                    <option value="courses">Cursos</option>
+                </select>
+            </span>
+        </div>
+        <div id="list-container" class="all-information">
+            <div class="information-column" data-type="colleges">
+                {% if faculty_api_data %}
+                    {% for college in faculty_api_data %}
+                        <p><a href="#">{{ college['nome_faculdade'] }}</a></p>
+                    {% endfor %}
+                {% else %}
+                    <li>Nenhuma faculdade disponível</li>
+                {% endif %}
+            </div>
+            <div class="information-column" data-type="courses" style="display: none;">
+                {% if faculty_api_data %}
+                    {% for course in faculty_api_data %}
+                        <p><a href="#">{{ course['nome_curso'] }}</a></p>
+                    {% endfor %}
+                {% else %}
+                    <li>Nenhum curso disponível</li>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/slider/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/slider/slider-animation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/slider/list-action.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/slider/notification-button.js') }}"></script>
+{% endblock %}

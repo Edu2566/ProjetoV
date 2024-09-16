@@ -1,10 +1,11 @@
 {% extends "sideheader.html" %}
 
 {% block stylepage %}
-    <link rel="stylesheet" href="{{ url_for('provas.static', filename='/css/view-exam.css') }}">
+    <link rel="stylesheet" href="{{ url_for('colleges.static', filename='/css/view-exam.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.css">
 {% endblock %}
 
 {% block titlepage %}Vestibulobby - Vestibular{% endblock %}
@@ -16,11 +17,29 @@
 
 {% block main %}
     <div id="view-exam-container">
-        <iframe id="pdfViewer" src="{{ url_for('provas.pdf') }}" width="50%" height="100%"></iframe>
+        <iframe id="pdfViewer" src="{{ pdf_url }}"></iframe>
         <div id="button-header">
             <button class="button-header">Visualizar Gabarito</button>
-            <button class="button-header">Abrir Caderno</button>
         </div>
+        <div id="notebook-content">
+            <div>
+                <div class="main-container">
+                    <div class="editor-container editor-container_classic-editor" id="editor-container">
+                        <div class="editor-container__editor"><div id="editor"></div></div>
+                    </div>
+                </div>
+            </div>
     </div>
+{% endblock %}
 
+{% block scripts %}
+    <script type="importmap">
+        {
+            "imports": {
+                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.js",
+                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.1.0/"
+            }
+        }
+    </script>
+<script type="module" src="{{ url_for('colleges.static', filename='js/tool_bar.js') }}"></script>
 {% endblock %}

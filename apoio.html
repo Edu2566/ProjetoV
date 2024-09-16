@@ -18,7 +18,7 @@
     <div id="college-content">
         <div id="college-header">
             <div id="college-image">
-                <img src="{{ college['college']['image_url'] }}">
+                <img src="{{ college['college']['image_url'] }}" alt="Imagem da Faculdade">
             </div>
             <div id="college-name">
                 <p>{{ college['college']['college_name'] }}</p>
@@ -46,7 +46,7 @@
                                 <ul class="nested-list" id="exams-{{ year }}" style="display: none;">
                                     {% for exam in exams %}
                                         <li>
-                                            <a href="{{ url_for('colleges.view_exam', exam_id=exam['exam_id']) }}">{{ exam['exam_name'] }}</a>
+                                            <a href="#" target="_blank">{{ exam['exam_name'] }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -76,7 +76,7 @@
             </div>
             <div class="info-block">
                 <p class="info-block-title">Página Oficial da Instituição</p>
-                <a class="info-block-content" href="{{ college['college']['college_pg'] }}" target="_blank">Clique Aqui e Saiba Mais!</a>
+                <a class="info-block-content" href="{{ college['college']['official_page_url'] }}">Clique Aqui e Saiba Mais!</a>
             </div>
         </div>
         <div id="location-list">

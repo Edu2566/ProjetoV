@@ -1,0 +1,122 @@
+#view-exam-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide a largura em 2 partes: 50% para o PDF e 50% para o restante */
+    grid-template-rows: auto 1fr; /* A primeira linha será o botão (6%), e o restante será o conteúdo AI */
+    height: 100vh; /* Garantir que ocupe toda a altura da tela */
+}
+
+#pdfViewer {
+    grid-row: 1 / 3; /* O PDF ocupa as duas linhas no lado esquerdo */
+    grid-column: 1; /* Fica na primeira coluna */
+    width: 100%; /* O iframe ocupa 100% da área disponível na coluna */
+    height: 100%; /* O iframe ocupa 100% da altura da área */
+    border: none;
+}
+
+#button-header {
+    grid-row: 1; /* O botão ocupa a primeira linha no lado direito */
+    grid-column: 2; /* O botão fica na segunda coluna */
+    display: flex;
+    justify-content: flex-start; /* Alinha o botão à direita */
+    padding: 1%; /* Adiciona espaçamento */
+}
+
+#notebook-content {
+    grid-row: 2; /* Ocupa a segunda linha */
+    grid-column: 2; /* Ocupa a segunda coluna */
+    padding: 1%; /* Ajuste o padding se necessário */
+    overflow-y: auto; /* Permite rolagem vertical */
+    max-width: 100%; /* Garante que a largura não exceda o contêiner */
+    max-height: 100%; /* Garante que a altura não exceda o contêiner */
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura */
+}
+
+.button-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2vh;
+    width: 25%;
+    border: none;
+    border-radius: 2px;
+    background-color: #0CC0DF;
+    color: white;
+    cursor: pointer;
+}
+
+.button-header:hover {
+    background-color: #0097b2;
+}
+
+@media print {
+	body {
+		margin: 0 !important;
+	}
+}
+
+.main-container {
+	font-family: 'Lato';
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+    max-height: 100%;
+    border: 2px solid black;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.ck-content {
+	font-family: 'Lato';
+	line-height: 1.6;
+	word-break: break-word;
+    max-height: 72vh;
+    min-width: 100%;
+}
+
+.editor-container_classic-editor .editor-container__editor {
+	max-width: 100%;
+    min-width: 100%;
+    max-height: 85vh;
+}
+
+#footer {
+    display: none;
+}
+
+/* Estilo para dispositivos móveis */
+@media (max-width: 768px) {
+    #view-exam-container {
+        grid-template-columns: 1fr; /* Apenas uma coluna */
+        grid-template-rows: auto auto auto; /* Três linhas: botão, PDF, caderno */
+        height: auto; /* Ajusta a altura ao conteúdo */
+    }
+
+    #pdfViewer {
+        grid-row: 2; /* O PDF vai para a segunda linha */
+        grid-column: 1; /* Fica na única coluna disponível */
+        height: 80vh;
+    }
+
+    #button-header {
+        grid-row: 1; /* O botão vai para a primeira linha */
+        grid-column: 1; /* Fica na única coluna disponível */
+        width: 100%; /* Ajusta a largura para 100% */
+        justify-content: center; /* Centraliza o botão */
+    }
+
+    #notebook-content {
+        grid-row: 3; /* O caderno vai para a terceira linha */
+        grid-column: 1; /* Fica na única coluna disponível */
+        padding: 1%; /* Mantém o padding */
+        overflow-y: auto; /* Permite rolagem vertical */
+        max-width: 100%; /* Garante que a largura não exceda o contêiner */
+        max-height: 100%; /* Garante que a altura não exceda o contêiner */
+    }
+
+    .main-container {
+        max-width: 100%; /* Garante que a largura não exceda o contêiner */
+        max-height: 100%; /* Garante que a altura não exceda o contêiner */
+    }
+}
+

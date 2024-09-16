@@ -1,61 +1,95 @@
 import requests
 
-def get_vestibulloby_api_id(faculty_id):
-    # Faz a requisição para obter os dados da faculdade
-    url_faculty = "https://c3e1bccd-e40f-4642-a5e0-6b45d108af4b-00-3g9s82kxsdncm.picard.replit.dev/"
-    response_faculty = requests.get(url_faculty)
-    
-    if response_faculty.status_code != 200:
-        return None, "Erro ao buscar dados da faculdade", 500
-    
-    faculty_data = response_faculty.json()
+class CollegeAPI:
+    def __init__(self):
+        self.api_base_url = 'https://c3e1bccd-e40f-4642-a5e0-6b45d108af4b-00-3g9s82kxsdncm.picard.replit.dev'
 
-    # Filtra a faculdade específica com base no ID
-    faculty = next((f for f in faculty_data if f["id_faculdade"] == faculty_id), None)
-    
-    if faculty is None:
-        return None, "Faculdade não encontrada", 404
+    def fetch_data(self, endpoint):
+        """Helper function to fetch data from the API."""
+        try:
+            response = requests.get(f"{self.api_base_url}/{endpoint}")
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            print(f"Error fetching data from {endpoint}: {e}")
+            return None
 
-    # Faz a requisição para obter os dados dos cursos
-    url_courses = "https://c3e1bccd-e40f-4642-a5e0-6b45d108af4b-00-3g9s82kxsdncm.picard.replit.dev/courses"
-    response_courses = requests.get(url_courses)
-    
-    if response_courses.status_code != 200:
-        return None, "Erro ao buscar dados dos cursos", 500
-    
-    courses_data = response_courses.json()
+    def get_college_by_id(self, college_id):
+        # Fetch data from all relevant endpoints
+        college_data = self.fetch_data('')
+        courses_data = self.fetch_data('courses')
+        exams_data = self.fetch_data('exams')
+        information_data = self.fetch_data('information')
+        location_data = self.fetch_data('location')
 
-    # Filtra os cursos associados à faculdade
-    cursos = [course['nome_curso'] for course in courses_data if course['id_faculdade'] == faculty_id]
-    
-    # Adiciona a lista de cursos ao dicionário da faculdade
-    faculty['cursos'] = cursos
-    
-    return faculty, None, 200  # Retorna a faculdade, uma mensagem de erro (se houver), e o código de status
+        if college_data is None or courses_data is None or exams_data is None or information_data is None or location_data is None:
+            return {'error': 'Failed to fetch data from API'}
 
-def get_vestibulloby_api():
-    # Faz a requisição para obter os dados da faculdade
-    url_faculty = "https://c3e1bccd-e40f-4642-a5e0-6b45d108af4b-00-3g9s82kxsdncm.picard.replit.dev/"
-    response_faculty = requests.get(url_faculty)
-    
-    if response_faculty.status_code != 200:
-        return None  # Retorna None se houver um erro
-    
-    faculty_data = response_faculty.json()
-    
-    # Faz a requisição para obter os dados dos cursos
-    url_courses = "https://c3e1bccd-e40f-4642-a5e0-6b45d108af4b-00-3g9s82kxsdncm.picard.replit.dev/courses"
-    response_courses = requests.get(url_courses)
-    
-    if response_courses.status_code != 200:
-        return None  # Retorna None se houver um erro
-    
-    courses_data = response_courses.json()
-    
-    # Adiciona os cursos ao dicionário principal
-    faculty_api_data = {
-        "faculdades": faculty_data,
-        "cursos": courses_data
-    }
-    
-    return faculty_api_data  # Retorna o dicionário com faculdades e cursos
+        # Find the college information
+        college = next((item for item in college_data if item['college_id'] == college_id), None)
+
+        if not college:
+            return {'error': 'College not found'}
+
+        # Group exams by year
+        exams_by_year = {}
+        for exam in exams_data:
+            year = exam.get('exam_year')
+            if year not in exams_by_year:
+                exams_by_year[year] = []
+            exams_by_year[year].append(exam)
+
+        # Create a combined dictionary with all related information
+        result = {
+            'college': college,
+            'courses': [item for item in courses_data if item['college_id'] == college_id],
+            'exams': exams_by_year,
+            'information': [item for item in information_data if item['college_id'] == college_id],
+            'locations': [item for item in location_data if item['college_id'] == college_id],
+        }
+
+        return result
+
+    def get_all_colleges(self):
+        # Fetch data from the main endpoint
+        college_data = self.fetch_data('')
+
+        if college_data is None:
+            return {'error': 'Failed to fetch data from API'}
+
+        return college_data
+
+    def get_exam_by_id(self, exam_id):
+        # Fetch data from the exams endpoint
+        exams_data = self.fetch_data('exams')
+
+        if exams_data is None:
+            return {'error': 'Failed to fetch data from API'}
+
+        # Find the specific exam information
+        exam = next((item for item in exams_data if item['exam_id'] == exam_id), None)
+
+        if not exam:
+            return {'error': 'Exam not found'}
+
+        return exam
+
+if __name__ == "__main__":
+    api = CollegeAPI()
+    college_id = 101  # Example college ID
+
+    # Get information for a specific college
+    print("Getting information for college ID:", college_id)
+    college_info = api.get_college_by_id(college_id)
+    print(college_info)
+
+    # Get all colleges
+    print("\nGetting all colleges")
+    all_colleges = api.get_all_colleges()
+    print(all_colleges)
+
+    # Example exam ID
+    exam_id = 401
+    print(f"\nGetting exam details for exam ID: {exam_id}")
+    exam_info = api.get_exam_by_id(exam_id)
+    print(exam_info)

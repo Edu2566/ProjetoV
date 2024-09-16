@@ -1,33 +1,36 @@
-from flask import Blueprint, render_template, send_file
-from api.get_vestibulloby_api import get_vestibulloby_api_id, get_vestibulloby_api
+# colleges.py
+from flask import Blueprint, render_template, url_for
+from api.get_vestibulloby_api import CollegeAPI  # Importando a classe da nova API
+
+# Inicializando a API
+college_api_instance = CollegeAPI()
 
 colleges_blueprint = Blueprint('colleges', __name__, template_folder='templates', static_folder='static-colleges')
 
-@colleges_blueprint.route('/colleges')
-def colleges_menu():
-    college_api_data = get_vestibulloby_api()
-    
-    if college_api_data is None:
-        return "Erro ao buscar dados da faculdade", 500
-    
-    return render_template('colleges-menu.html', college_api_data=college_api_data)
-
-
 @colleges_blueprint.route('/colleges-information/<int:college_id>')
 def college_information(college_id):
-    # Faz a requisição para obter os dados da faculdade
-    college, error_message, status_code = get_vestibulloby_api_id(college_id)
+    # Faz a requisição para obter os dados da faculdade específica
+    college_data = college_api_instance.get_college_by_id(college_id)
     
-    if college is None:
-        return error_message, status_code
+    if 'error' in college_data:
+        return college_data['error'], 404
     
     # Renderiza o template passando os dados da faculdade específica
-    return render_template('colleges-information.html', college=college)
+    return render_template('colleges-information.html', college=college_data)
 
-@colleges_blueprint.route('/view-exam')
-def view_exam():
-    return render_template('view-exam.html')
+@colleges_blueprint.route('/view-exam/<int:exam_id>')
+def view_exam(exam_id):
+    # Obtenha os detalhes do exame a partir do ID
+    exam_data = college_api_instance.get_exam_by_id(exam_id)
+    
+    if 'error' in exam_data:
+        return exam_data['error'], 404
+    
+    # Verifica se o valor de 'exam_pdf' é uma URL completa ou apenas o nome do arquivo
+    pdf_url = exam_data["exam_pdf_url"]
 
-@colleges_blueprint.route('/pdf')
-def pdf():
-    return send_file('./pdf/Prova.pdf')
+    # Renderize o template passando a URL do PDF
+    return render_template('view-exam.html', pdf_url=pdf_url)
+
+
+

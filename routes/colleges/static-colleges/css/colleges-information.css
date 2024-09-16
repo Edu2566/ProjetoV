@@ -67,12 +67,10 @@
     grid-area: exams; /* Posicionar na coluna da direita */
     grid-row: 1 / span 2; /* Ocupa as duas linhas do grid */
     height: auto; /* Ajustar a altura com base no conteúdo */
-    border: 1px solid black;
     width: 100%; /* Garantir que ocupe toda a largura disponível */
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid #0CC0DF;
 }
 
 #ul-container {
@@ -80,6 +78,8 @@
     height: 100%;
     padding: 2px;
     overflow-y: auto;
+    border-bottom: 2px solid #0CC0DF;
+    margin-bottom: 2px;
 }
 
 #ul-container ul{
@@ -223,7 +223,7 @@
             "exams"
             "course"
             "location"; /* Posicionar o exams-list abaixo de location */
-        overflow: auto; /* Permitir rolagem se necessário */
+        overflow-y: auto; /* Permitir rolagem se necessário */
         height: auto; /* Ajustar a altura ao conteúdo */
     }
     
