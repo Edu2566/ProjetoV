@@ -17,7 +17,8 @@
 
 {% block main %}
     <div id="view-exam-container">
-        <iframe id="pdfViewer" src="{{ pdf_url }}"></iframe>
+        <iframe id="pdfViewer" src="{{ pdf_url }}" class="pdfViewer"></iframe>
+        <iframe id="templateViewer" src="{{ template_url }}" class="pdfViewer"></iframe>
         <div id="button-header">
             <button class="button-header">Visualizar Gabarito</button>
         </div>
@@ -29,6 +30,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 {% endblock %}
 
@@ -41,5 +43,6 @@
             }
         }
     </script>
-<script type="module" src="{{ url_for('colleges.static', filename='js/tool_bar.js') }}"></script>
+    <script type="module" src="{{ url_for('colleges.static', filename='js/tool_bar.js') }}"></script>
+    <script type="module" src="{{ url_for('colleges.static', filename='js/change_pdf.js') }}"></script>
 {% endblock %}

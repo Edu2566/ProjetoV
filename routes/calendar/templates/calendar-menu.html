@@ -1,8 +1,10 @@
 {% extends "sideheader.html" %}
 
-{% block stylepage %}<link rel="stylesheet" href="{{ url_for('calendar.static', filename='/css/calendarStyle.css') }}">{% endblock %}
+{% block stylepage %}
+<link rel="stylesheet" href="{{ url_for('calendar.static', filename='/css/calendarStyle.css') }}">
+{% endblock %}
 
-{% block titlepage %}Vestibulobby - Calendario{% endblock %}
+{% block titlepage %}Vestibulobby - Calendário{% endblock %}
 
 {% block classactivecalendario %}active{% endblock %}
 
@@ -10,30 +12,82 @@
 {% block mainid %}calendario_main{% endblock %}
 
 {% block main %}
-    <div class="calendar-navigation">
-        <div class="nav-button">
-            <a href="{{ url_for('calendar.calendar_menu',  year=year, month=month, action='prev_year') }}" class="nav-button">◀</a>
-        </div>
-        <div class="year">{{year}}</div>
-        <div class="nav-button">
-            <a href="{{ url_for('calendar.calendar_menu', year=year, month=month, action='next_year') }}" class="nav-button">▶</a>
-        </div>
+<div class="calendar-navigation">
+    <div class="nav-button">
+        <a href="{{ url_for('calendar.calendar_menu', year=year, month=month, action='prev_year') }}">◀</a>
     </div>
+    <div class="year">{{year}}</div>
+    <div class="nav-button">
+        <a href="{{ url_for('calendar.calendar_menu', year=year, month=month, action='next_year') }}">▶</a>
+    </div>
+</div>
 
-    <div class="calendar-navigation">
-        <!-- Botões para trocar o mês -->
-        <div class="nav-button">
-            <a href="{{ url_for('calendar.calendar_menu', year=year, month=month, action='prev_month') }}" class="nav-button">◀</a>
-        </div>
-        <div class="month">{{month_name_pt}}</div>
-        <div class="nav-button">
-            <a href="{{ url_for('calendar.calendar_menu', year=year, month=month, action='next_month') }}" class="nav-button">▶</a>
-        </div>
+<div class="calendar-navigation">
+    <div class="nav-button">
+        <a href="{{ url_for('calendar.calendar_menu', year=year, month=month, action='prev_month') }}">◀</a>
     </div>
+    <div class="month">{{month_name_pt}}</div>
+    <div class="nav-button">
+        <a href="{{ url_for('calendar.calendar_menu', year=year, month=month, action='next_month') }}">▶</a>
+    </div>
+</div>
 
-    <div class="calendar-container">
-        {{ calendar | safe }}
+<div class="calendar-container">
+    {{ calendar | safe }}
+</div>
+
+<div id="eventModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Adicionar Evento</h2>
+        <form id="eventForm" method="POST" action="{{ url_for('calendar.add_event') }}">
+            <input type="hidden" id="eventDate" name="date">
+            <input type="text" name="event" placeholder="Nome do Evento" required>
+            <button type="submit">Salvar Evento</button>
+        </form>
+        <h3>Eventos:</h3>
+        <ul id="eventList">
+            <!-- A lista de eventos será preenchida aqui com JavaScript -->
+        </ul>
     </div>
+</div>
+
+<!-- Nova seção para a lista de todos os eventos -->
+<div class="event-list">
+    <h3>Todos os Eventos</h3>
+    <ul id="allEventsList">
+        {% for date, event_list in events.items() %}
+            {% for event in event_list %}
+                <li>{{ event }} - {{ date }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function openModal(date) {
+        document.getElementById('eventDate').value = date;
+        const calendarEvents = {{ events|tojson }};
+        const eventList = document.getElementById('eventList');
+        eventList.innerHTML = ''; // Limpa a lista anterior
+
+        // Adiciona os eventos da data selecionada à lista
+        const dateEvents = calendarEvents[date] || [];
+        dateEvents.forEach(event => {
+            const li = document.createElement('li');
+            li.textContent = event;
+            eventList.appendChild(li);
+        });
+
+        document.getElementById('eventModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('eventModal').style.display = 'none';
+    }
+</script>
 {% endblock %}
 
 

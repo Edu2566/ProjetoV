@@ -76,9 +76,112 @@
     cursor: pointer;
     background-color: #fff;
     user-select: none;
+    position: relative;
 }
 
-.day:hover {
-    background-color: #0A94AD;
+.day::after {
+    content: '';
+    position: absolute;
+    bottom: 10px; /* Ajuste conforme necessário */
+    right: 10px; /* Ajuste conforme necessário */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #0A94AD; /* Cor do triângulo */
+    display: none; /* Ocultar por padrão */
+}
+
+.day:hover::after {
+    display: block; /* Mostrar ao passar o mouse */
+}
+
+/* Estilo do Modal */
+.modal {
+    display: none; /* Ocultar o modal por padrão */
+    position: fixed; /* Ficar sobre o conteúdo */
+    z-index: 1; /* Garantir que esteja acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total da tela */
+    height: 100%; /* Altura total da tela */
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo semi-transparente */
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    background-color: #fff; /* Fundo branco */
+    margin: 10% auto; /* Centralizar o modal */
+    padding: 20px;
+    border: 2px solid #0A94AD; /* Borda com a cor do tema */
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 80%; /* Largura responsiva */
+    max-width: 500px; /* Largura máxima */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+/* Botão de Fechar */
+.close {
+    color: #0A94AD; /* Cor do botão de fechar */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #0CC0DF; /* Cor ao passar o mouse */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo dos Títulos no Modal */
+.modal-content h2 {
+    color: #0A94AD; /* Cor do título principal */
+    margin-bottom: 15px; /* Espaçamento abaixo do título */
+}
+
+/* Estilo dos Eventos */
+#eventList li {
+    color: black; /* Cor dos eventos */
+    padding: 5px 0; /* Espaçamento interno */
+    list-style: none;
+}
+
+/* Estilo do Botão de Salvar Evento */
+.modal-content button {
+    background-color: #0A94AD; /* Cor do botão */
+    color: white; /* Cor do texto */
+    padding: 10px 15px; /* Espaçamento */
+    border: none; /* Remover borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor pointer */
+}
+
+.modal-content button:hover {
+    background-color: #0CC0DF; /* Cor ao passar o mouse */
+}
+
+.has-event {
+    background-color: #0CC0DF; /* Cor laranja */
     color: #f4f4f4;
 }
+
+.event-list {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #0A94AD; /* Borda com a cor do tema */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #f9f9f9; /* Fundo claro */
+}
+
+.event-list h3 {
+    color: #0A94AD; /* Cor do título */
+}
+
+#allEventsList li {
+    color: #0A94AD; /* Cor dos eventos */
+    margin: 5px 0; /* Espaçamento entre os itens */
+}
+

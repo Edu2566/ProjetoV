@@ -21,8 +21,9 @@ class CollegeAPI:
         exams_data = self.fetch_data('exams')
         information_data = self.fetch_data('information')
         location_data = self.fetch_data('location')
+        template_data = self.fetch_data('template')
 
-        if college_data is None or courses_data is None or exams_data is None or information_data is None or location_data is None:
+        if college_data is None or courses_data is None or exams_data is None or information_data is None or location_data is None or template_data is None:
             return {'error': 'Failed to fetch data from API'}
 
         # Find the college information
@@ -46,6 +47,7 @@ class CollegeAPI:
             'exams': exams_by_year,
             'information': [item for item in information_data if item['college_id'] == college_id],
             'locations': [item for item in location_data if item['college_id'] == college_id],
+            'template': [item for item in template_data if item['college_id'] == college_id],
         }
 
         return result
