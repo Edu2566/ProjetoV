@@ -38,7 +38,7 @@ class CustomHTMLCalendar(calendar.HTMLCalendar):
         if day == 0:
             return '<td class="noday">&nbsp;</td>'  # dia vazio
         else:
-            day_str = f'{year}-{month:02d}-{day:02d}'
+            day_str = f'{day:02d}/{month:02d}/{year}'
             day_events = '<br>'.join(get_events(day_str))
 
             # Verifica se a data pertence ao mês atual
@@ -67,10 +67,20 @@ def calendar_menu():
     year = request.args.get('year', type=int, default=datetime.now().year)
     month = request.args.get('month', type=int, default=datetime.now().month)
 
-    if request.args.get('action') == 'next_month' and month < 12:
-        month += 1
-    elif request.args.get('action') == 'prev_month' and month > 1:
-        month -= 1
+    if request.args.get('action') == 'next_month':
+        if month == 12:
+            month = 1
+            year +=1
+        else:
+            month += 1
+    elif request.args.get('action') == 'prev_month':
+        if month == 1 and year > 2024:
+            month = 12
+            year -= 1
+        elif month == 1 and year == 2024:
+            pass
+        else:
+            month -= 1
     elif request.args.get('action') == 'next_year':
         year += 1
     elif request.args.get('action') == 'prev_year' and year > 2024:

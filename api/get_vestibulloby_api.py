@@ -5,13 +5,13 @@ class CollegeAPI:
         self.api_base_url = 'https://c3e1bccd-e40f-4642-a5e0-6b45d108af4b-00-3g9s82kxsdncm.picard.replit.dev'
 
     def fetch_data(self, endpoint):
-        """Helper function to fetch data from the API."""
+        """Função auxiliar para buscar dados da API."""
         try:
             response = requests.get(f"{self.api_base_url}/{endpoint}")
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
-            print(f"Error fetching data from {endpoint}: {e}")
+            print(f"Erro ao buscar dados de {endpoint}: {e}")
             return None
 
     def get_college_by_id(self, college_id):
@@ -23,7 +23,8 @@ class CollegeAPI:
         location_data = self.fetch_data('location')
         template_data = self.fetch_data('template')
 
-        if college_data is None or courses_data is None or exams_data is None or information_data is None or location_data is None or template_data is None:
+        if (college_data is None or courses_data is None or exams_data is None or
+        information_data is None or location_data is None or template_data is None):
             return {'error': 'Failed to fetch data from API'}
 
         # Find the college information

@@ -38,11 +38,13 @@
 
 <div id="eventModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Adicionar Evento</h2>
+        <div class="modal-header">
+            <h2>Adicionar Evento</h2>
+            <span class="close" onclick="closeModal()">&times;</span>
+        </div>
         <form id="eventForm" method="POST" action="{{ url_for('calendar.add_event') }}">
             <input type="hidden" id="eventDate" name="date">
-            <input type="text" name="event" placeholder="Nome do Evento" required>
+            <input type="text" name="event" placeholder="Nome do Evento" required autocomplete="off">
             <button type="submit">Salvar Evento</button>
         </form>
         <h3>Eventos:</h3>
@@ -67,26 +69,27 @@
 
 {% block scripts %}
 <script>
-    function openModal(date) {
-        document.getElementById('eventDate').value = date;
-        const calendarEvents = {{ events|tojson }};
-        const eventList = document.getElementById('eventList');
-        eventList.innerHTML = ''; // Limpa a lista anterior
+   function openModal(date) {
+    document.getElementById('eventDate').value = date;
+    const calendarEvents = {{ events|tojson }};
+    const eventList = document.getElementById('eventList');
+    eventList.innerHTML = ''; // Limpa a lista anterior
 
-        // Adiciona os eventos da data selecionada à lista
-        const dateEvents = calendarEvents[date] || [];
-        dateEvents.forEach(event => {
-            const li = document.createElement('li');
-            li.textContent = event;
-            eventList.appendChild(li);
-        });
+    // Adiciona os eventos da data selecionada à lista
+    const dateEvents = calendarEvents[date] || [];
+    dateEvents.forEach(event => {
+        const li = document.createElement('li');
+        li.textContent = event;
+        eventList.appendChild(li);
+    });
 
-        document.getElementById('eventModal').style.display = 'block';
+    document.getElementById('eventModal').style.display = 'grid';
     }
 
     function closeModal() {
         document.getElementById('eventModal').style.display = 'none';
     }
+
 </script>
 {% endblock %}
 
