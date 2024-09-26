@@ -1,7 +1,155 @@
-#cursos_main {
+/* Estilização da barra de busca */
+.search-bar-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+#search-bar {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #0CC0DF;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+#search-bar:focus {
+    border-color: #00A8CC;
+    outline: none;
+}
+
+/* Container para os cursos em grid */
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Estilização individual dos cartões */
+.course-card {
+    display: flex;
     flex-direction: column;
+    background: #00FFFF;
+    border-radius: 8px;
+    width: 200px; 
+    border: 1px solid gray;
+    text-decoration: none;
+    color: black;
+    max-height: 200px;
+}
+
+/* Imagem dentro do cartão */
+.course-image-container {
+    height: 100px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
- }
+    border-radius: 8px 8px 0 0;
+}
+
+.course-image-container img {
+    width: 98%;
+    height: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Detalhes do curso */
+.course-details {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding: 15px;
+}
+
+.course-details i {
+    font-size: 30px;
+    color: red;
+}
+
+/* Informações do curso */
+.course-info .course-name {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.course-info .course-date {
+    font-size: 12px;
+    font-weight: 500;
+    color: #4d4d4d;
+}
+
+/* Estilos do Swiper */
+.swiper-button-next, .swiper-button-prev {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #0CC0DF;
+   height: 30px;
+   border-radius: 10%;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #0CC0DF;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+   color: white;
+   font-size: 20px;
+   padding: 30px;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+
+    main {
+        overflow-y: hidden;
+    }
+
+    .courses-container {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas para tablets */
+        gap: 20px;
+    }
+
+    .course-card {
+        width: 250px; /* Cartões maiores para tablets */
+        max-height: 250px;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    main {
+        overflow-y: hidden;
+    }
+    
+    .courses-container {
+        grid-template-columns: 1fr; /* Apenas uma coluna para celulares */
+        gap: 20px;
+    }
+
+    .course-card {
+        width: 100%; /* Cartões ocupam toda a largura da tela */
+    }
+
+    .course-details {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .course-details i {
+        margin-bottom: 10px;
+    }
+
+    .course-image-container {
+        height: 150px; /* Imagem maior para celulares */
+    }
+}

@@ -2,9 +2,6 @@
 
 {% block stylepage %}
 <link rel="stylesheet" href="{{ url_for('courses.static', filename='/css/coursesStyle.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
 {% endblock %}
 
 {% block titlepage %}Vestibulobby - Cursos{% endblock %}
@@ -13,160 +10,47 @@
 
 {% block mainclass %}open-state{% endblock %}
 {% block mainid %}cursos_main{% endblock %}
+
 {% block main %}
-    <div class="container swiper">
-        <p>Cursos por Perto:</p>
-        <div class="slide-container">
-           <div class="card-wrapper swiper-wrapper">
-              <div class="card swiper-slide">
-                 <div class="image-box">
-                    <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
-                 </div>
-                 <div class="profile-details">
-                    <i class="fa-regular fa-bell"></i>
-                    <div class="name-job">
-                       <h3 class="name">Fatec</h3>
-                       <h4 class="job">DD/MM/YEAR</h4>
-                    </div>
-                 </div>
-              </div>
-              <div class="card swiper-slide">
-                 <div class="image-box">
-                    <img src="{{ url_for('static', filename='images/logo-images/fib-logo.png') }}">
-                 </div>
-                 <div class="profile-details">
-                    <i class="fa-regular fa-bell"></i>
-                    <div class="name-job">
-                       <h3 class="name">FIB</h3>
-                       <h4 class="job">DD/MM/YEAR</h4>
-                    </div>
-                 </div>
-              </div>
-              <div class="card swiper-slide">
-                 <div class="image-box">
-                    <img src="{{ url_for('static', filename='images/logo-images/uninove-logo.png') }}">
-                 </div>
-                 <div class="profile-details">
-                    <i class="fa-regular fa-bell"></i>
-                    <div class="name-job">
-                       <h3 class="name">Uninove</h3>
-                       <h4 class="job">DD/MM/YEAR</h4>
-                    </div>
-                 </div>
-              </div>
-              <div class="card swiper-slide">
-                 <div class="image-box">
-                    <img src="{{ url_for('static', filename='images/logo-images/unicamp-logo.png') }}">
-                 </div>
-                 <div class="profile-details">
-                    <i class="fa-regular fa-bell"></i>
-                    <div class="name-job">
-                       <h3 class="name">Unicamp</h3>
-                       <h4 class="job">DD/MM/YEAR</h4>
-                    </div>
-                 </div>
-              </div>
-           </div>
+   <div class="search-bar-container">
+      <input type="text" id="search-bar" placeholder="Buscar cursos..." onkeyup="filterCourses()">
+   </div>
+
+   <div class="courses-container" id="courses-container">
+    {% for course in college_api_data %}
+      <div class="course-card">
+        <div class="course-image-container">
+          <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
         </div>
-        <div class="swiper-button-next button-next1"></div>
-        <div class="swiper-button-prev button-prev1"></div>
-        <div class="swiper-pagination pagination1"></div>
-      </div>
-      <div class="container swiper">
-        <p>Mais Concorridos:</p>
-        <div class="slide-container2">
-        <div class="card-wrapper swiper-wrapper">
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/ufscar-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-bell"></i>
-              <div class="name-job">
-                 <h3 class="name">UFSCar</h3>
-                 <h4 class="job">DD/MM/YEAR</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-              <img src="{{ url_for('static', filename='images/logo-images/uscs-logo.png') }}">
-              </div>
-              <div class="profile-details">
-              <i class="fa-regular fa-bell"></i>
-              <div class="name-job">
-                 <h3 class="name">USCS</h3>
-                 <h4 class="job">DD/MM/YEAR</h4>
-              </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-                 <img src="{{ url_for('static', filename='images/logo-images/unicamp-logo.png') }}">
-              </div>
-              <div class="profile-details">
-                 <i class="fa-regular fa-bell"></i>
-                 <div class="name-job">
-                    <h3 class="name">Unicamp</h3>
-                    <h4 class="job">DD/MM/YEAR</h4>
-                 </div>
-              </div>
-           </div>
-           <div class="card swiper-slide">
-              <div class="image-box">
-                 <img src="{{ url_for('static', filename='images/logo-images/fatec-logo.png') }}">
-              </div>
-              <div class="profile-details">
-                 <i class="fa-regular fa-bell"></i>
-                 <div class="name-job">
-                    <h3 class="name">Fatec</h3>
-                    <h4 class="job">DD/MM/YEAR</h4>
-                 </div>
-              </div>
-           </div>
-        </div>
-         <div class="swiper-button-next button-next2"></div>
-         <div class="swiper-button-prev button-prev2"></div>
-         <div class="swiper-pagination pagination2"></div>
+        <div class="course-details">
+          <i class="fa-regular fa-bell"></i>
+          <div class="course-info">
+            <h3 class="course-name">{{ course['course_name'] }}</h3>
+          </div>
         </div>
       </div>
-      <div class="all-content">
-         <p>Veja Todos Nossos Cursos</p>
-      </div>
-      <div id="list-container" class="all-information">
-         <div class="information-column">
-            <p><a href="#">Engenharia de Computação</a></p>
-            <p><a href="#">Medicina</a></p>
-            <p><a href="#">Direito</a></p>
-            <p><a href="#">Administração</a></p>
-            <p><a href="#">Psicologia</a></p>
-            <p><a href="#">Arquitetura</a></p>
-            <p><a href="#">Biologia</a></p>
-            <p><a href="#">Design</a></p>
-            <p><a href="#">Física</a></p>
-            <p><a href="#">Química</a></p>
-            <p><a href="#">Matemática</a></p>
-            <p><a href="#">Geografia</a></p>
-            <p><a href="#">História</a></p>
-            <p><a href="#">Letras</a></p>
-            <p><a href="#">Filosofia</a></p>
-            <p><a href="#">Sociologia</a></p>
-            <p><a href="#">Enfermagem</a></p>
-            <p><a href="#">Farmácia</a></p>
-            <p><a href="#">Nutrição</a></p>
-            <p><a href="#">Odontologia</a></p>
-            <p><a href="#">Veterinária</a></p>
-            <p><a href="#">Fisioterapia</a></p>
-            <p><a href="#">Educação Física</a></p>
-            <p><a href="#">Serviço Social</a></p>
-         </div>
-      </div>
+    {% endfor %}
+  </div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='/js/slider/swiper-bundle.min.js') }}"></script>
-<script src="{{ url_for('static', filename='/js/slider/slider-animation.js') }}"></script>
-<script src="{{ url_for('static', filename='/js/slider/notification-button.js') }}"></script> 
+<script>
+  function filterCourses() {
+    // Captura a entrada do usuário
+    let input = document.getElementById('search-bar').value.toLowerCase();
+    
+    // Seleciona todos os cartões de cursos
+    let courses = document.getElementsByClassName('course-card');
+    
+    // Itera sobre todos os cursos e esconde os que não correspondem à busca
+    for (let i = 0; i < courses.length; i++) {
+      let courseName = courses[i].getElementsByClassName('course-name')[0].innerText.toLowerCase();
+      if (courseName.includes(input)) {
+        courses[i].style.display = "";
+      } else {
+        courses[i].style.display = "none";
+      }
+    }
+  }
+</script>
 {% endblock %}
-
-

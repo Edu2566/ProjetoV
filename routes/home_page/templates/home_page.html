@@ -72,12 +72,10 @@
       <div class="swiper-button-prev button-prev1"></div>
       <div class="swiper-pagination pagination1"></div>
    </div>
-   <!-- Adicionando um segundo swiper embaixo do primeiro -->
    <div class="container swiper">
       <p>Inscrições Próximas:</p>
       <div class="slide-container2">
       <div class="card-wrapper swiper-wrapper">
-         <!-- cards do segundo swiper -->
          <div class="card swiper-slide">
             <div class="image-box">
             <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
@@ -126,7 +124,6 @@
                </div>
             </div>
          </div>
-         <!-- adicione mais cards aqui -->
       </div>
       <div class="swiper-button-next button-next2"></div>
       <div class="swiper-button-prev button-prev2"></div>
@@ -155,8 +152,8 @@
                 {% endif %}
             </div>
             <div class="information-column" data-type="courses" style="display: none;">
-                {% if college_api_data %}
-                    {% for course in college_api_data %}
+                {% if college_api_course %}
+                    {% for course in college_api_course %}
                         <p><a href="#">{{ course['course_name'] }}</a></p>
                     {% endfor %}
                 {% else %}

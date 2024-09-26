@@ -1,44 +1,76 @@
 .all-information {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    list-style-type: circle;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
-    margin-bottom: 12px;
- }
- .information-column {
-    flex: 1;
-    margin: 10px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    gap: 10px;
- }
- 
- .information-column p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    margin-bottom: 3px;
-    background-color: #0A94AD;
-    cursor: pointer;
-    width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center; /* Centraliza todo o conteúdo */
+   width: 90%;
+   list-style-type: circle;
+   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+   margin-bottom: 12px;
+   height: 100%;
+   overflow-y: auto;
+   overflow-x: hidden;
+   padding: 5px;
+}
+
+.information-column {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+   gap: 10px;
+   margin: 10px;
+   width: 100%;
+   max-width: 1200px; /* Define uma largura máxima para o grid */
+   justify-items: center; /* Centraliza os itens */
+   height: 50vh;
+}
+
+/* Centraliza e ajusta os <p> adequadamente */
+.information-column p {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 15px;
+   margin: 3px 0;
+   background-color: #0A94AD;
+   cursor: pointer;
+   width: 100%;
+   max-width: 250px; /* Define uma largura máxima para os itens */
+   padding: 10px; /* Adiciona espaçamento interno */
    border-radius: 3px;
- }
+   text-align: center;
+   max-height: 7vh;
+}
 
- .information-column p:hover {
+.information-column p:hover {
    background-color: #0CC0DF;
- }
+}
 
- .information-column a {
+.information-column a {
    text-decoration: none;
    color: black;
- }
- 
- .information-column p i{
-    font-size: 10px;
-    text-decoration: none;
-    color: #0CC0DF;
-    margin-right: 3px;
- }
+   font-size: 100%;
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+   .information-column {
+       grid-template-columns: repeat(2, 1fr); /* Ajusta para 2 colunas */
+       max-width: 100%;
+   }
+
+   .all-information {
+       width: 100%;
+   }
+}
+
+@media (max-width: 480px) {
+   .information-column {
+       grid-template-columns: 1fr; /* Ajusta para 1 coluna */
+       max-width: 100%;
+   }
+
+   .information-column p {
+       font-size: 14px; /* Reduz o tamanho do texto */
+       max-width: 100%;
+   }
+}

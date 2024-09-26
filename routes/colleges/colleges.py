@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, url_for
-from api.get_vestibulloby_api import CollegeAPI
+from api.CollegeAPI import CollegeAPI
 
 college_api_instance = CollegeAPI()
 colleges_blueprint = Blueprint('colleges', __name__, template_folder='templates', static_folder='static-colleges')
