@@ -1,3 +1,7 @@
+main {
+    align-items: center;
+}
+
 .search-bar-container {
     width: 100%;
     text-align: center;

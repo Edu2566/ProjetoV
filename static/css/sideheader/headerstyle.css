@@ -189,8 +189,6 @@ main {
     background-color: #EFEFEF;
     overflow-y: auto;
     overflow-x: hidden;
-    align-items: center;
-    border: 2px solid black;
 }
 /* Fim da estilização da tag Main */
 
