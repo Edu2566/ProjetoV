@@ -82,22 +82,25 @@
 .day::after {
     content: '';
     position: absolute;
-    bottom: 10px; /* Ajuste conforme necessário */
-    right: 10px; /* Ajuste conforme necessário */
+    bottom: 10px;
+    right: 10px;
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid #0A94AD; /* Cor do triângulo */
-    display: none; /* Ocultar por padrão */
+    border-top: 5px solid #0A94AD;
+    display: none;
 }
 
 .day:hover::after {
-    display: block; /* Mostrar ao passar o mouse */
+    display: block;
 }
 
-/* Estilo do Modal */
-/* Estilo do Modal */
+.has-event {
+    background-color: #0CC0DF; /* Cor laranja */
+    color: #f4f4f4;
+}
+
 /* Estilo do Modal com Grid */
 .modal {
     display: none;
@@ -115,6 +118,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 60%;
+}
+
+.modal-content {
+    max-height: 100%;
 }
 
 /* Modal Header (h2 e span) */
@@ -149,12 +157,14 @@
     background-color: #0CC0DF;
 }
 
-/* Lista de Eventos */
+/* Lista de Eventos do Modal*/
 #eventList {
     grid-column: span 2;
     padding: 0;
     list-style: none;
     margin-top: 10px;
+    max-height: 40%;
+    overflow-y: auto;
 }
 
 /* Botão de Fechar */
@@ -168,31 +178,56 @@
     color: #0CC0DF;
 }
 
-.has-event {
-    background-color: #0CC0DF; /* Cor laranja */
-    color: #f4f4f4;
-}
-
-.has-event {
-    background-color: #0CC0DF; /* Cor laranja */
-    color: #f4f4f4;
-}
-
+/* Lista de Eventos da Página */
 .event-list {
     margin: 10px;
     padding: 10px;
-    border: 1px solid #0A94AD; /* Borda com a cor do tema */
-    border-radius: 5px; /* Bordas arredondadas */
-    background-color: #f9f9f9; /* Fundo claro */
+    border: 1px solid #0A94AD;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
 .event-list h3 {
-    color: #0A94AD; /* Cor do título */
+    color: #0A94AD;
 }
 
 #allEventsList li {
-    color: #0A94AD; /* Cor dos eventos */
-    margin: 5px 0; /* Espaçamento entre os itens */
+    color: #0A94AD;
+    margin: 5px 0;
     list-style: none;
 }
 
+/* Responsividade */
+@media (max-width: 600px) {
+    .modal {
+        width: 90%;
+        height: 70%;
+    }
+
+    .modal-content input[type="text"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .modal-content button {
+        padding: 8px 12px;
+    }
+
+    #eventList {
+        max-height: 30%;
+    }
+
+    .calendar-navigation .nav-button a {
+        width: 35px;
+        font-size: 16px;
+    }
+
+    .year, .month {
+        font-size: 20px;
+    }
+
+    .calendar-container th, .calendar-container td {
+        padding: 5px;
+        font-size: 14px;
+    }
+}
