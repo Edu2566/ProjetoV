@@ -41,18 +41,19 @@
                 <ul>
                     {% if college['exams'] %}
                         {% for year, exams in college['exams'].items() %}
-                            <li>
-                                <button class="expand-button" onclick="toggleExams('{{ year }}')">{{ year }}</button>
-                                <ul class="nested-list" id="exams-{{ year }}" style="display: none;">
-                                    {% for exam in exams %}
-                                        <li>
-                                            <a href="{{ url_for('colleges.view_exam', exam_id=exam['exam_id']) }}">{{ exam['exam_name'] }}</a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                        {% else %}
-                            <li>Nenhuma prova disponível</li>
+                            {% set filtered_exams = exams | selectattr('college_id', 'equalto', college['college']['college_id']) | list %}
+                            {% if filtered_exams %}
+                                <li>
+                                    <button class="expand-button" onclick="toggleExams('{{ year }}')">{{ year }}</button>
+                                    <ul class="nested-list" id="exams-{{ year }}" style="display: none;">
+                                        {% for exam in filtered_exams %}
+                                            <li>
+                                                <a href="{{ url_for('colleges.view_exam', exam_id=exam['exam_id']) }}">{{ exam['exam_name'] }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endif %}
                         {% endfor %}
                     {% else %}
                         <li>Nenhuma prova disponível</li>

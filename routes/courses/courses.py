@@ -8,8 +8,11 @@ courses_blueprint = Blueprint('courses', __name__, template_folder='templates', 
 @courses_blueprint.route('/courses')
 def courses_menu():
     college_api_data = college_api_instance.get_all_courses()
-    
-    if 'error' in college_api_data:
+    college_api_images = college_api_instance.get_courses_image()
+
+    if 'error' in college_api_data or 'error' in college_api_images:
         return "Erro ao buscar dados da faculdade", 500
-    
-    return render_template('courses-menu.html', college_api_data=college_api_data)
+
+    images_map = {image['science_type']: image['course_image_url'] for image in college_api_images}
+
+    return render_template('courses-menu.html', college_api_data=college_api_data, images_map=images_map)

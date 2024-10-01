@@ -13,14 +13,14 @@
 
 {% block main %}
    <div class="search-bar-container">
-      <input type="text" id="search-bar" placeholder="Buscar cursos..." onkeyup="filterCourses()">
+      <input type="text" id="search-bar" placeholder="Buscar cursos..." onkeyup="filterCourses()" autocomplete="off">
    </div>
 
    <div class="courses-container" id="courses-container">
     {% for course in college_api_data %}
       <div class="course-card">
         <div class="course-image-container">
-          <img src="{{ url_for('static', filename='images/logo-images/institution-photo.png') }}">
+          <img src="{{ images_map[course['science_type']] }}" alt="{{ course['course_name'] }}">
         </div>
         <div class="course-details">
           <i class="fa-regular fa-bell"></i>
@@ -30,7 +30,7 @@
         </div>
       </div>
     {% endfor %}
-  </div>
+  </div>  
 {% endblock %}
 
 {% block scripts %}

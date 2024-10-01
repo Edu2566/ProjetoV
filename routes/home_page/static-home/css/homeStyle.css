@@ -1,17 +1,217 @@
-#home_main {
+/* Estilo do main */
+main {
+   align-items: center;
+}
+
+main p:not(#footer p, .all-content p) {
+   min-width: 90%;
+   max-width: 90%;
+   text-align: left;
+   font-size: 100%;
+}
+
+/* Estilo do container */
+.container {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 20px;
+   min-width: 90%;
+   margin-bottom: 20px;
+   padding: 20px;
+   min-height: 210px;
+   overflow-y: auto;
+   justify-items: center;
+   border: 1px solid #0CC0DF;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+}
+
+/* Personalização da scroll bar */
+.container::-webkit-scrollbar,
+.information-column::-webkit-scrollbar {
+   width: 6px;
+}
+
+.container::-webkit-scrollbar-thumb,
+.information-column::-webkit-scrollbar-thumb {
+   background-color: #0CC0DF;
+   border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track,
+.information-column::-webkit-scrollbar-track {
+   background-color: #f0f0f0;
+}
+
+/* Estilo dos cards */
+.information-card {
+   display: flex;
+   flex-direction: column;
+   background: #0CC0DF;
+   border-radius: 8px;
+   width: 200px;
+   border: 1px solid #dcdcdc;
+   text-decoration: none;
+   color: red;
+   font-size: 30px;
+   max-height: 200px;
+   transition: box-shadow 0.3s ease;
+   cursor: pointer;
+}
+
+.information-card:hover {
+   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo da imagem do card */
+.information-image-container {
+   height: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 8px 8px 0 0;
+   background-color: white;
+}
+
+.information-image-container img {
+   width: 98%;
+   height: 100%;
+   border-radius: 8px 8px 0 0;
+}
+
+/* Detalhes do card */
+.information-details {
+   display: flex;
+   align-items: center;
+   column-gap: 12px;
+   padding: 15px;
+}
+
+.information-info .information-name {
+   font-size: 14px;
+   font-weight: bold;
+   color: black;
+}
+
+/* Minimalismo para o conteúdo */
+.all-content {
+   display: flex;
+   flex-direction: column;
+   width: 80%;
+   align-items: center;
+   background-color: #c1f1f8;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+   margin: 20px 0 10px 0;
+}
+
+/* Estilo da barra de pesquisa */
+.search-bar-container {
+   width: 100%;
+   text-align: center;
+   margin: 5px 0 20px 0;
+}
+
+#search-bar {
+   width: 50%;
+   padding: 10px;
+   border-radius: 5px;
+   border: 2px solid #0CC0DF;
+   font-size: 16px;
+   transition: border-color 0.3s ease-in-out;
+}
+
+#search-bar:focus {
+   border-color: #00A8CC;
+   outline: none;
+}
+
+/* Estilo da lista de informações */
+#list-container {
+   width: 100%;
+   height: auto;
+   margin-top: 20px;
+}
+
+.all-information {
    display: flex;
    flex-direction: column;
    align-items: center;
-   box-sizing: border-box;
+   width: 90%;
+   list-style-type: circle;
+   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+   margin-bottom: 12px;
+   height: 100%;
+   overflow-y: auto;
+   overflow-x: hidden;
+   padding: 5px;
 }
 
-#list-container {
+/* Estilo da coluna de informações */
+.information-column {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 10px;
+   margin: 10px;
    width: 100%;
-   height: 80%;
+   max-width: 1200px;
+   justify-items: center;
+   height: 50vh;
 }
 
-.all-content {
-   width: 80%;
+/* Estilo dos parágrafos na coluna de informações */
+.information-column p {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 15px;
+   margin: 3px 0;
+   background-color: #0A94AD;
+   cursor: pointer;
+   width: 100%;
+   max-width: 250px;
+   padding: 10px;
+   border-radius: 3px;
+   text-align: center;
+   max-height: 7vh;
 }
 
+.information-column p:hover {
+   background-color: #0CC0DF;
+}
 
+.information-column a {
+   text-decoration: none;
+   color: black;
+   font-size: 100%;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1024px) {
+   .container {
+       grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+@media (max-width: 768px) {
+   .all-information {
+       width: 100%;
+   }
+
+   #search-bar {
+      width: 80%;
+   }
+
+   .container,
+   .information-column {
+       grid-template-columns: 1fr;
+   }
+}
+
+@media (max-width: 480px) {
+   .information-column p {
+       font-size: 14px;
+       max-width: 100%;
+   }
+}

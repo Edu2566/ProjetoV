@@ -69,6 +69,14 @@ class CollegeAPI:
             return {'error': 'Failed to fetch data from API'}
 
         return course_data
+    
+    def get_courses_image(self):
+        course_image_data = self.fetch_data('course-images')
+
+        if course_image_data is None:
+            return {'error': 'Failed to fetch data from API'}
+
+        return course_image_data
 
     def get_exam_by_id(self, exam_id):
         # Fetch data from the exams endpoint
