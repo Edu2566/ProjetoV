@@ -97,7 +97,7 @@
 }
 
 .has-event {
-    background-color: #0CC0DF; /* Cor laranja */
+    background-color: #0CC0DF;
     color: #f4f4f4;
 }
 
@@ -197,19 +197,97 @@
     list-style: none;
 }
 
+/* Botão Visualizar ao lado de cada evento */
+#allEventsList li button {
+    margin-left: 10px;
+    background-color: #0A94AD;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#allEventsList li button:hover {
+    background-color: #0CC0DF;
+}
+
+/* Segundo Modal para Editar/Excluir Eventos */
+#viewEventModal {
+    display: none;
+    grid-template-columns: auto 30px;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #0A94AD;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+}
+
+#viewEventModal .modal-content {
+    max-height: 100%;
+}
+
+/* Modal Header para Visualizar/Editar/Excluir */
+#viewEventModal .modal-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+/* Inputs e Botões no Modal de Visualizar */
+#viewEventModal input[type="text"] {
+    grid-column: span 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#viewEventModal .modal-content button {
+    background-color: #0A94AD;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#viewEventModal .modal-content button:hover {
+    background-color: #0CC0DF;
+}
+
+/* Botão de Excluir com estilo vermelho */
+#viewEventModal .delete-btn {
+    background-color: red;
+    color: white;
+}
+
+#viewEventModal .delete-btn:hover {
+    background-color: darkred;
+}
+
 /* Responsividade */
 @media (max-width: 600px) {
-    .modal {
+    .modal, #viewEventModal {
         width: 90%;
         height: 70%;
     }
 
-    .modal-content input[type="text"] {
+    .modal-content input[type="text"], #viewEventModal input[type="text"] {
         font-size: 14px;
         padding: 8px;
     }
 
-    .modal-content button {
+    .modal-content button, #viewEventModal button {
         padding: 8px 12px;
     }
 
