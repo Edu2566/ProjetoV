@@ -47,3 +47,36 @@ def add_event():
         event_calendar.save_event(date, event)
     
     return redirect(url_for('calendar.calendar_menu', year=datetime.now().year, month=datetime.now().month))
+
+@calendar_blueprint.route('/update_event', methods=['POST'])
+def update_event():
+    date = request.form.get('date')
+    old_event_name = request.form.get('old_event_name')
+    new_event_name = request.form.get('new_event_name')
+
+    if date and old_event_name and new_event_name:
+        if date in event_calendar.events:
+            try:
+                # Atualiza o evento
+                event_index = event_calendar.events[date].index(old_event_name)
+                event_calendar.events[date][event_index] = new_event_name
+            except ValueError:
+                pass  # Se o evento antigo não for encontrado, ignore
+
+    return redirect(url_for('calendar.calendar_menu', year=datetime.now().year, month=datetime.now().month))
+
+@calendar_blueprint.route('/delete_event', methods=['POST'])
+def delete_event():
+    date = request.form.get('date')
+    event = request.form.get('event')
+
+    if date and event:
+        if date in event_calendar.events:
+            try:
+                event_calendar.events[date].remove(event)
+                if not event_calendar.events[date]:  # Se não houver mais eventos na data, remove a chave
+                    del event_calendar.events[date]
+            except ValueError:
+                pass  # Se o evento não for encontrado, ignore
+
+    return {'success': True}

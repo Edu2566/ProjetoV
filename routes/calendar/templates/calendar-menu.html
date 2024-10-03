@@ -60,10 +60,29 @@
     <ul id="allEventsList">
         {% for date, event_list in events.items() %}
             {% for event in event_list %}
-                <li>{{ event }} - {{ date }}</li>
+                <li>{{ event }} - {{ date }}
+                    <button onclick="openUpdateModal('{{ date }}', '{{ event }}')">Visualizar</button>
+                </li>
             {% endfor %}
         {% endfor %}
     </ul>
+</div>
+
+<!-- Segundo Modal para Visualizar, Atualizar e Excluir Evento -->
+<div id="updateEventModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Editar Evento</h2>
+            <span class="close" onclick="closeUpdateModal()">&times;</span>
+        </div>
+        <form id="updateEventForm" method="POST" action="{{ url_for('calendar.update_event') }}">
+            <input type="hidden" id="updateEventDate" name="date">
+            <input type="hidden" id="oldEventName" name="old_event_name">
+            <input type="text" id="newEventName" name="new_event_name" required>
+            <button type="submit">Salvar Alterações</button>
+        </form>
+        <button onclick="deleteEvent()">Excluir Evento</button>
+    </div>
 </div>
 {% endblock %}
 
@@ -90,6 +109,41 @@
         document.getElementById('eventModal').style.display = 'none';
     }
 
+// Abre o segundo modal para editar ou excluir o evento
+function openUpdateModal(date, event) {
+    document.getElementById('updateEventDate').value = date;
+    document.getElementById('oldEventName').value = event;
+    document.getElementById('newEventName').value = event; // Preenche com o nome atual do evento
+    document.getElementById('updateEventModal').style.display = 'grid';
+}
+
+// Fecha o modal de atualização
+function closeUpdateModal() {
+    document.getElementById('updateEventModal').style.display = 'none';
+}
+
+// Função para excluir o evento
+function deleteEvent() {
+    const date = document.getElementById('updateEventDate').value;
+    const event = document.getElementById('oldEventName').value;
+    const formData = new FormData();
+    formData.append('date', date);
+    formData.append('event', event);
+
+    fetch('{{ url_for('calendar.delete_event') }}', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Evento excluído com sucesso!');
+            window.location.reload(); // Atualiza a página para refletir as mudanças
+        } else {
+            alert('Erro ao excluir o evento.');
+        }
+    });
+}
 </script>
 {% endblock %}
 
