@@ -1,7 +1,7 @@
 # main_calendar.py
 from flask import Blueprint, render_template, request, redirect, url_for
 from datetime import datetime
-from routes.calendar.EventCalendar import EventCalendar
+from routes.calendar.event_calendar import EventCalendar
 
 # Instância da classe EventCalendar
 event_calendar = EventCalendar()

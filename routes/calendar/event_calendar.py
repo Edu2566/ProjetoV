@@ -26,7 +26,7 @@ class EventCalendar:
             a(self.formatweekheader())
             weeks = self.monthdays2calendar(theyear, themonth)
             for week in weeks:
-                a(self.formatweek(week, theyear, themonth))  # Passa year e month
+                a(self.formatweek(week, theyear, themonth))
             while len(weeks) < 6:
                 a(self.formatweek([(0, 0)] * 7, theyear, themonth))
                 weeks.append(None)
@@ -38,12 +38,11 @@ class EventCalendar:
 
         def formatday(self, day, weekday, year, month):
             if day == 0:
-                return '<td class="noday">&nbsp;</td>'  # dia vazio
+                return '<td class="noday">&nbsp;</td>'
             else:
                 day_str = f'{day:02d}/{month:02d}/{year}'
                 day_events = '<br>'.join(self.parent_calendar.get_events(day_str))
 
-                # Verifica se a data pertence ao mês atual
                 cell_class = 'day'
                 if day_events:
                     cell_class += ' has-event'

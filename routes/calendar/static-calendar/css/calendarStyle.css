@@ -133,6 +133,10 @@
     align-items: center;
 }
 
+.modal-header h2 {
+    color: #0A94AD;
+}
+
 /* Input e Botão de Salvar */
 .modal-content input[type="text"] {
     grid-column: span 2;
@@ -145,7 +149,7 @@
 .modal-content button {
     grid-column: 2;
     justify-self: end;
-    background-color: #0A94AD;
+    background-color: #0CC0DF;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -154,7 +158,7 @@
 }
 
 .modal-content button:hover {
-    background-color: #0CC0DF;
+    background-color: #0A94AD;
 }
 
 /* Lista de Eventos do Modal*/
@@ -163,8 +167,25 @@
     padding: 0;
     list-style: none;
     margin-top: 10px;
-    max-height: 40%;
+    max-height: 60%;
     overflow-y: auto;
+}
+
+#eventList li, #allEventsList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Cantos arredondados */
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+#eventList li:hover, #allEventsList li:hover {
+    background-color: #0CC0DF; /* Cor de fundo ao passar o mouse */
+    color: white; /* Cor do texto ao passar o mouse */
 }
 
 /* Botão de Fechar */
@@ -187,6 +208,7 @@
     background-color: #f9f9f9;
 }
 
+
 .event-list h3 {
     color: #0A94AD;
 }
@@ -200,7 +222,7 @@
 /* Botão Visualizar ao lado de cada evento */
 #allEventsList li button {
     margin-left: 10px;
-    background-color: #0A94AD;
+    background-color: #0CC0DF;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -208,8 +230,13 @@
     cursor: pointer;
 }
 
+#allEventsList li.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
 #allEventsList li button:hover {
-    background-color: #0CC0DF;
+    background-color: #0A94AD;
 }
 
 /* Segundo Modal para Editar/Excluir Eventos */
