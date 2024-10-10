@@ -84,14 +84,107 @@
         <button onclick="deleteEvent()">Excluir Evento</button>
     </div>
 </div>
-
-<div id="calendar-events" style="display:none;">
-    {{ events|tojson }}
-</div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('calendar.static', filename='js/calendar.js') }}"></script>
+<script>
+function openModal(date) {
+    document.getElementById('eventDate').value = date;
+    const calendarEvents = '{{ events|tojson }}';
+    const eventList = document.getElementById('eventList');
+    eventList.innerHTML = ''; // Limpa a lista anterior
+
+    // Adiciona os eventos da data selecionada à lista
+    const dateEvents = calendarEvents[date] || [];
+    dateEvents.forEach(event => {
+        const li = document.createElement('li');
+        li.textContent = event;
+
+        // Adiciona uma classe para controle de conclusão
+        li.classList.add('event-item');
+
+        // Cria o botão "Concluído"
+        const completedButton = document.createElement('button');
+        completedButton.textContent = 'Concluído';
+        completedButton.onclick = (e) => {
+            e.stopPropagation(); // Evita que o clique também dispare o evento do <li>
+            toggleCompletion(li); // Chama a função para alternar o estado
+        };
+
+        // Adiciona um evento de clique ao <li> para abrir o modal de atualização
+        li.onclick = () => openUpdateModal(date, event);
+
+        // Adiciona o botão "Concluído" ao <li>
+        li.appendChild(completedButton);
+
+        // Adiciona o <li> à lista de eventos
+        eventList.appendChild(li);
+    });
+
+    document.getElementById('eventModal').style.display = 'grid';
+}
+
+
+function closeModal() {
+    document.getElementById('eventModal').style.display = 'none';
+}
+
+function toggleCompletion(li) {
+    if (li.style.textDecoration === 'line-through') {
+        li.style.textDecoration = 'none'; // Remove o risco
+        li.style.color = 'black'; // Restaura a cor original do texto
+    } else {
+        li.style.textDecoration = 'line-through'; // Risca o texto
+        li.style.color = 'gray'; // Muda a cor do texto para cinza
+    }
+}
+
+function toggleCompletionAll(event) {
+    event.stopPropagation();
+    
+    const li = event.target.parentElement;
+
+    li.classList.toggle('completed');
+}
+
+
+// Abre o segundo modal para editar ou excluir o evento
+function openUpdateModal(date, event) {
+    document.getElementById('updateEventDate').value = date;
+    document.getElementById('oldEventName').value = event;
+    document.getElementById('newEventName').value = event;
+    document.getElementById('updateEventModal').style.display = 'grid';
+}
+
+// Fecha o modal de atualização
+function closeUpdateModal() {
+    document.getElementById('updateEventModal').style.display = 'none';
+}
+
+// Função para excluir o evento
+function deleteEvent() {
+    const date = document.getElementById('updateEventDate').value;
+    const event = document.getElementById('oldEventName').value;
+    const formData = new FormData();
+    formData.append('date', date);
+    formData.append('event', event);
+
+    fetch('{{ url_for("calendar.delete_event") }}', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Evento excluído com sucesso!');
+            window.location.reload(); // Atualiza a página para refletir as mudanças
+        } else {
+            alert('Erro ao excluir o evento.');
+        }
+    });
+}
+</script>
 {% endblock %}
+
 
 

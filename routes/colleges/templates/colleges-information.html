@@ -2,7 +2,6 @@
 
 {% block stylepage %}
     <link rel="stylesheet" href="{{ url_for('colleges.static', filename='css/colleges-information.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/swiper/slideStyle.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/list-action/styleList.css') }}">
 {% endblock %}
@@ -65,15 +64,15 @@
         <div id="info-list">
             <div class="info-block">
                 <p class="info-block-title">Período de Inscrição</p>
-                <p class="info-block-content">{{ college['college']['inscription_period'] }}</p>
+                <p class="info-block-content">{{ college['date'][0]['inscription_start_inscription_end'] }}</p>
             </div>
             <div class="info-block">
                 <p class="info-block-title">Período de Pedido de Isenção</p>
-                <p class="info-block-content">{{ college['college']['exemption_period'] }}</p>
+                <p class="info-block-content">{{ college['date'][0]['isention_start_isention_end'] }}</p>
             </div>
             <div class="info-block">
                 <p class="info-block-title">Divulgação dos Resultados</p>
-                <p class="info-block-content">{{ college['college']['results_date'] }}</p>
+                <p class="info-block-content">{{ college['date'][0]['divulgation_date'] }}</p>
             </div>
             <div class="info-block">
                 <p class="info-block-title">Página Oficial da Instituição</p>
