@@ -1,0 +1,40 @@
+{% extends "sideheader.html" %}
+
+{% block stylepage %}
+    <link rel="stylesheet" href="{{ url_for('notes.static', filename='/css/notebook-style.css') }}">
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.css">
+{% endblock %}
+
+{% block titlepage %}Vestibulobby - Caderno{% endblock %}
+
+{% block classactivenotebook %}active{% endblock %}
+
+{% block mainclass %}open-state{% endblock %}
+{% block mainid %}notebook_main{% endblock %}
+
+{% block main %}
+<div class="notebook-page-container">
+    <h1>{{ notebook_name }}</h1>
+    <div id="notebook-content">
+        <div class="main-editor-container">
+            <div class="main-container">
+                <div class="editor-container editor-container_classic-editor" id="editor-container">
+                    <div class="editor-container__editor"><div id="editor"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.js",
+            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.1.0/"
+        }
+    }
+</script>
+<script type="module" src="{{ url_for('notes.static', filename='js/tool-bar.js') }}"></script>
+{% endblock %}

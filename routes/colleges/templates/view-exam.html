@@ -2,8 +2,6 @@
 
 {% block stylepage %}
     <link rel="stylesheet" href="{{ url_for('colleges.static', filename='/css/view-exam.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/swiper/slideStyle.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/list-action/styleList.css') }}">
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.css">
 {% endblock %}
@@ -43,6 +41,6 @@
             }
         }
     </script>
-    <script type="module" src="{{ url_for('colleges.static', filename='js/tool-bar.js') }}"></script>
+    <script type="module" src="{{ url_for('notes.static', filename='js/tool-bar.js') }}"></script>
     <script type="module" src="{{ url_for('colleges.static', filename='js/change-pdf.js') }}"></script>
 {% endblock %}

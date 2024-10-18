@@ -3,7 +3,7 @@ main {
    align-items: center;
 }
 
-main p:not(#footer p, .all-content p) {
+main p:not(#footer p, .all-content p, .container p) {
    min-width: 90%;
    max-width: 90%;
    text-align: left;
@@ -91,6 +91,13 @@ main p:not(#footer p, .all-content p) {
    font-size: 14px;
    font-weight: bold;
    color: black;
+}
+
+.information-date {
+   font-size: 13px;
+   font-weight: bold;
+   color: rgb(70, 61, 61);
+   max-width: 100%;
 }
 
 /* Minimalismo para o conteúdo */
@@ -191,6 +198,12 @@ main p:not(#footer p, .all-content p) {
 @media (max-width: 1024px) {
    .container {
        grid-template-columns: repeat(2, 1fr);
+   }
+
+   #demo {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 5px;
    }
 }
 

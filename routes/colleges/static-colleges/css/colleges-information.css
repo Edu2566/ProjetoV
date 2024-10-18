@@ -190,6 +190,14 @@
     color: black;
 }
 
+.info-block-warning {
+    color: rgb(78, 69, 69);
+    font-weight: bold;
+    font-size: 8px;
+    text-align: left;
+    padding: 1px;
+}
+
 #college-image {
     display: flex;
     justify-content: center;

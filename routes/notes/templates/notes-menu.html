@@ -1,0 +1,175 @@
+{% extends "sideheader.html" %}
+
+{% block stylepage %}<link rel="stylesheet" href="{{ url_for('notes.static', filename='/css/notes-style.css') }}">{% endblock %}
+
+{% block titlepage %}Vestibulobby - Anotações{% endblock %}
+
+{% block classactivenotes %}active{% endblock %}
+
+{% block mainclass %}open-state{% endblock %}
+{% block mainid %}notes_main{% endblock %}
+
+{% block main %}
+<div class="notebook-container">
+    <button class="add-notebook-button" id="openModal"><i class="fas fa-plus"></i>Crie um Caderno!</button>
+
+    <ul class="notebook-list" id="notebookList">
+        {% for notebook in notebooks %}
+        <li class="notebook-item">
+            <span class="notebook-name" onclick="window.location.href=`/notes/{{ notebook.replace(' ', '-') | lower }}`">{{ notebook }}</span>
+            <button class="edit-button" onclick="openEditModal(this, '{{ notebook }}')">Editar</button>
+            <button class="delete-button" onclick="deleteNotebook(this, '{{ notebook }}')">Deletar</button>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Modal para adicionar caderno -->
+<div class="modal" id="notebookModal">
+    <div class="modal-content">
+        <span class="modal-close" id="closeModal">&times;</span>
+        <h2>Adicionar Novo Caderno</h2>
+        <input type="text" class="modal-input" id="notebookName" placeholder="Nome do Caderno">
+        <button onclick="addNotebook()">Adicionar</button>
+    </div>
+</div>
+
+<!-- Modal para editar caderno -->
+<div class="modal" id="editNotebookModal">
+    <div class="modal-content">
+        <span class="modal-close" id="closeEditModal">&times;</span>
+        <h2>Editar Caderno</h2>
+        <input type="text" class="modal-input" id="editNotebookName" placeholder="Novo Nome do Caderno">
+        <button onclick="saveNotebookEdit()">Salvar</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const modal = document.getElementById("notebookModal");
+    const editModal = document.getElementById("editNotebookModal");
+    const openModalBtn = document.getElementById("openModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    const closeEditModalBtn = document.getElementById("closeEditModal");
+    let notebookToEdit = null;
+
+    // Abrir modal para adicionar novo caderno
+    openModalBtn.onclick = function () {
+        modal.style.display = "flex";
+    }
+
+    // Fechar modal de adicionar caderno
+    closeModalBtn.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // Fechar modal de editar caderno
+    closeEditModalBtn.onclick = function () {
+        editModal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+        if (event.target === editModal) {
+            editModal.style.display = "none";
+        }
+    }
+
+    // Função para adicionar um novo caderno
+    function addNotebook() {
+        const notebookName = document.getElementById("notebookName").value;
+        if (notebookName.trim() !== "") {
+            fetch('/notes/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: notebookName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateNotebookList(data.notebooks);
+                    document.getElementById("notebookName").value = "";
+                    modal.style.display = "none";
+                } else {
+                    alert("Erro ao adicionar o caderno.");
+                }
+            });
+        }
+    }
+
+    // Função para atualizar a lista de cadernos
+    function updateNotebookList(notebooks) {
+        const notebookList = document.getElementById("notebookList");
+        notebookList.innerHTML = "";  // Limpa a lista atual
+        notebooks.forEach(notebook => {
+            const listItem = document.createElement("li");
+            listItem.className = "notebook-item";
+            listItem.innerHTML = `
+                <span class="notebook-name" onclick="window.location.href='/notes/${encodeURIComponent(notebook.replace(/\s+/g, '-').toLowerCase())}'">${notebook}</span>
+                <button class="edit-button" onclick="openEditModal(this, '${notebook}')">Editar</button>
+                <button class="delete-button" onclick="deleteNotebook(this, '${notebook}')">Deletar</button>
+            `;
+            notebookList.appendChild(listItem);
+        });
+    }
+
+    // Abrir modal para editar caderno
+    function openEditModal(button, currentName) {
+        notebookToEdit = button.parentElement;
+        document.getElementById("editNotebookName").value = currentName;
+        editModal.style.display = "flex";
+    }
+
+    // Salvar as alterações do caderno editado
+    function saveNotebookEdit() {
+        const newName = document.getElementById("editNotebookName").value;
+        const oldName = notebookToEdit.querySelector('.notebook-name').textContent;
+        if (newName.trim() !== "") {
+            fetch('/notes/edit', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ oldName: oldName, newName: newName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    notebookToEdit.querySelector('.notebook-name').textContent = newName;
+                    notebookToEdit.querySelector('.notebook-name').onclick = function () {
+                        window.location.href = `/notes/${encodeURIComponent(newName.replace(/\s+/g, '-').toLowerCase())}`;
+                    };
+                    editModal.style.display = "none";
+                } else {
+                    alert("Erro ao editar o caderno.");
+                }
+            });
+        }
+    }
+
+    // Função para deletar um caderno
+    function deleteNotebook(button, notebookName) {
+        fetch('/notes/delete', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: notebookName })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                button.parentElement.remove();
+            } else {
+                alert("Erro ao deletar o caderno.");
+            }
+        });
+    }
+</script>
+<script src="{{ url_for('notes.static', filename='js/touch-list-name.js') }}"></script>
+{% endblock %}

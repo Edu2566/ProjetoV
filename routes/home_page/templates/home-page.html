@@ -11,6 +11,7 @@
 {% block mainclass %}open-state{% endblock %}
 {% block mainid %}home_main{% endblock %}
 {% block main %}
+   <h2 id="demo">Isso é uma Demonstração, por tanto não conta com datas reais.</h2>
    <p>Período de Pedido de Redução de Taxa de Inscrição Próximo:</p>
    <div class="container">
       {% for college in college_api_data %}
@@ -22,6 +23,7 @@
             <i class="fa-regular fa-bell"></i>
             <div class="information-info">
                <h3 class="information-name">{{ college['college_name'] }}</h3>
+               <p class="information-date">12/08/2024</p>
             </div>
          </div>
       </a>
@@ -38,6 +40,7 @@
             <i class="fa-regular fa-bell"></i>
             <div class="information-info">
                <h3 class="information-name">{{ college['college_name'] }}</h3>
+               <p class="information-date">27/09/2024</p>
             </div>
          </div>
       </a>
@@ -54,6 +57,7 @@
             <i class="fa-regular fa-bell"></i>
             <div class="information-info">
                <h3 class="information-name">{{ college['college_name'] }}</h3>
+               <p class="information-date">04/12/2024</p>
             </div>
          </div>
       </a>

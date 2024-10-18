@@ -1,0 +1,220 @@
+.notebook-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "add-button"
+        "notebook-list"
+        "footer";
+    height: 100vh;
+    gap: 10px;
+    padding: 15px;
+    background-color: #F5F5F5;
+}
+
+
+.add-notebook-button {
+    grid-area: add-button;
+    background-color: #0A94AD;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 8px;
+    width: 300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+.add-notebook-button:hover {
+    background-color: #0CC0DF;
+}
+
+.add-notebook-button .fas {
+    margin-right: 10px;
+} 
+
+.notebook-list {
+    grid-area: notebook-list;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #F5F5F5;
+    border: 2px solid #0CC0DF;
+    border-radius: 8px;
+    padding: 10px;
+    height: calc(90vh - 50px);
+    align-items: center;
+    flex-grow: 1;
+}
+
+.notebook-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.notebook-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.notebook-list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.notebook-list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.notebook-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0A94AD;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+}
+
+.notebook-item:hover {
+    background-color: #0CC0DF;
+}
+
+.notebook-name {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 10px;
+    height: 100%;
+    margin: 5px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.notebook-name::-webkit-scrollbar {
+    height: 4px;
+}
+
+.notebook-name::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.notebook-name::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.notebook-name::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.edit-button, .delete-button {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+.edit-button {
+    background-color: #FFD93D;
+}
+
+.delete-button {
+    background-color: #FF6B6B;
+}
+
+.edit-button:hover {
+    background-color: #FFC107;
+}
+
+.delete-button:hover {
+    background-color: #FF4040;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    cursor: pointer;
+    font-size: 20px;
+    color: red;
+}
+
+.modal-content button {
+    background-color: #0A94AD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #0CC0DF;
+}
+
+.modal-input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .notebook-name {
+        padding: 10px;
+    }
+
+    main {
+        align-items: center;
+    }
+}
