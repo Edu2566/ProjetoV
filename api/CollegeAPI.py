@@ -94,23 +94,38 @@ class CollegeAPI:
             return {'error': 'Exam not found'}
 
         return exam
+    
+    def get_course_by_id(self, course_id):
+        """Busca um curso específico pelo course_id e inclui a imagem correspondente."""
+        # Busca todos os cursos
+        course_data = self.fetch_data('courses')
+        course_image_data = self.fetch_data('course-images')
+
+        if course_data is None or course_image_data is None:
+            return {'error': 'Failed to fetch course or image data from API'}
+
+        # Busca o curso específico pelo course_id
+        course = next((item for item in course_data if item['course_id'] == course_id), None)
+
+        if not course:
+            return {'error': 'Course not found'}
+
+        # Busca a imagem correspondente ao tipo de ciência do curso
+        course_image = next((image for image in course_image_data if image['science_type'] == course['science_type']), None)
+
+        if course_image:
+            course['course_image_url'] = course_image['course_image_url']
+        else:
+            course['course_image_url'] = None  # Caso não tenha uma imagem correspondente
+
+        return course
+
 
 if __name__ == "__main__":
     api = CollegeAPI()
-    college_id = 101  # Example college ID
+    course_id = 202  # Exemplo de ID de curso
 
-    # Get information for a specific college
-    print("Getting information for college ID:", college_id)
-    college_info = api.get_college_by_id(college_id)
-    print(college_info)
-
-    # Get all colleges
-    print("\nGetting all colleges")
-    all_colleges = api.get_all_colleges()
-    print(all_colleges)
-
-    # Example exam ID
-    exam_id = 401
-    print(f"\nGetting exam details for exam ID: {exam_id}")
-    exam_info = api.get_exam_by_id(exam_id)
-    print(exam_info)
+    # Obtendo informações de um curso específico, incluindo a imagem
+    print(f"Getting information for course ID: {course_id}")
+    course_info = api.get_course_by_id(course_id)
+    print(course_info)

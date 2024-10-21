@@ -1,4 +1,3 @@
-/* Contêiner principal para navegação do calendário */
 .calendar-navigation {
     display: flex;
     justify-content: center;
@@ -7,7 +6,6 @@
     margin-top: 10px;
 }
 
-/* Estilo dos botões de navegação */
 .nav-button {
     margin: 0 10px;
     user-select: none;
@@ -29,7 +27,6 @@
     background-color: #0CC0DF;
 }
 
-/* Estilo para o ano e mês */
 .year, .month {
     color: #0CC0DF;
     font-size: 24px;
@@ -38,7 +35,6 @@
     width: 120px;
 }
 
-/* Estilos para o calendário */
 .calendar-container {
     margin: 1% 1% 1% 1%;
 }
@@ -101,7 +97,6 @@
     color: #f4f4f4;
 }
 
-/* Estilo do Modal com Grid */
 .modal {
     display: none;
     grid-template-columns: auto 30px;
@@ -125,7 +120,6 @@
     max-height: 100%;
 }
 
-/* Modal Header (h2 e span) */
 .modal-header {
     display: grid;
     grid-column: span 2;
@@ -137,7 +131,6 @@
     color: #0A94AD;
 }
 
-/* Input e Botão de Salvar */
 .modal-content input[type="text"] {
     grid-column: span 2;
     padding: 10px;
@@ -161,7 +154,6 @@
     background-color: #0A94AD;
 }
 
-/* Lista de Eventos do Modal*/
 #eventList {
     grid-column: span 2;
     padding: 0;
@@ -178,17 +170,15 @@
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
-    border-radius: 4px; /* Cantos arredondados */
+    border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
 }
 
 #eventList li:hover, #allEventsList li:hover {
-    background-color: #0CC0DF; /* Cor de fundo ao passar o mouse */
-    color: white; /* Cor do texto ao passar o mouse */
+    background-color: #0CC0DF;
 }
 
-/* Botão de Fechar */
 .close {
     font-size: 28px;
     color: #0A94AD;
@@ -199,7 +189,6 @@
     color: #0CC0DF;
 }
 
-/* Lista de Eventos da Página */
 .event-list {
     margin: 10px;
     padding: 10px;
@@ -207,7 +196,6 @@
     border-radius: 5px;
     background-color: #f9f9f9;
 }
-
 
 .event-list h3 {
     color: #0A94AD;
@@ -219,7 +207,6 @@
     list-style: none;
 }
 
-/* Botão Visualizar ao lado de cada evento */
 #allEventsList li button {
     margin-left: 10px;
     background-color: #0CC0DF;
@@ -239,7 +226,6 @@
     background-color: #0A94AD;
 }
 
-/* Segundo Modal para Editar/Excluir Eventos */
 #viewEventModal {
     display: none;
     grid-template-columns: auto 30px;
@@ -263,14 +249,12 @@
     max-height: 100%;
 }
 
-/* Modal Header para Visualizar/Editar/Excluir */
 #viewEventModal .modal-header {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
 }
 
-/* Inputs e Botões no Modal de Visualizar */
 #viewEventModal input[type="text"] {
     grid-column: span 2;
     padding: 10px;
@@ -292,7 +276,6 @@
     background-color: #0CC0DF;
 }
 
-/* Botão de Excluir com estilo vermelho */
 #viewEventModal .delete-btn {
     background-color: red;
     color: white;
@@ -302,7 +285,6 @@
     background-color: darkred;
 }
 
-/* Responsividade */
 @media (max-width: 600px) {
     .modal, #viewEventModal {
         width: 90%;

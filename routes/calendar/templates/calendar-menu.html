@@ -90,7 +90,7 @@
 <script>
 function openModal(date) {
     document.getElementById('eventDate').value = date;
-    const calendarEvents = '{{ events|tojson }}';
+    const calendarEvents = JSON.parse('{{ events|tojson|safe }}'); // Converte a string JSON em um objeto
     const eventList = document.getElementById('eventList');
     eventList.innerHTML = ''; // Limpa a lista anterior
 
@@ -124,7 +124,6 @@ function openModal(date) {
     document.getElementById('eventModal').style.display = 'grid';
 }
 
-
 function closeModal() {
     document.getElementById('eventModal').style.display = 'none';
 }
@@ -147,12 +146,11 @@ function toggleCompletionAll(event) {
     li.classList.toggle('completed');
 }
 
-
 // Abre o segundo modal para editar ou excluir o evento
 function openUpdateModal(date, event) {
     document.getElementById('updateEventDate').value = date;
     document.getElementById('oldEventName').value = event;
-    document.getElementById('newEventName').value = event;
+    document.getElementById('newEventName').value = event; // Preenche com o nome atual do evento
     document.getElementById('updateEventModal').style.display = 'grid';
 }
 
@@ -183,6 +181,8 @@ function deleteEvent() {
         }
     });
 }
+
+
 </script>
 {% endblock %}
 

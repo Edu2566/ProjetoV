@@ -55,6 +55,10 @@ main {
     cursor: pointer;
 }
 
+.course-card a {
+    text-decoration: none;
+}
+
 .course-image-container {
     height: 100px;
     display: flex;

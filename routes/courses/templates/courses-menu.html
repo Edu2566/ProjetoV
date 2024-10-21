@@ -19,15 +19,17 @@
    <div class="courses-container" id="courses-container">
     {% for course in college_api_data %}
       <div class="course-card">
-        <div class="course-image-container">
-          <img src="{{ images_map[course['science_type']] }}" alt="{{ course['course_name'] }}">
-        </div>
-        <div class="course-details">
-          <i class="fa-regular fa-bell"></i>
-          <div class="course-info">
-            <h3 class="course-name">{{ course['course_name'] }}</h3>
+        <a href="{{ url_for('courses.view_courses', course_id=course['course_id']) }}">
+          <div class="course-image-container">
+            <img src="{{ images_map[course['science_type']] }}" alt="{{ course['course_name'] }}">
           </div>
-        </div>
+          <div class="course-details">
+            <i class="fa-regular fa-bell"></i>
+            <div class="course-info">
+              <h3 class="course-name">{{ course['course_name'] }}</h3>
+            </div>
+          </div>
+        </a>
       </div>
     {% endfor %}
   </div>  

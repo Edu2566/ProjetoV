@@ -1,0 +1,52 @@
+{% extends "sideheader.html" %}
+
+{% block stylepage %}
+    <link rel="stylesheet" href="{{ url_for('courses.static', filename='css/view-courses.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/list-action/styleList.css') }}">
+{% endblock %}
+
+{% block titlepage %}Vestibulobby - {{ course['course_name'] }}{% endblock %}
+
+{% block classactiveinicio %}active{% endblock %}
+
+{% block mainclass %}open-state{% endblock %}
+{% block mainid %}course-information_main{% endblock %}
+
+{% block main %}
+    <div id="course-content">
+        <!-- Course Header -->
+        <div id="course-header">
+            <div id="course-image">
+                <img src="{{ course['course_image_url'] }}" alt="Imagem do Curso">
+            </div>
+            <div id="course-name">
+                <p>{{ course['course_name'] }}</p>
+                <i class="fa-regular fa-bell"></i>
+            </div>
+            <a id="return-button" href="{{url_for('courses.courses_menu')}}">Voltar ao Menu de Cursos</a>
+        </div>
+        
+        <!-- Course Description Block -->
+        <div id="course-description">
+            <h2>Descrição do Curso</h2>
+            <p>{{ course['course_description'] }}</p>
+        </div>
+
+        <!-- Related Colleges Block -->
+        <div id="related-colleges">
+            <h3>Faculdades Relacionadas</h3>
+            <ul>
+                {% for college in course['related_colleges'] %}
+                    <li>{{ college['college_name'] }}</li>
+                {% else %}
+                    <li>Nenhuma faculdade relacionada</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/universal_actions/notification-button.js') }}"></script>
+<script src="{{ url_for('static', filename='js/universal_actions/list-action.js') }}"></script> 
+{% endblock %}

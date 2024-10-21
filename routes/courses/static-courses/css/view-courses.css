@@ -1,0 +1,159 @@
+#course-content {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "header description"
+        "header colleges";
+    gap: 5px;
+    padding: 15px;
+}
+
+#course-header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    min-height: 80px;
+}
+
+#course-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    border-radius: 5px;
+    width: 100%;
+    height: 70%;
+    padding: 2px;
+}
+
+#course-image img {
+    border-radius: 10px;
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;
+}
+
+#course-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 25px;
+    color: #0A94AD;
+    width: 100%;
+    margin: 5px;
+    height: 40%;
+}
+
+#course-name i{
+    color: red;
+    font-size: 35px;
+}
+
+#return-button {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background-color: #0A94AD;
+    color: #F5F5F5;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#return-button:hover {
+    background-color: #0CC0DF;
+}
+
+#course-description {
+    grid-area: description;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    background-color: #F0F0F0;
+    border: 2px solid #0CC0DF;
+    border-radius: 5px;
+    box-sizing: border-box;
+    min-height: 45vh;
+    max-height: 45vh;
+}
+
+#course-description h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #0A94AD;
+}
+
+#course-description p {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+#related-colleges {
+    grid-area: colleges;
+    background-color: #F5F5F5;
+    border: 2px solid #0CC0DF;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 0;
+    min-height: 40vh;
+    max-height: 40vh;
+}
+
+#related-colleges h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #0A94AD;
+}
+
+#related-colleges ul {
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 32vh;
+}
+
+#related-colleges li {
+    background-color: #0A94AD;
+    color: white;
+    margin: 3px 0;
+    padding: 6px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#related-colleges li:hover {
+    background-color: #0CC0DF;
+}
+
+#footer{
+    display: none;
+}
+
+@media (max-width: 900px) {
+    #course-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "header"
+            "description"
+            "colleges";
+    }
+
+    #course-header, #course-description, #related-colleges {
+        width: 100%;
+        height: auto;
+    }
+
+    #return-button {
+        display: none;
+    }
+
+    #course-image {
+        height: 100%;
+    }
+}
