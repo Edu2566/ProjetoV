@@ -27,7 +27,9 @@
             <p class="list-title">Cursos dessa Instituição</p>
             <ul>
                 {% for course in college['courses'] %}
-                    <li>{{ course['course_name'] }}</li>
+                    <li><a href="{{ url_for('courses.view_courses', course_id=course['course_id']) }}" class="course-list-item">
+                        {{ course['course_name'] }}
+                    </a></li>
                 {% else %}
                     <li>Nenhum curso disponível</li>
                 {% endfor %}
@@ -58,11 +60,11 @@
                     {% endif %}
                 </ul>
             </div>
-            <a id="return-button" href="{{url_for('home-page.home_page')}}">Voltar à Página Anterior</a>
+            <a id="return-button" href="{{url_for('home-page.home_page')}}">Voltar ao Menu Principal</a>
         </div>
         <div id="info-list">
             <div class="info-block">
-                <p class="info-block-title">Período de Inscrição</p>
+                <p class="info-block-title">Período para Realizar a Inscrição</p>
                 <p class="info-block-content">12/08/2024 - 30/08/2024</p>
                 <p class="info-block-warning">*Isso é uma Demonstração, por tanto não conta com datas reais.</p>
             </div>
@@ -73,7 +75,7 @@
             </div>
             <div class="info-block">
                 <p class="info-block-title">Divulgação dos Resultados</p>
-                <p class="info-block-content">14/12/2024</p>
+                <p class="info-block-content">04/12/2024</p>
                 <p class="info-block-warning">*Isso é uma Demonstração, por tanto não conta com datas reais.</p>
             </div>
             <div class="info-block">

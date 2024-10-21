@@ -15,14 +15,27 @@ def courses_menu():
 
     images_map = {image['science_type']: image['course_image_url'] for image in college_api_images}
 
-    return render_template('courses-menu.html', college_api_data=college_api_data, images_map=images_map)
+    # Filtrando cursos duplicados
+    unique_courses = {}
+    for course in college_api_data:
+        if course['course_id'] not in unique_courses:
+            unique_courses[course['course_id']] = course
+
+    # Usar a lista de cursos únicos
+    return render_template('courses-menu.html', college_api_data=list(unique_courses.values()), images_map=images_map)
 
 @courses_blueprint.route('/courses/<int:course_id>')
 def view_courses(course_id):
-    # Aqui você pode buscar detalhes específicos de um curso pelo ID
+    # Busca detalhes específicos de um curso pelo ID
     course_details = college_api_instance.get_course_by_id(course_id)
-    
+
     if 'error' in course_details:
         return "Erro ao buscar detalhes do curso", 500
 
-    return render_template('view-courses.html', course=course_details)
+    # Obtendo faculdades relacionadas ao curso
+    related_colleges = college_api_instance.college_for_courses(course_id)
+
+    if 'error' in related_colleges:
+        return "Erro ao buscar faculdades relacionadas", 500
+
+    return render_template('view-courses.html', course=course_details, related_colleges=related_colleges)

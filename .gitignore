@@ -2,3 +2,4 @@ vestibulobby
 .env
 __pycache__/
 planos.txt
+notebooks_data.json

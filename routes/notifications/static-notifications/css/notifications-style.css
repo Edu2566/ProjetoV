@@ -1,0 +1,183 @@
+#notifications-content {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "list detail"
+        "list toggle";
+    gap: 10px;
+    padding: 15px;
+    min-height: 80vh;
+}
+
+#notifications-list {
+    grid-area: list;
+    background-color: #F0F0F0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #0CC0DF;
+}
+
+#notifications-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 75vh;
+}
+
+.notification-item {
+    background-color: #0A94AD;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.notification-item:hover {
+    background-color: #0CC0DF;
+}
+
+#notification-detail {
+    grid-area: detail;
+    background-color: #F5F5F5;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid #0CC0DF;
+    min-height: 40vh;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+#notification-detail h2 {
+    color: #0A94AD;
+    font-size: 24px;
+}
+
+#notification-detail p {
+    font-size: 18px;
+}
+
+#subscription-toggle {
+    grid-area: toggle;
+    background-color: #F5F5F5;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid #0CC0DF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 40vh;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+.toggle-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.toggle-button {
+    background-color: #0A94AD;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.toggle-button:hover {
+    background-color: #0CC0DF;
+}
+
+.toggle-section.active {
+    display: flex;
+}
+
+.toggle-section h3 {
+    color: #0A94AD;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.toggle-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toggle-section li {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    border: 1px solid #0CC0DF;
+}
+
+.notification-item.selected {
+    background-color: #0CC0DF;
+    border: 2px solid #0A94AD;
+}
+
+.toggle-button.active {
+    background-color: #0CC0DF;
+    border: 2px solid #0A94AD;
+    font-weight: bold;
+}
+
+.toggle-button {
+    background-color: #0A94AD;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: normal;
+}
+
+.subscribe-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.subscribe-item i {
+    color: red;
+    font-size: 24px;
+}
+
+.subscribe-courses {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.subscribe-courses i {
+    color: red;
+    font-size: 24px;
+}
+
+#footer {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    #notifications-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+            "list"
+            "detail"
+            "toggle";
+    }
+
+    #notifications-list, #notification-detail, #subscription-toggle {
+        width: 100%;
+        height: auto;
+    }
+}

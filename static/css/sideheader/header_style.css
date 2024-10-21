@@ -25,7 +25,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 2vh;
+    margin-left: 1.5vh;
     min-width: 27vh;
     max-width: 30vh;
 }
@@ -33,6 +33,11 @@ header {
 #menu img {
     max-width: 27vh;
     object-fit: cover;
+    margin-left: 2vh;
+}
+
+#menu i {
+    padding: 2px;
 }
 
 #menu button {

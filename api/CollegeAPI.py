@@ -119,13 +119,28 @@ class CollegeAPI:
             course['course_image_url'] = None  # Caso não tenha uma imagem correspondente
 
         return course
+    
+    
+    def college_for_courses(self, course_id):
+        # Busca todos os cursos
+        courses_data = self.fetch_data('courses')
+        
+        if courses_data is None:
+            return {'error': 'Failed to fetch courses data from API'}
+        
+        # Encontra todos os college_id para o course_id específico
+        related_college_ids = {course['college_id'] for course in courses_data if course['course_id'] == course_id}
 
+        if not related_college_ids:
+            return {'error': 'No related colleges found for this course'}
 
-if __name__ == "__main__":
-    api = CollegeAPI()
-    course_id = 202  # Exemplo de ID de curso
+        # Busca todas as faculdades
+        colleges_data = self.fetch_data('')  # Aqui estamos assumindo que a função fetch_data() retornará todas as faculdades
 
-    # Obtendo informações de um curso específico, incluindo a imagem
-    print(f"Getting information for course ID: {course_id}")
-    course_info = api.get_course_by_id(course_id)
-    print(course_info)
+        if colleges_data is None:
+            return {'error': 'Failed to fetch colleges data from API'}
+
+        # Filtra as faculdades que possuem os college_id encontrados
+        related_colleges = [college for college in colleges_data if college['college_id'] in related_college_ids]
+
+        return related_colleges

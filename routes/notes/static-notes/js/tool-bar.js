@@ -237,7 +237,7 @@ const editorConfig = {
 	menuBar: {
 		isVisible: true
 	},
-	placeholder: 'Com este caderno você pode fazer anotações sobre a prova e se desafiar a fazer as questões comparando com o Gabarito!',
+	placeholder: 'Com este caderno você pode fazer anotações sobre as provas, se desafiar a fazer as questões comparando com o Gabarito ou escrever o que tiver em mente!',
 	table: {
 		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
 	},

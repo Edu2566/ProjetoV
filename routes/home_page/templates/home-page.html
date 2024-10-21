@@ -72,7 +72,7 @@
          <div class="information-column" data-type="colleges">
             {% if college_api_data %}
                {% for college in college_api_data %}
-                  <p class="college-information"><a href="#" class="college-name">{{ college['college_name'] }}</a></p>
+                  <p class="college-information"><a href="{{url_for('colleges.college_information', college_id=college['college_id'])}}" class="college-name">{{ college['college_name'] }}</a></p>
                {% endfor %}
             {% else %}
                <li>Nenhuma faculdade disponível</li>

@@ -71,7 +71,6 @@
     grid-area: description;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     padding: 5px;
     background-color: #F0F0F0;
     border: 2px solid #0CC0DF;
@@ -81,14 +80,8 @@
     max-height: 45vh;
 }
 
-#course-description h2 {
-    font-size: 18px;
-    margin-bottom: 4px;
-    color: #0A94AD;
-}
-
 #course-description p {
-    font-size: 12px;
+    font-size: 25px;
     line-height: 1.4;
 }
 
@@ -118,16 +111,19 @@
 
 #related-colleges li {
     background-color: #0A94AD;
-    color: white;
     margin: 3px 0;
-    padding: 6px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
 
-#related-colleges li:hover {
-    background-color: #0CC0DF;
+.related-college {
+    display: flex;
+    padding: 5px;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    min-width: 100%;
 }
 
 #footer{

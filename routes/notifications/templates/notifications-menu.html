@@ -1,0 +1,134 @@
+{% extends "sideheader.html" %}
+
+{% block stylepage %}
+    <link rel="stylesheet" href="{{ url_for('notifications.static', filename='/css/notifications-style.css') }}">
+{% endblock %}
+
+{% block titlepage %}Vestibulobby - Notificações{% endblock %}
+
+{% block classactivenotifications %}active{% endblock %}
+
+{% block mainclass %}open-state{% endblock %}
+{% block mainid %}notifications_menu{% endblock %}
+
+{% block main %}
+    <div id="notifications-content">
+        <div id="notifications-list">
+            <ul>
+                <li class="notification-item" data-id="1">Notificação 1</li>
+                <li class="notification-item" data-id="2">Notificação 2</li>
+                <li class="notification-item" data-id="3">Notificação 3</li>
+                <li class="notification-item" data-id="4">Notificação 4</li>
+            </ul>
+        </div>
+
+        <div id="notification-detail">
+            <h2>Detalhes da Notificação</h2>
+            <p>Selecione uma notificação para ver os detalhes.</p>
+        </div>
+
+        <div id="subscription-toggle">
+            <div class="toggle-header">
+                <button class="toggle-button" data-target="courses-list">Cursos</button>
+                <button class="toggle-button" data-target="institutions-list">Instituições</button>
+            </div>
+
+            <div id="courses-list" class="toggle-section">
+                <h3>Cursos Inscritos</h3>
+                <ul>
+                    <li class="subscribe-item">Engenharia Aeroespacial<i class="fa-solid fa-bell"></i></li>
+                    <li class="subscribe-item">Ciências da Computação<i class="fa-solid fa-bell"></i></li>
+                    <li class="subscribe-item">Medicina<i class="fa-solid fa-bell"></i></li>
+                </ul>
+            </div>
+
+            <div id="institutions-list" class="toggle-section" style="display: none;">
+                <h3>Instituições Inscritas</h3>
+                <ul>
+                    <li class="subscribe-item">Fatec <i class="fa-solid fa-bell"></i></li>
+                    <li class="subscribe-item">Unesp <i class="fa-solid fa-bell"></i></li>
+                    <li class="subscribe-item">USP <i class="fa-solid fa-bell"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const notificationContents = {
+        1: "Este é o conteúdo da Notificação 1. Detalhes completos da notificação.",
+        2: "Este é o conteúdo da Notificação 2. Detalhes completos da notificação.",
+        3: "Este é o conteúdo da Notificação 3. Detalhes completos da notificação.",
+        4: "Este é o conteúdo da Notificação 4. Detalhes completos da notificação."
+    };
+
+    const notificationItems = document.querySelectorAll('.notification-item');
+    const notificationDetail = document.querySelector('#notification-detail');
+
+    notificationItems.forEach((item, index) => {
+        item.addEventListener('click', function () {
+            notificationItems.forEach(i => i.classList.remove('selected'));
+            item.classList.add('selected');
+            
+            const content = notificationContents[index + 1];
+            notificationDetail.innerHTML = `
+                <h2>Detalhes da Notificação ${index + 1}</h2>
+                <p>${content}</p>
+            `;
+        });
+    });
+
+    function setupToggle() {
+        const toggleButtons = document.querySelectorAll('.toggle-button');
+        const toggleSections = document.querySelectorAll('.toggle-section');
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const targetId = button.getAttribute('data-target');
+
+                toggleButtons.forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+
+                toggleSections.forEach(section => {
+                    section.style.display = 'none';
+                    section.classList.remove('active');
+                });
+
+                const activeSection = document.getElementById(targetId);
+                activeSection.style.display = 'block';
+                activeSection.classList.add('active');
+            });
+        });
+
+        // Verifica o estado de exibição da seção de cursos ao carregar
+        const coursesSection = document.getElementById('courses-list');
+        if (getComputedStyle(coursesSection).display === 'block') {
+            const coursesButton = document.querySelector('button[data-target="courses-list"]');
+            coursesButton.classList.add('active');
+        }
+    }
+
+    setupToggle();
+});
+
+document.querySelectorAll('.fa-bell').forEach(function(icon) {
+    if (icon.id === 'side-bell') {
+        return;
+    }
+
+    icon.addEventListener('click', function(event) {
+        // Alterna as classes entre regular e solid
+        if (this.classList.contains('fa-regular')) {
+            this.classList.remove('fa-regular');
+            this.classList.add('fa-solid');
+        } else {
+            this.classList.remove('fa-solid');
+            this.classList.add('fa-regular');
+        }
+    });
+});
+
+</script>
+{% endblock %}

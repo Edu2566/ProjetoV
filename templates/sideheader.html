@@ -29,7 +29,7 @@
             </span>
         </div>
         <div id="menu_profile">
-            <img src="{{ url_for('static', filename='images/sideheader/Smile.png') }}" />
+            <img src="{{ url_for('static', filename='images/sideheader/Profile.png') }}" />
         </div>
     </header>
 
@@ -59,7 +59,7 @@
                     </span>
                 </a>
             </li>
-            <li class="side-item {% block classactiveanotacoes %}{% endblock %}">
+            <li class="side-item {% block classactivenotes %}{% endblock %}">
                 <a href="{{url_for('notes.notes_menu')}}">
                     <i class="fa-solid fa-pen-to-square"></i>
                     <span class="item-description">
@@ -67,9 +67,9 @@
                     </span>
                 </a>
             </li>
-            <li class="side-item {% block classactivenotificacoes %}{% endblock %}">
-                <a href=#>
-                    <i class="fa-solid fa-bell"></i>
+            <li class="side-item {% block classactivenotifications %}{% endblock %}">
+                <a href="{{url_for('notifications.notifications_menu')}}">
+                    <i class="fa-solid fa-bell" id="side-bell"></i>
                     <span class="item-description">
                         Notificações
                     </span>
@@ -77,7 +77,7 @@
             </li>
         </ul>
 
-        <ul id="side-itens-footer">
+        <ul id="side-itens-footer" style="display: none;">
             <li class="side-item">
                 <a href="#">
                     <i class="fa-solid fa-question"></i>

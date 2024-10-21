@@ -14,7 +14,6 @@
 
 {% block main %}
     <div id="course-content">
-        <!-- Course Header -->
         <div id="course-header">
             <div id="course-image">
                 <img src="{{ course['course_image_url'] }}" alt="Imagem do Curso">
@@ -25,19 +24,21 @@
             </div>
             <a id="return-button" href="{{url_for('courses.courses_menu')}}">Voltar ao Menu de Cursos</a>
         </div>
-        
-        <!-- Course Description Block -->
         <div id="course-description">
-            <h2>Descrição do Curso</h2>
-            <p>{{ course['course_description'] }}</p>
+            <p> 
+                Neste espaço, você encontrará a descrição do curso, que foi feita para ajudar você 
+                a entender do que ele se trata. Aqui, vamos apresentar os principais tópicos que serão explorados e como eles 
+                são importantes no mundo atual e no mercado de trabalho. Essa descrição é uma oportunidade para que você conheça melhor 
+                o conteúdo e decida se este curso é o que procura.
+            </p>
         </div>
-
-        <!-- Related Colleges Block -->
         <div id="related-colleges">
             <h3>Faculdades Relacionadas</h3>
             <ul>
-                {% for college in course['related_colleges'] %}
-                    <li>{{ college['college_name'] }}</li>
+                {% for college in related_colleges %}
+                    <li><a href="{{ url_for('colleges.college_information', college_id=college['college_id']) }}" class="related-college">
+                        {{ college['college_name'] }}
+                    </a></li>
                 {% else %}
                     <li>Nenhuma faculdade relacionada</li>
                 {% endfor %}

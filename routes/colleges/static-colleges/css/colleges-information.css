@@ -71,6 +71,11 @@
     background-color: #0CC0DF;
 }
 
+.course-list-item {
+    text-decoration: none;
+    color: black;
+}
+
 #location-list {
     grid-area: location;
 }
@@ -206,13 +211,14 @@
     border-radius: 5px;
     background-color: #F5F5F5;
     height: 80%;
+    max-height: 300px;
+    overflow: hidden;
 }
 
 #college-image img {
-    border-radius: 10px;
+    width: inherit;
+    height: inherit;
     object-fit: cover;
-    max-width: 100%;
-    width: auto;
 }
 
 #college-name {
