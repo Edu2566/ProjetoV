@@ -24,16 +24,38 @@
             </div>
         </div>
         <div id="course-list">
-            <p class="list-title">Cursos dessa Instituição</p>
-            <ul>
-                {% for course in college['courses'] %}
-                    <li><a href="{{ url_for('courses.view_courses', course_id=course['course_id']) }}" class="course-list-item">
-                        {{ course['course_name'] }}
-                    </a></li>
+            <p class="list-title">
+                {% if college['college']['college_id'] == 114 %}
+                    Sobre o ENEM
                 {% else %}
-                    <li>Nenhum curso disponível</li>
-                {% endfor %}
-            </ul>
+                    Cursos dessa Instituição
+                {% endif %}
+            </p>
+            <ul>
+                {% if college['college']['college_id'] == 114 %}
+                    <li>
+                        O Exame Nacional do Ensino Médio (ENEM), criado em 1998, é uma prova que avalia o desempenho 
+                        dos estudantes ao final do ensino médio e é muito importante para quem quer entrar em universidades 
+                        no Brasil. Ele é usado para a seleção em instituições públicas e privadas através do Sistema de 
+                        Seleção Unificada (SISU) e do Programa Universidade para Todos (PROUNI). Além de certificar a 
+                        conclusão do ensino médio, o ENEM também mede a qualidade das escolas e ajuda a garantir que 
+                        mais pessoas tenham acesso à educação, oferecendo oportunidades para estudantes de diferentes 
+                        origens, tornando-se uma ferramenta fundamental para a inclusão social no país.
+                    </li>
+                {% else %}
+                    {% if college['courses'] %}
+                        {% for course in college['courses'] %}
+                            <li>
+                                <a href="{{ url_for('courses.view_courses', course_id=course['course_id']) }}" class="course-list-item">
+                                    {{ course['course_name'] }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>Nenhum curso disponível</li>
+                    {% endif %}
+                {% endif %}
+            </ul>            
         </div>
         <div id="exams-list">
             <p class="list-title">Provas e Editais</p>
