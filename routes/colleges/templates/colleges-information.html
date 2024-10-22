@@ -45,7 +45,7 @@
                             {% if filtered_exams %}
                                 <li>
                                     <button class="expand-button" onclick="toggleExams('{{ year }}')">{{ year }}</button>
-                                    <ul class="nested-list" id="exams-{{ year }}" style="display: none;">
+                                    <ul class="nested-list" id="exams-{{ year }}">
                                         {% for exam in filtered_exams %}
                                             <li>
                                                 <a href="{{ url_for('colleges.view_exam', exam_id=exam['exam_id']) }}">{{ exam['exam_name'] }}</a>

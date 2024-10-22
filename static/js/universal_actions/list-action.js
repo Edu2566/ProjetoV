@@ -5,11 +5,14 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             var nestedList = this.nextElementSibling;
 
-            // Alterna a exibição da lista suspensa
-            if (nestedList.style.display === "block") {
-                nestedList.style.display = "none";
+            if (nestedList.classList.contains("active")) {
+                nestedList.style.maxHeight = null;
+                nestedList.style.opacity = 0;
+                nestedList.classList.remove("active");
             } else {
-                nestedList.style.display = "block";
+                nestedList.style.maxHeight = nestedList.scrollHeight + "px";
+                nestedList.style.opacity = 1;
+                nestedList.classList.add("active");
             }
         });
     });
