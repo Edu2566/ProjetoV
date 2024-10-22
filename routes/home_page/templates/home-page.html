@@ -14,8 +14,8 @@
    <h2 id="demo">Isso é uma Demonstração, por tanto não conta com datas reais.</h2>
    <p>Período de Pedido de Redução de Taxa de Inscrição Próximo:</p>
    <div class="container">
-      {% for college in college_api_data %}
-      <a class="information-card"  href="{{url_for('colleges.college_information', college_id=college['college_id'])}}">
+      {% for college in college_api_data[:5] %}
+      <a class="information-card" href="{{url_for('colleges.college_information', college_id=college['college_id'])}}">
          <div class="information-image-container">
             <img src="{{ college['image_url'] }}" alt="Imagem da Instituição">
          </div>
@@ -31,7 +31,7 @@
    </div>
    <p>Período de Realização de Inscrições Próximo:</p>
    <div class="container">
-      {% for college in college_api_data %}
+      {% for college in college_api_data[6:9] %}
       <a class="information-card" href="{{url_for('colleges.college_information', college_id=college['college_id'])}}">
          <div class="information-image-container">
             <img src="{{ college['image_url'] }}" alt="Imagem da Instituição">
@@ -48,7 +48,7 @@
    </div>
    <p>Resultados Próximos a Serem Divulgados:</p>
    <div class="container">
-      {% for college in college_api_data %}
+      {% for college in college_api_data[10:13] %}
       <a class="information-card" href="{{url_for('colleges.college_information', college_id=college['college_id'])}}">
          <div class="information-image-container">
             <img src="{{ college['image_url'] }}" alt="Imagem da Instituição">
@@ -92,9 +92,9 @@
          for (let i = 0; i < courses.length; i++) {
             let courseName = courses[i].getElementsByClassName('college-name')[0].innerText.toLowerCase();
             if (courseName.includes(input)) {
-            courses[i].style.display = "";
+               courses[i].style.display = "";
             } else {
-            courses[i].style.display = "none";
+               courses[i].style.display = "none";
             }
          }
       }

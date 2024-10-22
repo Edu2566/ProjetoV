@@ -2,7 +2,7 @@ import requests
 
 class CollegeAPI:
     def __init__(self):
-        self.api_base_url = 'https://e8b18733-056f-44b7-bc60-3bab61bee43d-00-1lsmyv7ggpj08.picard.replit.dev/'
+        self.api_base_url = 'https://0e35fd59-5479-4042-84cd-12460a11a0c0-00-3ijx7aawyl0ng.riker.replit.dev/'
 
     def fetch_data(self, endpoint):
         """Função auxiliar para buscar dados da API."""
