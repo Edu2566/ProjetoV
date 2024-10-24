@@ -19,7 +19,7 @@ main p:not(#footer p, .all-content p, .container p) {
    min-width: 90%;
    margin-bottom: 20px;
    padding: 20px;
-   min-height: 210px;
+   min-height: 220px;
    overflow-y: auto;
    justify-items: center;
    border: 1px solid #0CC0DF;
