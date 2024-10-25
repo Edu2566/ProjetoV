@@ -97,19 +97,54 @@
             <ul>
                 {% for location in college['locations'] %}
                     {% if college['college']['college_id'] == 114 %}
-                        <li><a href="{{ location['college_addres'] }}" class="public-link" target="_blank">{{ location['college_location_name'] }}</a></li>
+                        <li><a href="https://enem.inep.gov.br/participante/#!/" class="public-link" id='public-link' 
+                            onclick="showModal(`{{ location['college_addres'] }}`)" target="_blank"
+                        >
+                            {{ location['college_location_name'] }}
+                        </a></li>
                     {% else %}
-                        <li>{{ location['college_location_name'] }}</li>
+                        <li><a href="#" onclick="showModal(`{{ location['college_addres'] }}`)" class="public-link">
+                            {{ location['college_location_name'] }}
+                        </a></li>
                     {% endif %}
                 {% else %}
                     <li>Nenhuma Localização disponível</li>
                 {% endfor %}
             </ul>
         </div>
+        
+        <div id="locationModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="modal-text">Endereço completo aqui</p>
+            </div>
+        </div>        
     </div>
 {% endblock %}
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/universal_actions/notification-button.js') }}"></script>
-<script src="{{ url_for('static', filename='js/universal_actions/list-action.js') }}"></script> 
+<script src="{{ url_for('static', filename='js/universal_actions/list-action.js') }}"></script>
+<script>
+    function showModal(address) {
+        const element = event.target;
+        if (element.id === 'public-link') {
+            return;
+        }
+        
+        document.getElementById('modal-text').textContent = address;
+        document.getElementById('locationModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('locationModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('locationModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
 {% endblock %}

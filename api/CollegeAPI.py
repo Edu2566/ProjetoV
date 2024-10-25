@@ -1,8 +1,14 @@
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_KEY = os.getenv('API_KEY')
 
 class CollegeAPI:
     def __init__(self):
-        self.api_base_url = 'https://0e35fd59-5479-4042-84cd-12460a11a0c0-00-3ijx7aawyl0ng.riker.replit.dev/'
+        self.api_base_url = API_KEY
 
     def fetch_data(self, endpoint):
         """Função auxiliar para buscar dados da API."""
