@@ -24,7 +24,6 @@
     </ul>
 </div>
 
-<!-- Modal para adicionar caderno -->
 <div class="modal" id="notebookModal">
     <div class="modal-content">
         <span class="modal-close" id="closeModal">&times;</span>
@@ -34,7 +33,6 @@
     </div>
 </div>
 
-<!-- Modal para editar caderno -->
 <div class="modal" id="editNotebookModal">
     <div class="modal-content">
         <span class="modal-close" id="closeEditModal">&times;</span>
@@ -78,7 +76,6 @@
         }
     }
 
-    // Função para adicionar um novo caderno
     function addNotebook() {
         const notebookName = document.getElementById("notebookName").value;
         if (notebookName.trim() !== "") {
@@ -102,15 +99,17 @@
         }
     }
 
-    // Função para atualizar a lista de cadernos
     function updateNotebookList(notebooks) {
         const notebookList = document.getElementById("notebookList");
-        notebookList.innerHTML = "";  // Limpa a lista atual
+        notebookList.innerHTML = "";
         notebooks.forEach(notebook => {
             const listItem = document.createElement("li");
             listItem.className = "notebook-item";
             listItem.innerHTML = `
-                <span class="notebook-name" onclick="window.location.href='/notes/${encodeURIComponent(notebook.replace(/\s+/g, '-').toLowerCase())}'">${notebook}</span>
+                <span class="notebook-name" 
+                onclick="window.location.href='/notes/${encodeURIComponent(notebook.replace(/\s+/g, '-').toLowerCase())}'">
+                ${notebook}
+                </span>
                 <button class="edit-button" onclick="openEditModal(this, '${notebook}')">Editar</button>
                 <button class="delete-button" onclick="deleteNotebook(this, '${notebook}')">Deletar</button>
             `;
@@ -118,14 +117,12 @@
         });
     }
 
-    // Abrir modal para editar caderno
     function openEditModal(button, currentName) {
         notebookToEdit = button.parentElement;
         document.getElementById("editNotebookName").value = currentName;
         editModal.style.display = "flex";
     }
 
-    // Salvar as alterações do caderno editado
     function saveNotebookEdit() {
         const newName = document.getElementById("editNotebookName").value;
         const oldName = notebookToEdit.querySelector('.notebook-name').textContent;
@@ -140,19 +137,14 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    notebookToEdit.querySelector('.notebook-name').textContent = newName;
-                    notebookToEdit.querySelector('.notebook-name').onclick = function () {
-                        window.location.href = `/notes/${encodeURIComponent(newName.replace(/\s+/g, '-').toLowerCase())}`;
-                    };
-                    editModal.style.display = "none";
+                    location.reload();
                 } else {
                     alert("Erro ao editar o caderno.");
                 }
             });
         }
     }
-
-    // Função para deletar um caderno
+    
     function deleteNotebook(button, notebookName) {
         fetch('/notes/delete', {
             method: 'DELETE',
