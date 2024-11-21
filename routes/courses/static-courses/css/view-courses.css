@@ -53,6 +53,7 @@
 }
 
 #return-button {
+    display: none;
     height: auto;
     width: 100%;
     text-align: center;
